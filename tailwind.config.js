@@ -13,9 +13,14 @@ module.exports = {
                 gray: colors.blueGray,
                 orange: colors.orange,
                 fuchsia: colors.fuchsia,
+                sky: colors.sky,
+                lime: colors.lime,
+                cyan: colors.cyan,
+                violet: colors.violet,
             },
             fontFamily: {
-                sans: ['Poppins']
+                sans: ['Poppins'],
+                num: ['Nunito'],
             }
         },
     },

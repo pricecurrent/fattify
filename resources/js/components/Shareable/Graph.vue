@@ -1,49 +1,62 @@
 <template>
-    <canvas
-        width="400"
-        height="400"
-    ></canvas>
+    <div
+        class="w-full h-full"
+        ref="graph"
+    ></div>
 </template>
 
 <script>
-import Chart from 'chart.js/auto';
+import ProgressBar from 'progressbar.js'
 export default {
-    mounted() {
-        var ctx = this.$el.getContext('2d');
-        var myChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['Calories', 'Fat', 'Carbs', 'Prots'],
-                datasets: [{
-                    label: '# of Votes',
-                    data: [12, 19, 3, 5],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
+    props: ['progress', 'text'],
+    data() {
+        return {
+            bar: null,
+        }
+    },
+    methods: {
+        initBar() {
+            this.bar = new ProgressBar.Circle(this.$refs.graph, {
+                color: 'none',
+                trailColor: '#CFFAFE',
+                trailWidth: 3,
+                duration: 599,
+                easing: 'easeOut',
+                strokeWidth: 20,
+                text: {
+                    className: this.textClasses,
+                },
+            });
+        },
+        runBar(val) {
+            let to = { color: '#06B6D4', a: 1 }
+            if (val > 1) {
+                to = { color: '#EF4444', a: 1 }
+                val = 1
             }
-        });
+            this.bar.animate(val, {
+                from: { color: '#67E8F9', a: 0 },
+                to,
+                step: function(state, circle) {
+                    circle.path.setAttribute('stroke', state.color);
+                }
+            })
+            this.bar.setText(`${this.text} cal.`)
+        }
+    },
+    computed: {
+        textClasses() {
+            return [
+                this.progress > 1 ? 'text-red-600' : 'text-sky-600',
+                'font-num text-4xl',
+            ].join(' ')
+        }
+    },
+    watch: {
+        progress(val) {
+            this.initBar()
+            this.runBar(val)
+        }
     }
 }
 

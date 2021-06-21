@@ -1,30 +1,32 @@
 <template>
     <inertia-head title="Welcome" />
 
-    <div class="grid grid-cols-1 gap-4 lg:order-last">
-        <div class="rounded-lg bg-white overflow-hidden">
-            <div class="p-6">
-                <GraphConsumedOnDate :date="date" />
-            </div>
+    <div class="grid grid-cols-1 gap-4 order-last">
+        <div class="rounded-lg bg-gradient-to-b from-white to-sky-100 overflow-hidden shadow">
+            <DailyConsumption
+                :date="date"
+                :dailyCaloriesGoal="dailyCaloriesGoal"
+            />
         </div>
     </div>
     <div class="grid grid-cols-1 gap-4 lg:col-span-2">
         <div class="rounded-lg bg-white overflow-hidden">
-            <div class="p-6"></div>
+            <Write :date="date" />
         </div>
     </div>
 </template>
 
 <script>
-import GraphConsumedOnDate from './../components/Diary/GraphConsumedOnDate'
+import DailyConsumption from './../components/Diary/DailyConsumption'
+import Write from './../components/Diary/Write'
 import { computed } from 'vue'
 export default {
     props: {
         user: Object,
         date: String,
+        dailyCaloriesGoal: Number,
     },
-    components: { GraphConsumedOnDate },
-    setup(props) {}
+    components: { DailyConsumption, Write },
 }
 
 </script>

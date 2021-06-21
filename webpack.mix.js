@@ -6,5 +6,5 @@ mix.js('resources/js/app.js', 'public/js')
     ]);
 mix.version().sourceMaps()
 if (!mix.inProduction()) {
-    // mix.browserSync('https://fattify-inertia.test');
+    mix.browserSync('https://fattify-inertia.test');
 }

@@ -7,19 +7,11 @@ use Illuminate\Http\Request;
 
 class DiaryController
 {
-    public function __invoke($date = null)
+    public function __invoke(Request $request, $date = null)
     {
         return inertia('Diary', [
-            'user' => auth()->user(),
-            'date' => $date ? Carbon::parse($date)->toDateString() : now()->toDateString(),
+            'date' => $date ? Carbon::parse($date)->format('F d, Y') : now()->format('F d, Y'),
+            'dailyCaloriesGoal' => $request->user()->daily_calories_goal,
         ]);
-    }
-
-    public function foo(Request $request)
-    {
-        return response()->json([
-            'data' => "your graph is good for {$request->date}",
-        ]);
-        // return redirect()->route('diary', ['date' => now()->addDays(random_int(1, 110))->toDateString()]);
     }
 }
