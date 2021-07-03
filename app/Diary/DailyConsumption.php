@@ -64,6 +64,6 @@ class DailyConsumption
             return null;
         }
 
-        return $this->calories / $this->user->daily_calories_goal * 100;
+        return round($this->calories / $this->user->daily_calories_goal, 2);
     }
 }

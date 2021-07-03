@@ -9,10 +9,12 @@ class NutritionDiaryEntry extends Model
 {
     use HasFactory;
 
-
     /**
-     * Don't protect against mass assignment
+     * Don't protect against mass assignment.
+     *
      * @var array
      */
     protected $guarded = [];
+
+    protected $dates = ['date'];
 }

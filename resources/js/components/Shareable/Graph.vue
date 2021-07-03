@@ -48,15 +48,17 @@ export default {
         textClasses() {
             return [
                 this.progress > 1 ? 'text-red-600' : 'text-sky-600',
-                'font-num text-4xl',
+                'font-num font-bold text-2xl lg:text-4xl',
             ].join(' ')
         }
     },
     watch: {
         progress(val) {
-            this.initBar()
             this.runBar(val)
         }
+    },
+    mounted() {
+        this.initBar()
     }
 }
 

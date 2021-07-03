@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import AuthLayout from './../Layouts/AuthLayout'
+import AuthLayout from '@/layouts/AuthLayout'
 import { useForm } from '@inertiajs/inertia-vue3'
 export default {
     layout: AuthLayout,

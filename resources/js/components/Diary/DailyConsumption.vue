@@ -10,16 +10,6 @@
                 :text="consumption.calories"
             />
         </div>
-
-        <div
-            v-if="dailyCaloriesGoal"
-            class="mt-8"
-        >
-            <p class="text-gray-500 text-sm">
-                * Your daily calories goal is <span class="font-num font-semibold">{{ dailyCaloriesGoal }}</span>
-            </p>
-        </div>
-
         <div
             v-if="consumption.calories == 0"
             class="mt-8"
@@ -28,6 +18,15 @@
                 <span class="px-2 py-1 rounded-lg shadow bg-gradient-to-r from-cyan-500/40 to-sky-400/50">Time to eat — go get some!</span>
             </p>
         </div>
+        <div
+            v-if="dailyCaloriesGoal"
+            class="mt-8"
+        >
+            <p class="text-sky-600 text-sm">
+                * Your daily calories goal is <span class="font-num font-semibold">{{ dailyCaloriesGoal }}.</span>
+            </p>
+        </div>
+
     </div>
 
     <div class="px-6 pb-6 pt-3 mt-3 border-t-2 border-sky-200/50 bg-gradient-to-br from-sky-50 to-sky-400/30">
@@ -60,13 +59,13 @@
 <script>
 import axios from 'axios'
 import { Inertia } from '@inertiajs/inertia'
-import { onMounted, watch, ref, toRefs } from 'vue'
+import { onMounted, watch, ref, toRefs, onUnmounted } from 'vue'
 import Graph from './../Shareable/Graph'
 import { CalendarIcon } from '@heroicons/vue/solid'
 export default {
     props: {
         date: String,
-        dailyCaloriesGoal: Number
+        dailyCaloriesGoal: Number,
     },
     components: { Graph, CalendarIcon },
     setup(props) {
@@ -76,8 +75,15 @@ export default {
             const foo = await axios.get('/api/daily-consumption', { params: { date: date.value } })
             consumption.value = foo.data.data
         }
-        onMounted(getGraph)
-        watch(date, getGraph)
+        const successfulVisitEventListener = (event) => {
+            if (event.detail.page.url != '/diary') return;
+            getGraph()
+        }
+        onMounted(() => {
+            getGraph()
+            document.addEventListener('inertia:success', successfulVisitEventListener)
+        })
+        onUnmounted(() => document.removeEventListener('inertia:success', successfulVisitEventListener))
         return { date, consumption }
     },
 }

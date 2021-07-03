@@ -17,7 +17,6 @@ class HandleInertiaRequests extends Middleware
     /**
      * Determines the current asset version.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return string|null
      */
     public function version(Request $request)
@@ -28,15 +27,21 @@ class HandleInertiaRequests extends Middleware
     /**
      * Defines the props that are shared by default.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return array
      */
     public function share(Request $request)
     {
         return array_merge(parent::share($request), [
-            'auth.user' => fn () => $request->user()
-                ? $request->user()->only('id', 'name', 'email')
-                : null,
+            'auth' => [
+                'user' => fn () => $request->user()
+                    ? array_merge($request->user()->only('id', 'name', 'email'), ['imageUrl' => 'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'])
+                    : null,
+                'check' => fn () => auth()->check(),
+            ],
+            'flash' => [
+                'success' => fn () => $request->session()->get('success'),
+                'error' => fn () => $request->session()->get('error'),
+            ],
         ]);
     }
 }

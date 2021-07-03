@@ -2,12 +2,10 @@
 
 namespace Tests\Http\Controllers\Api;
 
-use Tests\TestCase;
-use App\Models\User;
 use App\Models\NutritionDiaryEntry;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
+use App\Models\User;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-use App\Modules\Sales\Infrastructure\PostCutoffChanges\SkipOrderPostCutoffService;
+use Tests\TestCase;
 
 class UserDailyConsumptionControllerTest extends TestCase
 {
@@ -47,7 +45,7 @@ class UserDailyConsumptionControllerTest extends TestCase
         $this->assertEquals(60, $data['carbs']);
         $this->assertEquals(40, $data['proteins']);
         $this->assertEquals(20, $data['fats']);
-        $this->assertEquals(20, $data['percentage']);
+        $this->assertEquals(0.2, $data['percentage']);
     }
 
     /**
@@ -84,7 +82,7 @@ class UserDailyConsumptionControllerTest extends TestCase
         $this->assertEquals(30, $data['carbs']);
         $this->assertEquals(20, $data['proteins']);
         $this->assertEquals(10, $data['fats']);
-        $this->assertEquals(10, $data['percentage']);
+        $this->assertEquals(0.1, $data['percentage']);
     }
 
     /**
@@ -121,7 +119,7 @@ class UserDailyConsumptionControllerTest extends TestCase
         $this->assertEquals(30, $data['carbs']);
         $this->assertEquals(20, $data['proteins']);
         $this->assertEquals(10, $data['fats']);
-        $this->assertEquals(10, $data['percentage']);
+        $this->assertEquals(0.1, $data['percentage']);
     }
 
     /**
@@ -171,6 +169,6 @@ class UserDailyConsumptionControllerTest extends TestCase
         $this->assertEquals(30, $data['carbs']);
         $this->assertEquals(20, $data['proteins']);
         $this->assertEquals(10, $data['fats']);
-        $this->assertEquals(10, $data['percentage']);
+        $this->assertEquals(0.1, $data['percentage']);
     }
 }
