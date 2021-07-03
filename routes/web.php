@@ -6,10 +6,12 @@ use App\Http\Controllers\Diary\CaloriesDiaryEntriesController;
 use App\Http\Controllers\Diary\MacronutrientsDiaryEntriesController;
 use App\Http\Controllers\DiaryController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UsersController;
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('diary/{date?}', DiaryController::class)->name('diary');
     Route::get('profile', ProfileController::class)->name('profile');
+    Route::put('users/{user}', [UsersController::class, 'update'])->name('users.update');
 
     Route::post('nutrition-diary-entries/calories', CaloriesDiaryEntriesController::class)->name('nutrition-diary-entries.calories.store');
     Route::post('nutrition-diary-entries/macronutrients', MacronutrientsDiaryEntriesController::class)->name('nutrition-diary-entries.macronutrients.store');
