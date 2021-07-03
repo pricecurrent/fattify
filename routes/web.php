@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Diary\CaloriesDiaryEntriesController;
 use App\Http\Controllers\Diary\MacronutrientsDiaryEntriesController;
 use App\Http\Controllers\DiaryController;
@@ -16,4 +17,6 @@ Route::middleware('auth:sanctum')->group(function () {
 
 Route::get('login', [LoginController::class, 'showLoginForm'])->name('login')->middleware('guest');
 Route::post('login', [LoginController::class, 'login'])->middleware('guest');
+Route::get('register', [RegisterController::class, 'show'])->name('register')->middleware('guest');
+Route::post('register', [RegisterController::class, 'store'])->name('register.store')->middleware('guest');
 Route::post('logout', [LoginController::class, 'logout'])->middleware('auth');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 
 class LoginController
 {
@@ -13,9 +14,13 @@ class LoginController
 
     public function login(Request $request)
     {
-        auth()->attempt($request->only('email', 'password'), $request->remember);
+        $request->validate(['email' => ['required', 'email'], 'password' => 'required']);
 
-        return redirect()->route('diary');
+        if (!auth()->attempt($request->only('email', 'password'), $request->remember)) {
+            throw ValidationException::withMessages(['email' => 'Invalid credentials']);
+        }
+
+        return redirect()->route('diary')->with('success', 'Welcome, '.auth()->user()->name);
     }
 
     public function logout()
