@@ -14,7 +14,7 @@ class AddDailyCaloriesGoalToUsers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->integer('daily_calories_goal')->after('avatar')->nullable();
+            $table->integer('daily_calories_goal')->after('email')->nullable();
         });
     }
 
