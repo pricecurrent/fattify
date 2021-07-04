@@ -20,15 +20,15 @@
                 <div class="flex flex-1 items-center">
                     <div class="flex-shrink-0 flex items-center">
                         <a
-                            class="inline-flex items-center font-semibold text-base text-black"
+                            class="inline-flex items-center font-semibold text-base text-black space-x-2"
                             href="{{ route('welcome') }}"
                         >
-                            <span class="sr-only">Fattify</span>
                             <img
                                 class="w-auto h-5"
                                 src="/buddy-packman.svg"
                                 alt="Fattify"
                             >
+                            <span class="text-xl font-extrabold text-emerald-800">Fattify</span>
                         </a>
                     </div>
                 </div>
