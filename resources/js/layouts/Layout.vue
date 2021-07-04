@@ -2,7 +2,7 @@
     <div class="min-h-screen bg-gray-100">
         <Popover
             as="header"
-            class="pb-24 bg-cyan-800"
+            class="pb-24 bg-cyan-800 pt-safe-top"
             v-slot="{ open }"
         >
             <div class="max-w-3xl mx-auto px-4 py-5 sm:px-6 lg:max-w-7xl lg:px-8">

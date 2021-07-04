@@ -36,7 +36,13 @@ module.exports = {
                     '66%': { transform: "translate(-5px, 0px) scale(0.98)" },
                     '100%': { transform: "translate(0px, 0px) scale(1.05)" },
                 },
-            }
+            },
+            spacing: {
+                "safe-top": "env(safe-area-inset-top)",
+                "safe-bottom": "env(safe-area-inset-bottom)",
+                "safe-left": "env(safe-area-inset-left)",
+                "safe-right": "env(safe-area-inset-right)",
+            },
         },
     },
     variants: {
