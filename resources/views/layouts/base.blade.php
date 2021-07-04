@@ -182,7 +182,7 @@
     ></script>
 </head>
 
-<body class="antialiased font-sans text-gray-800">
+<body class="antialiased font-sans text-gray-800 bg-cyan-800">
     @yield('content')
 </body>
 
