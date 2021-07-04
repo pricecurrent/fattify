@@ -27,7 +27,7 @@ export default {
                 return `text-input-${Math.random().toString(36).substr(2, 9)}`
             },
         },
-        modelValue: String,
+        modelValue: Boolean,
         label: String,
         error: String,
     },
