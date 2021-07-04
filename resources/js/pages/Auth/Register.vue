@@ -1,4 +1,5 @@
 <template>
+    <inertia-head title="Sign Up — Fattify" />
     <div class="mt-4">
         <h2 class="text-3xl font-extrabold">Create an Account</h2>
         <p class="text-gray-600">

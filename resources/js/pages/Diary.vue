@@ -1,5 +1,5 @@
 <template>
-    <inertia-head title="Welcome" />
+    <inertia-head title="My Diary — Fattify" />
 
     <div class="grid grid-cols-1 gap-4 order-last">
         <div class="rounded-lg bg-gradient-to-b from-white to-sky-100 overflow-hidden shadow">

@@ -1,4 +1,6 @@
 <template>
+    <inertia-head title="Sign In — Fattify" />
+
     <div class="mt-4">
         <h2 class="text-3xl font-extrabold">Sign in to your account</h2>
         <p class="text-gray-600">

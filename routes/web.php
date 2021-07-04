@@ -7,6 +7,9 @@ use App\Http\Controllers\Diary\MacronutrientsDiaryEntriesController;
 use App\Http\Controllers\DiaryController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\WelcomeController;
+
+Route::get('/', WelcomeController::class)->name('welcome');
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('diary/{date?}', DiaryController::class)->name('diary');

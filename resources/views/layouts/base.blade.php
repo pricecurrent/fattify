@@ -175,11 +175,7 @@
         href="/apple-splash-1136-640.jpg"
         media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"
     >
-
-    <script
-        src="{{ mix('/js/app.js') }}"
-        defer
-    ></script>
+    @yield('head')
 </head>
 
 <body class="antialiased font-sans text-gray-800 bg-cyan-800">
