@@ -3,15 +3,15 @@
         v-if="label"
         :for="id"
     >{{ label }}</label>
-    <input
+    <textarea
         :id="id"
-        ref="input"
+        ref="textarea"
         v-bind="$attrs"
         :class="classNames"
-        :type="type"
         :value="modelValue"
         v-on:input="$emit('update:modelValue', $event.target.value)"
-    />
+        rows="4"
+    ></textarea>
     <div
         v-if="error"
         class="text-sm text-red-500"
@@ -28,10 +28,6 @@ export default {
                 return `text-input-${Math.random().toString(36).substr(2, 9)}`
             },
         },
-        type: {
-            type: String,
-            default: 'text',
-        },
         modelValue: String,
         label: String,
         error: String,
@@ -40,7 +36,7 @@ export default {
         classNames() {
             return [
                 'block w-full',
-                'text-lg font-medium',
+                'text-base font-normal',
                 'border-4 ',
                 'shadow-lg',
                 'bg-gradient-to-r',

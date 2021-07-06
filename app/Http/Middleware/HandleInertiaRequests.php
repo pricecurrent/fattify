@@ -33,9 +33,7 @@ class HandleInertiaRequests extends Middleware
     {
         return array_merge(parent::share($request), [
             'auth' => [
-                'user' => fn () => $request->user()
-                    ? array_merge($request->user()->only('id', 'name', 'email'), ['imageUrl' => 'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'])
-                    : null,
+                'user' => fn () => $this->transformUser(),
                 'check' => fn () => auth()->check(),
             ],
             'flash' => [
@@ -43,5 +41,20 @@ class HandleInertiaRequests extends Middleware
                 'error' => fn () => $request->session()->get('error'),
             ],
         ]);
+    }
+
+    protected function transformUser()
+    {
+        $user = auth()->user();
+
+        return $user
+            ? [
+                'id' => $user->id,
+                'name' => $user->name,
+                'email' => $user->email,
+                'bio' => $user->bio,
+                'avatar_url' => $user->getAvatarUrl(),
+            ]
+            : null;
     }
 }

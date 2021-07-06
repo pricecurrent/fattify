@@ -9,8 +9,11 @@ class UsersController
 {
     public function update(UpdateUserRequest $request, User $user)
     {
-        $user->update($request->validated());
+        if ($request->avatar) {
+            $avatarPath = $request->avatar->store('/', 'avatars');
+        }
+        $user->update(array_merge($request->validated(), ['avatar' => $avatarPath ?? $user->avatar]));
 
-        return redirect()->route('diary')->with('success', 'Updated!');
+        return redirect()->route('profile')->with('success', 'Updated!');
     }
 }

@@ -1,18 +1,14 @@
 <template>
     <inertia-head title="My Diary — Fattify" />
 
-    <div class="grid grid-cols-1 gap-4 order-last">
-        <div class="rounded-lg bg-gradient-to-b from-white to-sky-100 overflow-hidden shadow">
-            <DailyConsumption
-                :date="date"
-                :dailyCaloriesGoal="dailyCaloriesGoal"
-            />
-        </div>
+    <div class="lg:col-span-2 rounded-lg bg-white overflow-hidden">
+        <Write :date="date" />
     </div>
-    <div class="grid grid-cols-1 gap-4 lg:col-span-2">
-        <div class="rounded-lg bg-white overflow-hidden">
-            <Write :date="date" />
-        </div>
+    <div class="rounded-lg bg-gradient-to-b from-white to-sky-100 overflow-hidden shadow">
+        <DailyConsumption
+            :date="date"
+            :dailyCaloriesGoal="dailyCaloriesGoal"
+        />
     </div>
 </template>
 

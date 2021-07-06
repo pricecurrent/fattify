@@ -28,7 +28,7 @@ export default {
                 'border-4 border-black/60 bg-origin-border',
                 'skew-x-2 rotate-1 bg-gradient-to-r from-sky-400 to-fuchsia-600/90 transition duration-300',
                 'hover:from-fuchsia-600 hover:to-sky-400',
-                'focus:outline-none focus:ring-8 focus:ring-offset-4 focus:ring-fuchsia-600 focus:border-transparent focus:rounded-md focus:scale-105 focus:animate-input',
+                'focus:outline-none focus:ring-8 focus:ring-offset-4 focus:ring-fuchsia-600 focus:border-transparent focus:rounded-md focus:scale-105',
                 'focus:from-fuchsia-600 focus:to-sky-400'
             ]
         }

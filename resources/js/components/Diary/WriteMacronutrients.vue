@@ -2,26 +2,49 @@
     <div>
         <form @submit.prevent="submit">
             <div class="px-1 grid grid-cols-3 gap-2 md:px-6 md:gap-6">
+                <div>
+                    <TextInput
+                        v-model="form.fats"
+                        placeholder="Fats"
+                        class="font-nums"
+                        type="tel"
+                        :error="form.errors.fats"
+                    />
+                </div>
+                <div>
+                    <TextInput
+                        v-model="form.carbs"
+                        placeholder="Carbs"
+                        class="font-nums"
+                        type="tel"
+                        :error="form.errors.carbs"
+                    />
+                </div>
+                <div>
+                    <TextInput
+                        v-model="form.proteins"
+                        placeholder="Prots"
+                        class="font-nums"
+                        type="tel"
+                        :error="form.errors.proteins"
+                    />
+                </div>
+            </div>
+            <div class="px-6 mt-6 focus-within:opacity-100 opacity-40 transition-opacity space-y-4 sm:space-y-8 sm:row-start-1 sm:row-span-2 sm:col-start-2">
+                <SelectInput
+                    v-model="form.meal_time"
+                    placeholder="Meal time"
+                    :error="form.errors.meal_time"
+                >
+                    <option
+                        v-for="mealTime in MEAL_TIMES"
+                        :value="mealTime.value"
+                    >{{ mealTime.name }}</option>
+                </SelectInput>
                 <TextInput
-                    v-model="form.fats"
-                    placeholder="Fats"
-                    class="font-nums"
-                    type="tel"
-                    :error="form.errors.fats"
-                />
-                <TextInput
-                    v-model="form.carbs"
-                    placeholder="Carbs"
-                    class="font-nums"
-                    type="tel"
-                    :error="form.errors.carbs"
-                />
-                <TextInput
-                    v-model="form.proteins"
-                    placeholder="Prots"
-                    class="font-nums"
-                    type="tel"
-                    :error="form.errors.proteins"
+                    v-model="form.dish_name"
+                    placeholder="Dish name"
+                    :error="form.errors.dish_name"
                 />
             </div>
             <div class="px-6 mt-6">
@@ -41,9 +64,11 @@ import { useForm } from '@inertiajs/inertia-vue3'
 import { Inertia } from '@inertiajs/inertia'
 import { ref } from 'vue'
 import TextInput from './../Shareable/Input/TextInput'
+import SelectInput from './../Shareable/Input/SelectInput'
 import PrimaryButton from './../Shareable/Input/PrimaryButton'
+import { MEAL_TIMES } from '@/constants'
 export default {
-    components: { BookmarkIcon, TextInput, PrimaryButton },
+    components: { BookmarkIcon, SelectInput, TextInput, PrimaryButton },
     props: ['date'],
     setup(props) {
         const form = useForm({
@@ -51,12 +76,16 @@ export default {
             carbs: null,
             proteins: null,
             date: props.date,
+            dish_name: null,
+            meal_time: null,
         })
         const submit = () => {
-            console.log('lol');
-            form.post('nutrition-diary-entries/macronutrients')
+            form.post('nutrition-diary-entries/macronutrients', {
+                preserveScroll: true,
+                onSuccess: () => form.reset(),
+            })
         }
-        return { form, submit }
+        return { form, submit, MEAL_TIMES }
     }
 }
 

@@ -17,6 +17,10 @@
             class="py-6"
             v-if="writingMode === 'macronutrients'"
         />
+        <WriteSearchedFood
+            :date="date"
+            v-if="writingMode === 'search'"
+        />
     </div>
 </template>
 <script>
@@ -24,11 +28,12 @@ import { ref } from 'vue'
 import WritingMode from './WritingMode'
 import WriteCalories from './WriteCalories'
 import WriteMacronutrients from './WriteMacronutrients'
+import WriteSearchedFood from './WriteSearchedFood'
 export default {
     props: {
         date: String,
     },
-    components: { WritingMode, WriteCalories, WriteMacronutrients },
+    components: { WritingMode, WriteCalories, WriteMacronutrients, WriteSearchedFood },
     setup(props) {
         const writingMode = ref('calories')
         return { writingMode }

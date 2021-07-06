@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Inertia\Inertia;
+
 class ProfileController
 {
     public function __invoke()
     {
-        // your code
+        return Inertia::render('Profile');
     }
 }

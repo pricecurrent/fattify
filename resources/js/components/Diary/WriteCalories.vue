@@ -16,7 +16,10 @@
                     placeholder="Meal time"
                     :error="form.errors.meal_time"
                 >
-                    <option v-for="meal in mealTimes">{{ meal}}</option>
+                    <option
+                        v-for="mealTime in MEAL_TIMES"
+                        :value="mealTime.value"
+                    >{{ mealTime.name }}</option>
                 </SelectInput>
                 <TextInput
                     v-model="form.dish_name"
@@ -41,10 +44,10 @@ import { ref } from 'vue'
 import TextInput from '@/components/Shareable/Input/TextInput'
 import SelectInput from '@/components/Shareable/Input/SelectInput'
 import PrimaryButton from '@/components/Shareable/Input/PrimaryButton'
+import { MEAL_TIMES } from '@/constants'
 export default {
     components: { BookmarkIcon, TextInput, PrimaryButton, SelectInput },
     setup() {
-        const mealTimes = ['breakfast', 'lunch', 'dinner'];
         const form = useForm({
             calories: null,
             meal_time: null,
@@ -55,7 +58,7 @@ export default {
                 onSuccess: () => form.reset(),
             })
         }
-        return { form, submit, mealTimes }
+        return { form, submit, MEAL_TIMES }
     }
 }
 

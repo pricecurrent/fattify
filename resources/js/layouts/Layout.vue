@@ -18,7 +18,7 @@
                         <div class="col-span-2">
                             <nav class="flex space-x-4">
                                 <inertia-link
-                                    v-for="link in navLinks"
+                                    v-for="link in NAV_LINKS"
                                     :key="link.title"
                                     :href="url(link)"
                                     :class="[link.active ? 'text-white' : 'text-cyan-100', 'text-sm font-medium rounded-md bg-white bg-opacity-0 px-3 py-2 hover:bg-opacity-10']"
@@ -97,7 +97,8 @@
                     </div>
                 </div>
                 <div class="hidden lg:block py-4 border-t border-cyan-50 border-opacity-20">
-                    <h1 class="text-4xl font-bold bg-clip-text bg-gradient-to-r text-transparent inline-block from-cyan-100 to-yellow-50">My Diary</h1>
+                    <h1 class="text-4xl font-bold bg-clip-text bg-gradient-to-r text-transparent inline-block from-cyan-100 to-yellow-50">
+                    </h1>
                 </div>
             </div>
 
@@ -175,7 +176,7 @@
                                     </div>
                                     <div class="mt-3 px-2 space-y-1">
                                         <a
-                                            v-for="item in navLinks"
+                                            v-for="item in NAV_LINKS"
                                             :key="item.title"
                                             :href="url(item)"
                                             class="block rounded-md px-3 py-2 text-base text-gray-900 font-medium hover:bg-gray-100 hover:text-gray-800"
@@ -261,10 +262,7 @@ import { BellIcon, MenuIcon, XIcon } from '@heroicons/vue/outline'
 import { UserIcon } from '@heroicons/vue/outline'
 import FlashMessages from '@/components/Shareable/FlashMessages'
 import Logo from '@/components/Shareable/Logo'
-const navLinks = [
-    { title: 'Diary', active: true, route: 'diary', },
-    // { title: 'Profile', active: false, route: 'profile' },
-]
+import { NAV_LINKS } from '@/constants'
 export default {
     components: {
         Menu,
@@ -291,7 +289,7 @@ export default {
         const user = Inertia.page.props.auth.user
         return {
             user,
-            navLinks,
+            NAV_LINKS,
             url,
         }
     },
