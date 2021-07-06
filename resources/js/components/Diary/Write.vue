@@ -8,15 +8,16 @@
         <WritingMode v-model="writingMode" />
     </div>
     <div>
-        <WriteCalories
-            class="p-6"
-            v-if="writingMode === 'calories'"
-        />
         <WriteMacronutrients
             :date="date"
             class="py-6"
             v-if="writingMode === 'macronutrients'"
         />
+        <WriteCalories
+            class="p-6"
+            v-if="writingMode === 'calories'"
+        />
+
         <WriteSearchedFood
             :date="date"
             v-if="writingMode === 'search'"
@@ -35,7 +36,7 @@ export default {
     },
     components: { WritingMode, WriteCalories, WriteMacronutrients, WriteSearchedFood },
     setup(props) {
-        const writingMode = ref('calories')
+        const writingMode = ref('macronutrients')
         return { writingMode }
     }
 }

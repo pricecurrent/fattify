@@ -53,8 +53,14 @@
                                     <!-- <MenuButton class="bg-white rounded-full flex text-sm ring-2 ring-white ring-opacity-20 focus:outline-none focus:ring-opacity-100"> -->
                                     <span class="sr-only">Open user menu</span>
                                     <UserIcon
+                                        v-if="! user.avatar_url"
                                         class="h-8 w-8 rounded-full text-white"
-                                        :src="user.imageUrl"
+                                    />
+                                    <img
+                                        v-else
+                                        class="h-8 w-8 rounded-full text-white"
+                                        :src="user.avatar_url"
+                                        alt="avatat"
                                     />
                                 </MenuButton>
                             </div>
@@ -187,8 +193,13 @@
                                     <div class="flex items-center px-5">
                                         <div class="flex-shrink-0">
                                             <UserIcon
+                                                v-if="! user.avatar_url"
                                                 class="h-10 w-10 rounded-full text-cyan-500"
-                                                :src="user.imageUrl"
+                                            />
+                                            <img
+                                                v-else
+                                                class="h-10 w-10 rounded-full text-cyan-500"
+                                                :src="user.avatar_url"
                                                 alt=""
                                             />
                                         </div>

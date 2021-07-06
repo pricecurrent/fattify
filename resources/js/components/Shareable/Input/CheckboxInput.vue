@@ -9,8 +9,8 @@
             v-bind="$attrs"
             :class="classNames"
             type="checkbox"
-            :value="modelValue"
-            v-on:input="$emit('update:modelValue', $event.target.value)"
+            :checked="modelValue"
+            @change="onChanged($event)"
         />
         <span>{{ label }}</span>
     </label>
@@ -24,7 +24,7 @@ export default {
         id: {
             type: String,
             default () {
-                return `text-input-${Math.random().toString(36).substr(2, 9)}`
+                return `checkbox-input-${Math.random().toString(36).substr(2, 9)}`
             },
         },
         modelValue: Boolean,
@@ -47,9 +47,10 @@ export default {
         }
     },
     methods: {
-        focus() {
-            this.$refs.input.focus()
-        },
+        onChanged(event) {
+            console.log(!event.target.value);
+            this.$emit('update:modelValue', !this.modelValue)
+        }
     },
 }
 

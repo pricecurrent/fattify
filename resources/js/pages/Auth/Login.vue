@@ -66,7 +66,7 @@ export default {
         const form = useForm({
             email: null,
             password: null,
-            remember: false,
+            remember: true,
         })
         return { form }
     }

@@ -4,6 +4,18 @@
             <div class="px-1 grid grid-cols-3 gap-2 md:px-6 md:gap-6">
                 <div>
                     <TextInput
+                        label="Prots"
+                        v-model="form.proteins"
+                        placeholder="Prots"
+                        class="font-nums"
+                        type="tel"
+                        :error="form.errors.proteins"
+                    />
+                </div>
+
+                <div>
+                    <TextInput
+                        label="Fats"
                         v-model="form.fats"
                         placeholder="Fats"
                         class="font-nums"
@@ -13,20 +25,12 @@
                 </div>
                 <div>
                     <TextInput
+                        label="Carbs"
                         v-model="form.carbs"
                         placeholder="Carbs"
                         class="font-nums"
                         type="tel"
                         :error="form.errors.carbs"
-                    />
-                </div>
-                <div>
-                    <TextInput
-                        v-model="form.proteins"
-                        placeholder="Prots"
-                        class="font-nums"
-                        type="tel"
-                        :error="form.errors.proteins"
                     />
                 </div>
             </div>
@@ -82,7 +86,7 @@ export default {
         const submit = () => {
             form.post('nutrition-diary-entries/macronutrients', {
                 preserveScroll: true,
-                onSuccess: () => form.reset(),
+                onSuccess: () => form.reset('proteins', 'fats', 'carbs', 'dish_name'),
             })
         }
         return { form, submit, MEAL_TIMES }
