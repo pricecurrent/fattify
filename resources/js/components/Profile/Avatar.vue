@@ -15,6 +15,10 @@
             />
         </label>
     </div>
+    <p
+        class="text-sm text-red-500"
+        v-if="error"
+    >{{ error }}</p>
 </template>
 <script>
 import { UserCircleIcon, } from '@heroicons/vue/solid'
@@ -22,7 +26,7 @@ import { ref, watch, computed, toRef } from 'vue'
 import FileInput from '@/components/Shareable/Input/FileInput'
 import SecondaryButton from '@/components/Shareable/Input/SecondaryButton'
 export default {
-    props: ['modelValue', 'preview'],
+    props: ['modelValue', 'preview', 'error'],
     components: { FileInput, UserCircleIcon, SecondaryButton },
     setup(props, { emit }) {
         const file = ref(null)

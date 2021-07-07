@@ -14,6 +14,7 @@
                             <Avatar
                                 v-model="form.avatar"
                                 :preview="$page.props.auth.user.avatar_url"
+                                :error="form.errors.avatar"
                             />
                             <div>
                                 <TextInput
