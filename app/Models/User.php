@@ -55,5 +55,7 @@ class User extends Authenticatable
         if ($this->avatar) {
             return Storage::disk('avatars')->url($this->avatar);
         }
+
+        return url('apple-icon-180.png');
     }
 }

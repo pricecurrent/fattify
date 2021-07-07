@@ -10,7 +10,7 @@ class MacronutrientsDiaryEntriesController
     public function __invoke(WriteMacronutrientsToDiaryRequest $request)
     {
         $request->user()
-            ->openDiaryOnDate($request->date)
+            ->openDiaryOnDate($request->getDate())
             ->writeMacronutrients(
                 new Macronutrients($request->only('carbs', 'fats', 'proteins')),
                 $request->meal_time,

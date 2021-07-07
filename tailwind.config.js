@@ -43,6 +43,9 @@ module.exports = {
                 "safe-left": "env(safe-area-inset-left)",
                 "safe-right": "env(safe-area-inset-right)",
             },
+            strokeWidth: {
+                '6': '6',
+            }
         },
     },
     variants: {

@@ -11,7 +11,7 @@ class CaloriesDiaryEntriesController
     {
         NutritionDiaryEntry::create([
             'user_id' => $request->user()->id,
-            'date' => $request->date,
+            'date' => $request->getDate(),
             'calorie' => $request->calories,
             'meal_time' => $request->meal_time,
             'dish_name' => $request->dish_name,

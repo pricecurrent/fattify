@@ -1,16 +1,13 @@
 <template>
-    <div>
+    <div class="flex items-center">
+        <img
+            v-if="preview"
+            class="object-cover rounded-full h-32 w-32 shadow-xl ring ring-offset-4 ring-fuchsia-500/70"
+            :src="preview"
+            alt="avatar"
+        />
         <label class="relative flex items-center justify-center w-36 h-36 mx-auto">
-            <img
-                v-if="preview"
-                class="object-cover rounded-full h-full w-full"
-                :src="preview"
-                alt="avatar"
-            />
-            <UserCircleIcon
-                v-else
-                class="text-emerald-300 w-full h-full"
-            />
+            <SecondaryButton>Change photo</SecondaryButton>
             <FileInput
                 id="user-photo"
                 v-model="file"
@@ -23,15 +20,16 @@
 import { UserCircleIcon, } from '@heroicons/vue/solid'
 import { ref, watch, computed, toRef } from 'vue'
 import FileInput from '@/components/Shareable/Input/FileInput'
+import SecondaryButton from '@/components/Shareable/Input/SecondaryButton'
 export default {
     props: ['modelValue', 'preview'],
-    components: { FileInput, UserCircleIcon },
+    components: { FileInput, UserCircleIcon, SecondaryButton },
     setup(props, { emit }) {
         const file = ref(null)
         const preview = ref(props.preview)
         watch(file, (value) => {
             if (!value) {
-                return preview.value = null
+                return preview.value = props.preview;
             }
             const reader = new FileReader()
             reader.readAsDataURL(value);

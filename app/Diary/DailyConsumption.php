@@ -2,9 +2,9 @@
 
 namespace App\Diary;
 
-use Carbon\Carbon;
-use App\Models\User;
 use App\Models\NutritionDiaryEntry;
+use App\Models\User;
+use Carbon\Carbon;
 
 class DailyConsumption
 {
@@ -16,6 +16,9 @@ class DailyConsumption
     public $carbs;
     public $proteins;
     public $percentage;
+    public $fatsPercentage;
+    public $carbsPercentage;
+    public $proteinsPercentage;
 
     public function __construct(User $user)
     {
@@ -30,6 +33,7 @@ class DailyConsumption
     public function onDate(Carbon $date)
     {
         $this->date = $date;
+
         return $this;
     }
 
@@ -56,11 +60,14 @@ class DailyConsumption
         $this->carbs = (int) $consolidatedEntry->carbs;
         $this->proteins = (int) $consolidatedEntry->proteins;
         $this->percentage = $this->calculatePercentage();
+        $this->fatsPercentage = $this->calories > 0 ? round($this->fats * 9 * 100 / $this->calories) : 0;
+        $this->carbsPercentage = $this->calories > 0 ? round($this->carbs * 4 * 100 / $this->calories) : 0;
+        $this->proteinsPercentage = $this->calories > 0 ? round($this->proteins * 4 * 100 / $this->calories) : 0;
     }
 
     protected function calculatePercentage()
     {
-        if (! $this->user->daily_calories_goal) {
+        if (!$this->user->daily_calories_goal) {
             return null;
         }
 

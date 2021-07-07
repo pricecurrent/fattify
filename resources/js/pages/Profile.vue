@@ -32,7 +32,10 @@
                             </div>
                         </div>
                         <div class="mt-10">
-                            <PrimaryButton type="submit">Save</PrimaryButton>
+                            <PrimaryButton
+                                type="submit"
+                                :loading="form.processing"
+                            >Save</PrimaryButton>
                         </div>
                     </div>
 
@@ -71,7 +74,6 @@ export default {
         const submit = () => {
             form.post(`/users/${Inertia.page.props.auth.user.id}`, {
                 preserveScroll: true,
-                onSuccess: () => console.log('lol')
             });
         }
         return {

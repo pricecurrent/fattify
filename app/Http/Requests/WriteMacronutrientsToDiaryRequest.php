@@ -18,7 +18,7 @@ class WriteMacronutrientsToDiaryRequest extends StoreDiaryEntryRequest
             'proteins' => ['nullable', 'integer', 'min:0'],
             'fats' => ['nullable', 'integer', 'min:0'],
             'date' => ['nullable', 'date'],
-            'meal_time' => ['nullable', 'in:breakfast,lunch,dinner'],
+            'meal_time' => ['nullable', 'in:breakfast,lunch,dinner,other'],
         ];
     }
 }

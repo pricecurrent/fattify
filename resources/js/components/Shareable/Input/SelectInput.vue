@@ -51,7 +51,6 @@ export default {
                 'border-4 ',
                 'shadow-lg',
                 'transition',
-                Math.random() > 0.5 ? 'skew-x-3' : '-skew-x-3',
                 'focus:outline-none',
                 this.error ? 'bg-rose-50' : 'bg-sky-50',
                 this.error ? 'border-red-600 border-b-red-800 border-t-red-400 rounded' : 'border-sky-600 border-b-sky-800 border-t-sky-400 rounded',

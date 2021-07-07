@@ -18,7 +18,7 @@ class MacronutrientsDiaryEntriesControllerTest extends TestCase
 
     /**
      * @test
-     * @covers \MacronutrientsDiaryEntriesController::handle
+     * @covers \App\Http\Controllers\Diary\MacronutrientsDiaryEntriesController::store
      */
     public function guest_cant_write_macros_to_diary()
     {

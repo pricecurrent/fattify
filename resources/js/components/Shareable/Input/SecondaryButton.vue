@@ -23,7 +23,11 @@ export default {
     computed: {
         classNames() {
             return [
-                'inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-fuchsia-700 bg-fuchsia-100 hover:bg-fuchsia-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-fuchsia-500'
+                'inline-flex items-center px-3 py-2',
+                'border border-transparent rounded-md',
+                'text-sm leading-4 font-medium text-fuchsia-800',
+                'bg-fuchsia-50 hover:bg-fuchsia-100',
+                'focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-fuchsia-500',
             ]
         }
     },

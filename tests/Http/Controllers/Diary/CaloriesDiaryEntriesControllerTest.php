@@ -29,7 +29,7 @@ class CaloriesDiaryEntriesControllerTest extends TestCase
 
     /**
      * @test
-     * @covers \CaloriesDiaryEntriesController::handle
+     * @covers \App\Http\Controllers\Diary\CaloriesDiaryEntriesController::store
      */
     public function it_writes_calories()
     {
