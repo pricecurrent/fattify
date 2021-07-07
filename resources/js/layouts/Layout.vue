@@ -2,15 +2,23 @@
     <div class="min-h-screen bg-gray-100">
         <Popover
             as="header"
-            class="pb-24 bg-cyan-800 pt-safe-top"
+            class="pb-24 bg-gradient-to-l from-cyan-800 to-green-900 pt-safe-top"
             v-slot="{ open }"
         >
             <div class="max-w-3xl mx-auto px-4 py-5 sm:px-6 lg:max-w-7xl lg:px-8">
                 <div class="relative py-5 flex items-center justify-center lg:justify-between">
                     <!-- Logo -->
                     <div class="absolute left-0 flex-shrink-0 lg:static">
-                        <inertia-link href="/diary">
-                            <Logo class="h-8 w-auto" />
+                        <inertia-link
+                            href="/diary"
+                            class="flex items-center focus:outline-none focus:ring focus:rounded-sm focus:ring-lime-400"
+                        >
+                            <img
+                                src="/apple-icon-180.png"
+                                alt="Fattify"
+                                class="h-8 w-auto rounded-full shadow"
+                            >
+                            <h1 class="inline-block ml-2 text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-br from-cyan-400 to-lime-400/60">Fattify</h1>
                         </inertia-link>
                     </div>
 
@@ -50,15 +58,9 @@
                         >
                             <div>
                                 <MenuButton class="rounded-full flex text-sm border-none focus:outline-none focus:ring-opacity-100">
-                                    <!-- <MenuButton class="bg-white rounded-full flex text-sm ring-2 ring-white ring-opacity-20 focus:outline-none focus:ring-opacity-100"> -->
                                     <span class="sr-only">Open user menu</span>
-                                    <UserIcon
-                                        v-if="! user.avatar_url"
-                                        class="h-8 w-8 rounded-full text-white"
-                                    />
                                     <img
-                                        v-else
-                                        class="h-8 w-8 rounded-full text-white"
+                                        class="h-8 w-8 rounded-full text-white bg-cover"
                                         :src="user.avatar_url"
                                         alt="avatat"
                                     />
@@ -192,13 +194,8 @@
                                 <div class="pt-4 pb-2">
                                     <div class="flex items-center px-5">
                                         <div class="flex-shrink-0">
-                                            <UserIcon
-                                                v-if="! user.avatar_url"
-                                                class="h-10 w-10 rounded-full text-cyan-500"
-                                            />
                                             <img
-                                                v-else
-                                                class="h-10 w-10 rounded-full text-cyan-500"
+                                                class="bg-cover h-10 w-10 rounded-full"
                                                 :src="user.avatar_url"
                                                 alt=""
                                             />

@@ -28,7 +28,10 @@
                 />
             </div>
             <div class="sm:flex sm:flex-col justify-end mt-4 sm:mt-0 sm:col-start-1 sm:row-start-2 sm:mt-8">
-                <PrimaryButton type="submit">
+                <PrimaryButton
+                    type="submit"
+                    :loading="form.processing"
+                >
                     <span>Write it down</span>
                 </PrimaryButton>
             </div>

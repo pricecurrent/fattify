@@ -178,7 +178,7 @@
     @yield('head')
 </head>
 
-<body class="antialiased font-sans text-gray-800 bg-cyan-800">
+<body class="antialiased font-sans text-gray-800  bg-gradient-to-l from-cyan-800 to-green-900">
     @yield('content')
 </body>
 

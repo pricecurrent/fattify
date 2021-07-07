@@ -53,7 +53,10 @@
             </div>
             <div class="px-6 mt-6">
                 <div class="md:flex md:justify-end">
-                    <PrimaryButton type="submit">
+                    <PrimaryButton
+                        type="submit"
+                        :loading="form.processing"
+                    >
                         <span>Write it down</span>
                     </PrimaryButton>
                 </div>
