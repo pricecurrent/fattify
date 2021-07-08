@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <div class="px-4">
         <form @submit.prevent="submit">
-            <div class="px-1 grid grid-cols-3 gap-2 md:px-6 md:gap-6">
+            <div class="grid grid-cols-3 gap-2">
                 <div>
                     <TextInput
                         label="Prots"
@@ -34,16 +34,13 @@
                     />
                 </div>
             </div>
-            <div class="px-6 mt-6 focus-within:opacity-100 opacity-40 transition-opacity space-y-4 sm:space-y-8 sm:row-start-1 sm:row-span-2 sm:col-start-2">
+            <div class="mt-6 focus-within:opacity-100 opacity-40 transition-opacity space-y-4 sm:space-y-8 sm:row-start-1 sm:row-span-2 sm:col-start-2">
                 <SelectInput
                     v-model="form.meal_time"
                     placeholder="Meal time"
                     :error="form.errors.meal_time"
+                    :options="MEAL_TIMES"
                 >
-                    <option
-                        v-for="mealTime in MEAL_TIMES"
-                        :value="mealTime.value"
-                    >{{ mealTime.name }}</option>
                 </SelectInput>
                 <TextInput
                     v-model="form.dish_name"
@@ -51,7 +48,7 @@
                     :error="form.errors.dish_name"
                 />
             </div>
-            <div class="px-6 mt-6">
+            <div class="mt-6">
                 <div class="md:flex md:justify-end">
                     <PrimaryButton
                         type="submit"

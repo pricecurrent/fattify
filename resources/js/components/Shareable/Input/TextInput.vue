@@ -14,7 +14,7 @@
     />
     <div
         v-if="error"
-        class="text-sm text-red-500"
+        class="mt-1 text-sm text-red-500 leading-4"
     >{{ error }}</div>
 </template>
 
