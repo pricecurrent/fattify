@@ -36,6 +36,16 @@
     <div class="px-6 pb-6 pt-3 mt-3 border-t-2 border-sky-200/50 bg-gradient-to-br from-sky-50 to-sky-400/30">
         <div class="grid grid-cols-3 gap-x-8">
             <div class="text-center">
+                <div class="font-medium text-xs uppercase text-sky-500 tracking-wide">Proteins</div>
+                <div class="font-num font-bold text-2xl text-sky-700">
+                    <span>{{ consumption.proteins }}</span>
+                    <span class="text-base">g.</span>
+                </div>
+                <div class="border-t border-sky-300">
+                    <span class="text-xs text-sky-600 font-medium">{{ consumption.proteinsPercentage }}%</span>
+                </div>
+            </div>
+            <div class="text-center">
                 <div class="font-medium text-xs uppercase text-sky-500 tracking-wide">Fats</div>
                 <div class="font-num font-bold text-2xl text-sky-700">
                     <span>{{ consumption.fats }}</span>
@@ -43,6 +53,7 @@
                 </div>
                 <div class="border-t border-sky-300">
                     <span class="text-xs text-sky-600 font-medium">{{ consumption.fatsPercentage }}%</span>
+
                 </div>
             </div>
             <div class="text-center">
@@ -53,16 +64,6 @@
                 </div>
                 <div class="border-t border-sky-300">
                     <span class="text-xs text-sky-600 font-medium">{{ consumption.carbsPercentage }}%</span>
-                </div>
-            </div>
-            <div class="text-center">
-                <div class="font-medium text-xs uppercase text-sky-500 tracking-wide">Proteins</div>
-                <div class="font-num font-bold text-2xl text-sky-700">
-                    <span>{{ consumption.proteins }}</span>
-                    <span class="text-base">g.</span>
-                </div>
-                <div class="border-t border-sky-300">
-                    <span class="text-xs text-sky-600 font-medium">{{ consumption.proteinsPercentage }}%</span>
                 </div>
             </div>
         </div>
