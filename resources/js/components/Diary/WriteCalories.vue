@@ -5,7 +5,7 @@
                 <TextInput
                     v-model="form.calories"
                     placeholder="Calories eaten"
-                    class="font-nums"
+                    class="font-num"
                     type="tel"
                     :error="form.errors.calories"
                 />

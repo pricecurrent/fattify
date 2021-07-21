@@ -18,7 +18,7 @@ class UserDailyConsumptionControllerTest extends TestCase
     public function it_fetches_daily_consumption_information_for_a_user()
     {
         $user = User::factory()->create([
-            'daily_calories_goal' => 1000
+            'daily_calories_goal' => 1000,
         ]);
         NutritionDiaryEntry::factory()->create([
             'user_id' => $user->id,
@@ -52,10 +52,10 @@ class UserDailyConsumptionControllerTest extends TestCase
      * @test
      * @covers \App\Http\Controllers\Api\UserDailyConsumptionController
      */
-    public function it_fetches_daily_consumption_information_for_a_user_on_a_requested_date()
+    public function itFetchesDailyConsumptionInformationForAUserOnARequestedDate()
     {
         $user = User::factory()->create([
-            'daily_calories_goal' => 1000
+            'daily_calories_goal' => 1000,
         ]);
         NutritionDiaryEntry::factory()->create([
             'user_id' => $user->id,
@@ -89,10 +89,10 @@ class UserDailyConsumptionControllerTest extends TestCase
      * @test
      * @covers \App\Http\Controllers\Api\UserDailyConsumptionController
      */
-    public function it_ignores_other_users_entries()
+    public function itIgnoresOtherUsersEntries()
     {
         $user = User::factory()->create([
-            'daily_calories_goal' => 1000
+            'daily_calories_goal' => 1000,
         ]);
         NutritionDiaryEntry::factory()->create([
             'user_id' => $user->id,
@@ -126,10 +126,10 @@ class UserDailyConsumptionControllerTest extends TestCase
      * @test
      * @covers \App\Http\Controllers\Api\UserDailyConsumptionController
      */
-    public function it_shows_0_for_when_there_are_no_entries()
+    public function itShows0ForWhenThereAreNoEntries()
     {
         $user = User::factory()->create([
-            'daily_calories_goal' => 1000
+            'daily_calories_goal' => 1000,
         ]);
 
         $response = $this->be($user)->json('get', route('api.daily-consumption'));
@@ -147,10 +147,10 @@ class UserDailyConsumptionControllerTest extends TestCase
      * @test
      * @covers \App\Http\Controllers\Api\UserDailyConsumptionController
      */
-    public function it_uses_todays_date_if_cant_understdand_whats_passed_in()
+    public function itUsesTodaysDateIfCantUnderstdandWhatsPassedIn()
     {
         $user = User::factory()->create([
-            'daily_calories_goal' => 1000
+            'daily_calories_goal' => 1000,
         ]);
         NutritionDiaryEntry::factory()->create([
             'user_id' => $user->id,

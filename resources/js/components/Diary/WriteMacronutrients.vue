@@ -7,7 +7,7 @@
                         label="Prots"
                         v-model="form.proteins"
                         placeholder="Prots"
-                        class="font-nums"
+                        class="font-num"
                         type="tel"
                         :error="form.errors.proteins"
                     />
@@ -18,7 +18,7 @@
                         label="Fats"
                         v-model="form.fats"
                         placeholder="Fats"
-                        class="font-nums"
+                        class="font-num"
                         type="tel"
                         :error="form.errors.fats"
                     />
@@ -28,7 +28,7 @@
                         label="Carbs"
                         v-model="form.carbs"
                         placeholder="Carbs"
-                        class="font-nums"
+                        class="font-num"
                         type="tel"
                         :error="form.errors.carbs"
                     />
