@@ -12,6 +12,7 @@ class UserNutritionDiaryEntriesController
     public function index(IndexDiaryEntriesRequest $request, User $user)
     {
         $entries = NutritionDiaryEntry::query()
+            ->where('user_id', $request->user()->id)
             ->whereDate('date', '=', $request->getDate())
             ->get();
 
