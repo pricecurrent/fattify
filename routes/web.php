@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Diary\CaloriesDiaryEntriesController;
 use App\Http\Controllers\Diary\MacronutrientsDiaryEntriesController;
+use App\Http\Controllers\Diary\NutritionDiaryEntryBookmarksController;
 use App\Http\Controllers\DiaryController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UsersController;

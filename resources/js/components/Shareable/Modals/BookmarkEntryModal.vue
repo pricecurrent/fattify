@@ -10,7 +10,7 @@
             @close="close"
             :open="open"
         >
-            <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 sm:block sm:p-0">
                 <TransitionChild
                     as="template"
                     enter="ease-out duration-300"
@@ -40,7 +40,7 @@
                     <div class="inline-block align-bottom w-full bg-white text-left overflow-hidden shadow-xl transform transition-all border-8 border-b-cyan-900 border-cyan-700 border-t-cyan-500 sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
                         <div class="px-4 pt-5 sm:p-6 sm:pb-4">
                             <div class="sm:flex sm:items-start">
-                                <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                                <div class="mt-3 sm:mt-0 sm:ml-4 sm:text-left">
                                     <DialogTitle
                                         as="h3"
                                         class="text-lg leading-6 font-medium text-gray-900"
@@ -49,18 +49,25 @@
                                     </DialogTitle>
                                     <div class="mt-2">
                                         <p class="text-sm text-gray-500">
-                                            Please specify below how many grams did you eat. We will create a bookmark from you entry so you can later pull it in easily.
+                                            Please specify below how many grams you ate. We will create a bookmark from your entry so you can later pull it in easily.
                                         </p>
-                                        <div class="mt-4">
+                                        <div class="mt-4 space-y-2">
+                                            <div>
+                                                <TextInput
+                                                    v-model="form.name"
+                                                    label="Bookmark name"
+                                                    placeholder="Potato"
+                                                    :error="form.errors.name"
+                                                />
+                                            </div>
                                             <TextInput
                                                 type="tel"
                                                 class="font-num"
                                                 v-model="form.weight"
                                                 placeholder="100"
+                                                :error="form.errors.weight"
                                             >
-                                                <template #trailing-addon>
-                                                    <span class="font-bold">g.</span>
-                                                </template>
+                                                <template #trailing-addon>g.</template>
                                             </TextInput>
                                         </div>
                                     </div>
@@ -112,10 +119,12 @@ export default {
         const close = () => context.emit('close')
         const form = useForm({
             weight: null,
+            name: props.entry.dishName,
         })
         const submit = () => {
             form.post(`/nutrition-diary-entries/${props.entry.id}/bookmarks`, {
-                preserveScroll: true
+                preserveScroll: true,
+                onSuccess: () => close()
             })
         }
         return {

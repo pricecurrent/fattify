@@ -37,9 +37,10 @@
                             <button v-on:click.prevent="bookmark(entry)">
                                 <BookmarkIcon class="w-4 h-4 text-sky-500" />
                             </button>
-                            <button v-on:click.prevent="remove(entry)">
+                            <!--                             <button v-on:click.prevent="remove(entry)">
                                 <TrashIcon class="w-4 h-4 text-gray-900/30" />
                             </button>
+ -->
                         </div>
                     </div>
                 </li>
@@ -47,7 +48,7 @@
         </div>
     </nav>
     <div v-else>
-        <div class="text-center">
+        <div class="text-center py-5">
             <svg
                 class="mx-auto h-12 w-12 text-gray-400"
                 fill="none"
@@ -70,6 +71,7 @@
         </div>
     </div>
     <BookmarkEntryModal
+        v-if="showBookmarkModal"
         :open="showBookmarkModal"
         :entry="bookmarkingEntry"
         @close="showBookmarkModal = false"
@@ -78,7 +80,7 @@
 
 <script>
 import { fetchEntries } from './../../api/diary'
-import { onMounted, ref, computed, watchEffect } from 'vue'
+import { onUnmounted, onMounted, ref, computed, watchEffect } from 'vue'
 import { BookmarkIcon, TrashIcon } from '@heroicons/vue/outline'
 import { groupBy } from 'lodash'
 import BookmarkEntryModal from '@/components/Shareable/Modals/BookmarkEntryModal'
@@ -87,11 +89,23 @@ export default {
     components: { BookmarkIcon, TrashIcon, BookmarkEntryModal },
     setup(props) {
         const entries = ref([]);
-        const showBookmarkModal = ref(true)
+        const showBookmarkModal = ref(false)
         const bookmarkingEntry = ref(null)
-        onMounted(async () => entries.value = await fetchEntries({ date: props.date }))
         const groupedEntries = computed(() => {
-            return _(entries.value).groupBy('mealTime').value()
+            const grouped = _(entries.value).groupBy('mealTime').value()
+            const sorted = Object.keys(grouped).sort((a, b) => {
+                let indexOfA = ['breakfast', 'lunch', 'dinner', 'other'].indexOf(a)
+                let indexOfB = ['breakfast', 'lunch', 'dinner', 'other'].indexOf(b)
+                if (indexOfA > indexOfB) return 1;
+                if (indexOfA < indexOfB) return -1;
+                return 0;
+            }).reduce(
+                (obj, key) => {
+                    obj[key] = grouped[key];
+                    return obj;
+                }, {}
+            )
+            return sorted
         })
         const totalCaloriesInMealTime = (mealTime) => {
             return _(groupedEntries.value[mealTime]).sumBy('calories')
@@ -101,6 +115,15 @@ export default {
             showBookmarkModal.value = true
         }
         const remove = () => {}
+        const successfulVisitEventListener = async (event) => {
+            if (event.detail.page.url != '/diary') return;
+            entries.value = await fetchEntries({ date: props.date })
+        }
+        onMounted(async () => {
+            document.addEventListener('inertia:success', successfulVisitEventListener)
+            entries.value = await fetchEntries({ date: props.date })
+        })
+        onUnmounted(() => document.removeEventListener('inertia:success', successfulVisitEventListener))
         return {
             entries,
             groupedEntries,

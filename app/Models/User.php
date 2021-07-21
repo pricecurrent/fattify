@@ -45,6 +45,11 @@ class User extends Authenticatable
         return $this->hasMany(NutritionDiaryEntry::class);
     }
 
+    public function bookmarks()
+    {
+        return $this->hasMany(Bookmark::class);
+    }
+
     public function openDiaryOnDate(Carbon $date)
     {
         return resolve(Diary::class)->forUser($this)->onDate($date);
