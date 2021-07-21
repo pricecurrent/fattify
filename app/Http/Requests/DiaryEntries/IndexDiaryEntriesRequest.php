@@ -3,12 +3,15 @@
 namespace App\Http\Requests\DiaryEntries;
 
 use App\Http\Filters\DateEqualsFitler;
+use App\Http\Requests\ExpectsDateInPayload;
+use App\Http\Requests\HasDateInPayload;
 use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
-use Pricecurrent\LaravelEloquentFilters\Contracts\FilterableRequest;
 
-class IndexDiaryEntriesRequest extends FormRequest implements FilterableRequest
+class IndexDiaryEntriesRequest extends FormRequest implements ExpectsDateInPayload
 {
+    use HasDateInPayload;
+
     public function rules()
     {
         return [];
