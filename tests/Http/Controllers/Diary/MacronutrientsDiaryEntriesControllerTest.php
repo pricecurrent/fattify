@@ -74,7 +74,6 @@ class MacronutrientsDiaryEntriesControllerTest extends TestCase
         $response->assertRedirect(route('diary'));
         $this->assertEquals(1, $this->user->nutritionDiaryEntries()->count());
         $entry = $this->user->nutritionDiaryEntries()->first();
-        dd($entry->toArray());
         $this->assertEquals(3.5, $entry->fat);
     }
 
