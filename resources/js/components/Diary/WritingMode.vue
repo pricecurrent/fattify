@@ -1,7 +1,7 @@
 <template>
     <div>
         <nav
-            class="relative z-0 rounded-lg shadow flex divide-x divide-gray-200"
+            class="relative rounded-tl-lg rounded-tr-lg shadow flex divide-x divide-gray-200 overflow-x-hidden"
             aria-label="Tabs"
         >
             <a
@@ -12,11 +12,11 @@
                 <span :class="[isActive('macronutrients') ? 'bg-indigo-500' : 'bg-transparent', 'absolute inset-x-0 bottom-0 h-0.5']" />
             </a>
             <a
-                @click.prevent="navigate('calories')"
-                :class="[isActive('calories') ? 'text-gray-900' : 'text-gray-500 hover:text-gray-700',  'rounded-l-lg', 'group relative min-w-0 flex-1 overflow-hidden bg-white py-4 px-4 text-sm font-medium text-center hover:bg-gray-50 focus:z-10']"
+                @click.prevent="navigate('bookmarks')"
+                :class="[isActive('bookmarks') ? 'text-gray-900' : 'text-gray-500 hover:text-gray-700', 'group relative min-w-0 flex-1 overflow-hidden bg-white py-4 px-4 text-sm font-medium text-center hover:bg-gray-50 focus:z-10']"
             >
-                <span>Calories</span>
-                <span :class="[isActive('calories') ? 'bg-indigo-500' : 'bg-transparent', 'absolute inset-x-0 bottom-0 h-0.5']" />
+                <span>Bookmarks</span>
+                <span :class="[isActive('bookmarks') ? 'bg-indigo-500' : 'bg-transparent', 'absolute inset-x-0 bottom-0 h-0.5']" />
             </a>
 
             <a

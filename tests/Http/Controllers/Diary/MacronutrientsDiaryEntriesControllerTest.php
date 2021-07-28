@@ -61,6 +61,27 @@ class MacronutrientsDiaryEntriesControllerTest extends TestCase
      * @test
      * @covers \MacronutrientsDiaryEntriesController::handle
      */
+    public function it_allows_decimal_places()
+    {
+        $payload = [
+            'fats' => 3.5,
+            'carbs' => 32.423,
+            'proteins' => 11.593
+        ];
+
+        $response = $this->actingAs($this->user)->json('post', route('nutrition-diary-entries.macronutrients.store'), $payload);
+
+        $response->assertRedirect(route('diary'));
+        $this->assertEquals(1, $this->user->nutritionDiaryEntries()->count());
+        $entry = $this->user->nutritionDiaryEntries()->first();
+        dd($entry->toArray());
+        $this->assertEquals(3.5, $entry->fat);
+    }
+
+    /**
+     * @test
+     * @covers \MacronutrientsDiaryEntriesController::handle
+     */
     public function it_accepts_a_day_where_to_write_for_and_it_accepts_a_meal_time_and_it_accepts_a_dish_name()
     {
         $payload = [

@@ -7,7 +7,7 @@ use App\Http\Requests\BookmarkEntryRequest;
 use App\Models\Bookmark;
 use App\Models\NutritionDiaryEntry;
 
-class NutritionDiaryEntryBookmarksController
+class BookmarkedNutritionDiaryEntriesController
 {
     protected $calculator;
 
@@ -20,6 +20,6 @@ class NutritionDiaryEntryBookmarksController
     {
         Bookmark::createFromEntry($entry, $request->user(), $request->weight, $request->name);
 
-        return redirect()->back()->with('success', 'Tada');
+        return redirect()->route('diary')->with('success', 'Great, all done!');
     }
 }

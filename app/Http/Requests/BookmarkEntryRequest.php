@@ -10,7 +10,7 @@ class BookmarkEntryRequest extends FormRequest
     {
         return [
             'name' => ['required'],
-            'weight' => ['required', 'integer', 'min:1'],
+            'weight' => ['required', 'integer', 'min:1', 'max:10000'],
         ];
     }
 }

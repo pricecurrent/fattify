@@ -122,7 +122,7 @@ export default {
             name: props.entry.dishName,
         })
         const submit = () => {
-            form.post(`/nutrition-diary-entries/${props.entry.id}/bookmarks`, {
+            form.post(`/bookmarked-nutrition-diary-entries/${props.entry.id}`, {
                 preserveScroll: true,
                 onSuccess: () => close()
             })

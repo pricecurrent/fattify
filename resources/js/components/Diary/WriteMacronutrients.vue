@@ -8,7 +8,8 @@
                         v-model="form.proteins"
                         placeholder="Prots"
                         class="font-num"
-                        type="tel"
+                        type="number"
+                        step="0.01"
                         :error="form.errors.proteins"
                     />
                 </div>
@@ -19,7 +20,8 @@
                         v-model="form.fats"
                         placeholder="Fats"
                         class="font-num"
-                        type="tel"
+                        type="number"
+                        step="0.01"
                         :error="form.errors.fats"
                     />
                 </div>
@@ -29,12 +31,13 @@
                         v-model="form.carbs"
                         placeholder="Carbs"
                         class="font-num"
-                        type="tel"
+                        type="number"
+                        step="0.01"
                         :error="form.errors.carbs"
                     />
                 </div>
             </div>
-            <div class="mt-6 focus-within:opacity-100 opacity-40 transition-opacity space-y-4 sm:space-y-8 sm:row-start-1 sm:row-span-2 sm:col-start-2">
+            <div class="mt-6 space-y-4 sm:space-y-8 sm:row-start-1 sm:row-span-2 sm:col-start-2">
                 <SelectInput
                     v-model="form.meal_time"
                     placeholder="Meal time"

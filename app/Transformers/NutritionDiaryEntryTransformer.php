@@ -8,24 +8,6 @@ use League\Fractal\TransformerAbstract;
 class NutritionDiaryEntryTransformer extends TransformerAbstract
 {
     /**
-     * List of resources to automatically include
-     *
-     * @var array
-     */
-    protected $defaultIncludes = [
-        //
-    ];
-
-    /**
-     * List of resources possible to include
-     *
-     * @var array
-     */
-    protected $availableIncludes = [
-        //
-    ];
-
-    /**
      * A Fractal transformer.
      *
      * @return array
@@ -40,6 +22,8 @@ class NutritionDiaryEntryTransformer extends TransformerAbstract
             'proteins' => $entry->protein,
             'dishName' => $entry->dish_name,
             'mealTime' => $entry->meal_time,
+            'isMadeFromBookmark' => (bool) $entry->made_from_bookmark_id,
+            'bookmarkedAt' => $entry->bookmarked_at?->toDateTimeString(),
         ];
     }
 }

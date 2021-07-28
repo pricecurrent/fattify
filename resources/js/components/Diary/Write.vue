@@ -8,9 +8,10 @@
             class="py-6"
             v-if="writingMode === 'macronutrients'"
         />
-        <WriteCalories
+
+        <WriteFromBookmarks
             class="p-6"
-            v-if="writingMode === 'calories'"
+            v-if="writingMode === 'bookmarks'"
         />
 
         <WriteSearchedFood
@@ -22,14 +23,14 @@
 <script>
 import { ref } from 'vue'
 import WritingMode from './WritingMode'
-import WriteCalories from './WriteCalories'
+import WriteFromBookmarks from './WriteFromBookmarks'
 import WriteMacronutrients from './WriteMacronutrients'
 import WriteSearchedFood from './WriteSearchedFood'
 export default {
     props: {
         date: String,
     },
-    components: { WritingMode, WriteCalories, WriteMacronutrients, WriteSearchedFood },
+    components: { WritingMode, WriteFromBookmarks, WriteMacronutrients, WriteSearchedFood },
     setup(props) {
         const writingMode = ref('macronutrients')
         return { writingMode }

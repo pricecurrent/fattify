@@ -2,9 +2,10 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Diary\BookmarkedNutritionDiaryEntriesController;
+use App\Http\Controllers\Diary\BookmarksDiaryEntriesController;
 use App\Http\Controllers\Diary\CaloriesDiaryEntriesController;
 use App\Http\Controllers\Diary\MacronutrientsDiaryEntriesController;
-use App\Http\Controllers\Diary\NutritionDiaryEntryBookmarksController;
 use App\Http\Controllers\DiaryController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UsersController;
@@ -19,8 +20,9 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::post('nutrition-diary-entries/calories', CaloriesDiaryEntriesController::class)->name('nutrition-diary-entries.calories.store');
     Route::post('nutrition-diary-entries/macronutrients', MacronutrientsDiaryEntriesController::class)->name('nutrition-diary-entries.macronutrients.store');
+    Route::post('nutrition-diary-entries/bookmarks', [BookmarksDiaryEntriesController::class, 'store'])->name('nutrition-diary-entries.bookmarks.store');
 
-    Route::post('nutrition-diary-entries/{entry}/bookmarks', [NutritionDiaryEntryBookmarksController::class, 'store'])->name('nutrition-diary-entries.bookmarks.store');
+    Route::post('bookmarked-nutrition-diary-entries/{entry}', [BookmarkedNutritionDiaryEntriesController::class, 'store'])->name('bookmarked-nutrition-diary-entries.store');
 });
 
 Route::get('login', [LoginController::class, 'showLoginForm'])->name('login')->middleware('guest');

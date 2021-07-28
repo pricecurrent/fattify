@@ -9,7 +9,7 @@
             :key="mealTime"
             class="relative"
         >
-            <div class="z-10 sticky top-0 border-t border-b border-gray-200 bg-gray-50 px-6 py-1 text-sm font-medium text-gray-500">
+            <div class="border-t border-b border-gray-200 bg-gray-50 px-6 py-1 text-sm font-medium text-gray-500">
                 <div class="flex items-center justify-between">
                     <h3 class="capitalize">{{ mealTime }}</h3>
                     <div>
@@ -23,7 +23,7 @@
                     :key="entry.id"
                     class="bg-white"
                 >
-                    <div class="relative px-6 py-5 flex items-center space-x-3 hover:bg-gray-50 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500">
+                    <div class="relative px-6 py-5 flex items-center space-x-3 hover:bg-gray-50">
                         <div class="flex-1 min-w-0">
                             <p class="text-sm font-medium text-gray-900">
                                 {{ entry.dishName }}
@@ -34,7 +34,10 @@
                             </p>
                         </div>
                         <div class="flex items-center space-x-1.5">
-                            <button v-on:click.prevent="bookmark(entry)">
+                            <button
+                                v-on:click.prevent="bookmark(entry)"
+                                v-if="entry.isMadeFromBookmark === false && entry.bookmarkedAt === null"
+                            >
                                 <BookmarkIcon class="w-4 h-4 text-sky-500" />
                             </button>
                             <!--                             <button v-on:click.prevent="remove(entry)">

@@ -1,8 +1,8 @@
 <template>
     <inertia-head title="My Diary — Fattify" />
 
-    <div class="lg:col-span-2 space-y-4">
-        <div class="rounded-lg bg-white overflow-hidden">
+    <div class="lg:col-span-2 space-y-6">
+        <div class="rounded-lg bg-white">
             <Write :date="date" />
         </div>
         <div class="rounded-lg bg-white overflow-hidden">
@@ -21,10 +21,8 @@
 import DailyConsumption from './../components/Diary/DailyConsumption'
 import DiaryEntries from './../components/Diary/DiaryEntries'
 import Write from './../components/Diary/Write'
-import { computed } from 'vue'
 export default {
     props: {
-        user: Object,
         date: String,
         dailyCaloriesGoal: Number,
     },

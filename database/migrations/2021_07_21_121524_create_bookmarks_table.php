@@ -16,7 +16,7 @@ class CreateBookmarksTable extends Migration
         Schema::create('bookmarks', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->string('name');
+            $table->string('name')->index();
             $table->float('fats');
             $table->float('carbs');
             $table->float('proteins');

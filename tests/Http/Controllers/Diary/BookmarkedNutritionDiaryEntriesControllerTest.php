@@ -8,7 +8,7 @@ use App\Models\User;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tests\TestCase;
 
-class NutritionDiaryEntryBookmarksControllerTest extends TestCase
+class BookmarkedNutritionDiaryEntriesControllerTest extends TestCase
 {
     use DatabaseTransactions;
 
@@ -20,7 +20,7 @@ class NutritionDiaryEntryBookmarksControllerTest extends TestCase
 
     /**
      * @test
-     * @covers \App\Http\Controllers\Diary\NutritionDiaryEntryBookmarksController::store
+     * @covers \App\Http\Controllers\Diary\BookmarkedNutritionDiaryEntriesController::store
      */
     public function it_creates_a_bookmark_out_of_a_diary_entry()
     {
@@ -30,7 +30,7 @@ class NutritionDiaryEntryBookmarksControllerTest extends TestCase
             'fat' => 5,
         ]);
 
-        $response = $this->actingAs($this->user)->from('diary')->post(route('nutrition-diary-entries.bookmarks.store', $entry), [
+        $response = $this->actingAs($this->user)->from('diary')->post(route('bookmarked-nutrition-diary-entries.store', $entry), [
             'name' => 'My Bookmark',
             'weight' => 50,
         ]);
@@ -43,5 +43,6 @@ class NutritionDiaryEntryBookmarksControllerTest extends TestCase
         $this->assertEquals(20, $bookmark->proteins);
         $this->assertEquals(40, $bookmark->carbs);
         $this->assertEquals(10, $bookmark->fats);
+        $this->assertCarbon(now(), $entry->fresh()->bookmarked_at);
     }
 }
