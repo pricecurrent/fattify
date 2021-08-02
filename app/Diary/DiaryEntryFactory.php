@@ -13,6 +13,7 @@ class DiaryEntryFactory
     protected $user;
     protected $date;
     protected $madeFromBookmark;
+    protected $weight;
 
     public function __construct(protected CaloriesCalculator $caloriesCalculator) {}
 
@@ -30,6 +31,7 @@ class DiaryEntryFactory
             'meal_time' => $mealTime ?? 'other',
             'dish_name' => $dishName ?? null,
             'made_from_bookmark_id' => $this->madeFromBookmark?->id,
+            'weight' => $this->weight,
         ]);
     }
 
@@ -48,6 +50,12 @@ class DiaryEntryFactory
     public function setMadeFromBookmark(Bookmark $bookmark)
     {
         $this->madeFromBookmark = $bookmark;
+        return $this;
+    }
+
+    public function setWeight(int $weight)
+    {
+        $this->weight = $weight;
         return $this;
     }
 

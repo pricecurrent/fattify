@@ -37,7 +37,23 @@
                     />
                 </div>
             </div>
-            <div class="mt-6 space-y-4 sm:space-y-8 sm:row-start-1 sm:row-span-2 sm:col-start-2">
+            <p class="mt-1 text-gray-400 text-xs">
+                Please specify macronutrients contained in
+                <span class="font-bold font-num">100g</span>
+            </p>
+            <div class="mt-4 space-y-4 sm:space-y-8 sm:row-start-1 sm:row-span-2 sm:col-start-2">
+                <div>
+                    <TextInput
+                        v-model="form.weight"
+                        placeholder="Weight"
+                        type="tel"
+                        class="font-num"
+                        :error="form.errors.weight"
+                    >
+                        <template #trailing-addon>g.</template>
+                    </TextInput>
+                    <p class="mt-1 text-gray-400 text-xs">Here specify the amount of food you actually ate.</p>
+                </div>
                 <SelectInput
                     v-model="form.meal_time"
                     placeholder="Meal time"
@@ -66,19 +82,17 @@
 </template>
 
 <script>
-import { BookmarkIcon } from '@heroicons/vue/outline'
 import { useForm } from '@inertiajs/inertia-vue3'
-import { Inertia } from '@inertiajs/inertia'
-import { ref } from 'vue'
-import TextInput from './../Shareable/Input/TextInput'
-import SelectInput from './../Shareable/Input/SelectInput'
-import PrimaryButton from './../Shareable/Input/PrimaryButton'
+import TextInput from '@/components/Shareable/Input/TextInput'
+import SelectInput from '@/components/Shareable/Input/SelectInput'
+import PrimaryButton from '@/components/Shareable/Input/PrimaryButton'
 import { MEAL_TIMES } from '@/constants'
 export default {
-    components: { BookmarkIcon, SelectInput, TextInput, PrimaryButton },
+    components: { SelectInput, TextInput, PrimaryButton },
     props: ['date'],
     setup(props) {
         const form = useForm({
+            weight: null,
             fats: null,
             carbs: null,
             proteins: null,

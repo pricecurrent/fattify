@@ -12,9 +12,10 @@ class MacronutrientsDiaryEntriesController
         $request->user()
             ->openDiaryOnDate($request->getDate())
             ->writeMacronutrients(
-                new Macronutrients($request->only('carbs', 'fats', 'proteins')),
-                $request->meal_time,
-                $request->dish_name
+                macronutrients: new Macronutrients($request->only('carbs', 'fats', 'proteins')),
+                mealTime: $request->meal_time,
+                dishName: $request->dish_name,
+                weight: $request->weight
             );
 
         return redirect()->route('diary')->with('success', 'Great all done!');

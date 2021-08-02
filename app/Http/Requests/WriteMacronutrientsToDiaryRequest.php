@@ -14,6 +14,7 @@ class WriteMacronutrientsToDiaryRequest extends StoreDiaryEntryRequest
     public function rules()
     {
         return [
+            'weight' => ['required', 'integer', 'min:1', 'max:100000'],
             'carbs' => ['nullable', 'numeric', 'min:0', 'max:1000'],
             'proteins' => ['nullable', 'numeric', 'min:0', 'max:1000'],
             'fats' => ['nullable', 'numeric', 'min:0', 'max:1000'],

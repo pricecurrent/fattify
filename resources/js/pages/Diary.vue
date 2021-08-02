@@ -2,11 +2,8 @@
     <inertia-head title="My Diary — Fattify" />
 
     <div class="lg:col-span-2 space-y-6">
-        <div class="rounded-lg bg-white">
+        <div class="rounded-lg bg-white shadow">
             <Write :date="date" />
-        </div>
-        <div class="rounded-lg bg-white overflow-hidden">
-            <DiaryEntries :date="date" />
         </div>
     </div>
     <div class="rounded-lg bg-gradient-to-b from-white to-sky-100 overflow-hidden shadow">
@@ -15,6 +12,10 @@
             :dailyCaloriesGoal="dailyCaloriesGoal"
         />
     </div>
+    <div class="rounded-lg bg-white overflow-hidden shadow">
+        <DiaryEntries :date="date" />
+    </div>
+
 </template>
 
 <script>

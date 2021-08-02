@@ -18,7 +18,7 @@ class BookmarkedNutritionDiaryEntriesController
 
     public function store(NutritionDiaryEntry $entry, BookmarkEntryRequest $request)
     {
-        Bookmark::createFromEntry($entry, $request->user(), $request->weight, $request->name);
+        $entry->bookmarkAs($request->name);
 
         return redirect()->route('diary')->with('success', 'Great, all done!');
     }

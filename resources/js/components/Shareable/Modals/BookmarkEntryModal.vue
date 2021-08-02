@@ -48,9 +48,6 @@
                                         Bookmark Your Entry
                                     </DialogTitle>
                                     <div class="mt-2">
-                                        <p class="text-sm text-gray-500">
-                                            Please specify below how many grams you ate. We will create a bookmark from your entry so you can later pull it in easily.
-                                        </p>
                                         <div class="mt-4 space-y-2">
                                             <div>
                                                 <TextInput
@@ -60,15 +57,6 @@
                                                     :error="form.errors.name"
                                                 />
                                             </div>
-                                            <TextInput
-                                                type="tel"
-                                                class="font-num"
-                                                v-model="form.weight"
-                                                placeholder="100"
-                                                :error="form.errors.weight"
-                                            >
-                                                <template #trailing-addon>g.</template>
-                                            </TextInput>
                                         </div>
                                     </div>
                                 </div>
@@ -118,7 +106,6 @@ export default {
     setup(props, context) {
         const close = () => context.emit('close')
         const form = useForm({
-            weight: null,
             name: props.entry.dishName,
         })
         const submit = () => {

@@ -43,6 +43,7 @@ class MacronutrientsDiaryEntriesControllerTest extends TestCase
             'carbs' => 20,
             'fats' => 10,
             'proteins' => 30,
+            'weight' => 100,
         ];
 
         $this->withoutExceptionHandling();
@@ -66,7 +67,8 @@ class MacronutrientsDiaryEntriesControllerTest extends TestCase
         $payload = [
             'fats' => 3.5,
             'carbs' => 32.423,
-            'proteins' => 11.593
+            'proteins' => 11.593,
+            'weight' => 100,
         ];
 
         $response = $this->actingAs($this->user)->json('post', route('nutrition-diary-entries.macronutrients.store'), $payload);
@@ -90,6 +92,7 @@ class MacronutrientsDiaryEntriesControllerTest extends TestCase
             'date' => 'May 21, 2020',
             'meal_time' => 'breakfast',
             'dish_name' => 'chicken',
+            'weight' => 100,
         ];
 
         $this->withoutExceptionHandling();
@@ -193,5 +196,22 @@ class MacronutrientsDiaryEntriesControllerTest extends TestCase
         $response->assertStatus(422);
         $response->assertJsonValidationErrors('meal_time');
         $this->assertEquals(0, $this->user->nutritionDiaryEntries()->count());
+    }
+
+    /**
+     * @test
+     */
+    public function weight_is_required()
+    {
+        $payload = [
+            'carbs' => 33,
+        ];
+
+        $response = $this->actingAs($this->user)->json('post', route('nutrition-diary-entries.macronutrients.store'), $payload);
+
+        $response->assertStatus(422);
+        $response->assertJsonValidationErrors('weight');
+        $this->assertEquals(0, $this->user->nutritionDiaryEntries()->count());
+
     }
 }

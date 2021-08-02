@@ -17,6 +17,7 @@ class NutritionDiaryEntryTransformer extends TransformerAbstract
         return [
             'id' => $entry->id,
             'calories' => $entry->calorie,
+            'weight' => $entry->weight,
             'fats' => $entry->fat,
             'carbs' => $entry->carbohydrates,
             'proteins' => $entry->protein,

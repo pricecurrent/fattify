@@ -22,15 +22,15 @@ class Bookmark extends Model
         'last_used_at',
     ];
 
-    public static function createFromEntry(NutritionDiaryEntry $entry, User $user, int $weight, string $name)
+    public static function createFromEntry(NutritionDiaryEntry $entry, User $user, string $name)
     {
         $macronutrientsIn100g = new Macronutrients([
-            'fats' => $entry->fat * 100 / $weight,
-            'carbs' => $entry->carbohydrates * 100 / $weight,
-            'proteins' => $entry->protein * 100 / $weight,
+            'fats' => $entry->fat * 100 / $entry->weight,
+            'carbs' => $entry->carbohydrates * 100 / $entry->weight,
+            'proteins' => $entry->protein * 100 / $entry->weight,
         ]);
 
-        return DB::transaction(function () use ($entry, $user, $weight, $name, $macronutrientsIn100g) {
+        return DB::transaction(function () use ($entry, $user, $name, $macronutrientsIn100g) {
             $entry->update(['bookmarked_at' => now()]);
             return static::create([
                 'user_id' => $user->id,

@@ -31,13 +31,20 @@ class Diary
         return $this;
     }
 
-    public function writeMacronutrients(Macronutrients $macronutrients, $mealTime = null, $dishName = null)
+    public function writeMacronutrients(Macronutrients $macronutrients, int $weight, $mealTime = null, $dishName = null)
     {
+        $macronutrientsEatenBasedOnWeight = new Macronutrients([
+            'fats' => $macronutrients->fats * $weight / 100,
+            'carbs' => $macronutrients->carbs * $weight / 100,
+            'proteins' => $macronutrients->proteins * $weight / 100,
+        ]);
+
         return $this->entryFactory
             ->withUser($this->user)
             ->withDate($this->date)
+            ->setWeight($weight)
             ->write(
-                macronutrients: $macronutrients,
+                macronutrients: $macronutrientsEatenBasedOnWeight,
                 mealTime: $mealTime,
                 dishName: $dishName
             );
@@ -55,6 +62,7 @@ class Diary
             ->withDate($this->date)
             ->withUser($this->user)
             ->setMadeFromBookmark($bookmark)
+            ->setWeight($weight)
             ->write($macronutrientsEatenBasedOnWeight, dishName: $bookmark->name, mealTime: $mealTime);
 
         $bookmark->bumpUsage();

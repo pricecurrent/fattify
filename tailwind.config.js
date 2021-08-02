@@ -1,4 +1,6 @@
 const colors = require('tailwindcss/colors')
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
     mode: 'jit',
     purge: [
@@ -23,7 +25,7 @@ module.exports = {
                 emerald: colors.emerald,
             },
             fontFamily: {
-                sans: ['Poppins'],
+                sans: ['Poppins', ...defaultTheme.fontFamily.sans],
                 num: ['Nunito'],
             },
             animation: {

@@ -27,11 +27,20 @@
                         <div class="flex-1 min-w-0">
                             <p class="text-sm font-medium text-gray-900">
                                 {{ entry.dishName }}
+                                <span
+                                    v-show="entry.weight"
+                                    class="text-cyan-700 text-xs inline-block ml-px"
+                                >{{ entry.weight }}g.</span>
                             </p>
-                            <p class="text-sm text-gray-500 truncate">
-                                <span class="font-num font-semibold">{{ entry.calories }}</span>
-                                <span> cal.</span>
-                            </p>
+                            <div class="mt-1 flex items-center text-sm text-gray-500">
+                                <div>
+                                    <span class="font-num font-semibold">{{ entry.calories }}</span>
+                                    <span> cal.</span>
+                                </div>
+                                <div class="ml-4">
+                                    <span class="font-num text-cyan-700 font-semibold">{{ entry.proteins }}</span> &bull; <span class="font-num text-cyan-700 font-semibold">{{ entry.fats }}</span> &bull; <span class="font-num text-cyan-700 font-semibold">{{ entry.carbs }}</span>
+                                </div>
+                            </div>
                         </div>
                         <div class="flex items-center space-x-1.5">
                             <button
