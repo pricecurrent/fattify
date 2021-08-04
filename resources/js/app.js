@@ -2,6 +2,7 @@ require('./bootstrap');
 import { createApp, h } from 'vue'
 import { createInertiaApp } from '@inertiajs/inertia-vue3'
 import { InertiaProgress } from '@inertiajs/progress'
+import LitepieDatepicker from 'litepie-datepicker';
 import Layout from '@/layouts/Layout'
 
 InertiaProgress.init()
@@ -15,6 +16,7 @@ createInertiaApp({
     setup({ el, app, props, plugin }) {
         createApp({ render: () => h(app, props) })
             .use(plugin)
+            .use(LitepieDatepicker)
             .mount(el)
     },
 })

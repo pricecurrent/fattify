@@ -1,9 +1,5 @@
 <template>
     <div class="pt-6 pb-3">
-        <h2 class="px-6 text-3xl font-semibold text-gray-500 flex items-center">
-            <CalendarIcon class="w-8 h-8 text-sky-600/70" />
-            <span class="ml-2">{{ date }}</span>
-        </h2>
         <SetCaloriesGoal
             v-if="!dailyCaloriesGoal"
             class="mt-8"
@@ -72,17 +68,15 @@
 
 <script>
 import axios from 'axios'
-import { Inertia } from '@inertiajs/inertia'
-import { onMounted, watch, ref, toRefs, onUnmounted } from 'vue'
+import { onMounted, ref, onUnmounted } from 'vue'
 import Graph from './../Shareable/Graph'
-import { CalendarIcon } from '@heroicons/vue/solid'
 import SetCaloriesGoal from '@/components/Diary/SetCaloriesGoal'
 export default {
     props: {
         date: String,
         dailyCaloriesGoal: Number,
     },
-    components: { Graph, CalendarIcon, SetCaloriesGoal },
+    components: { Graph, SetCaloriesGoal },
     setup(props) {
         const date = ref(props.date)
         const consumption = ref({})
