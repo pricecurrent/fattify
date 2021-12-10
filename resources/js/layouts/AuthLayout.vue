@@ -11,7 +11,6 @@
             <slot />
         </div>
     </div>
-    <FlashMessages />
 </template>
 
 <script>

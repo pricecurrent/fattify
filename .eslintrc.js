@@ -1,7 +1,8 @@
 module.exports = {
     "env": {
         "browser": true,
-        "es2021": true
+        "es2021": true,
+        "node": true,
     },
     "extends": [
         "eslint:recommended",
@@ -17,6 +18,7 @@ module.exports = {
     ],
     "rules": {
         "vue/no-multiple-template-root": ["off"],
+        "vue/multi-word-component-names": ["off"],
         "no-extra-parens": ["error"]
     }
 };
