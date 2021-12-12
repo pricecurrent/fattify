@@ -82,6 +82,7 @@
         <div class="max-w-3xl mx-auto pt-48 pb-8 px-4 sm:px-6 lg:px-8">
             <h1 class="text-5xl font-extrabold text-gray-900">
                 Track your calories
+                <br class="sm:hidden">
                 <span class="bg-clip-text bg-gradient-to-r from-emerald-600 text-transparent to-lime-700">with ease</span>
             </h1>
 

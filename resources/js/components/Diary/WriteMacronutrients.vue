@@ -73,7 +73,7 @@
                         type="submit"
                         :loading="form.processing"
                     >
-                        <span>Write it down</span>
+                        <span>Save</span>
                     </PrimaryButton>
                 </div>
             </div>
@@ -103,7 +103,7 @@ export default {
         const submit = () => {
             form.post('nutrition-diary-entries/macronutrients', {
                 preserveScroll: true,
-                onSuccess: () => form.reset('proteins', 'fats', 'carbs', 'dish_name'),
+                onSuccess: () => form.reset('proteins', 'fats', 'carbs', 'dish_name', 'weight'),
             })
         }
         return { form, submit, MEAL_TIMES }

@@ -112,7 +112,7 @@ export default {
                 'shadow-lg',
                 'transition',
                 'focus:outline-none',
-                this.error ? 'bg-rose-50' : 'bg-sky-50',
+                this.error ? 'bg-rose-50' : 'bg-white',
                 this.error ? 'border-red-600 border-b-red-800 border-t-red-400 rounded' : 'border-sky-600 border-b-sky-800 border-t-sky-400 rounded',
                 this.error ? 'focus:ring-rose-600' : 'focus:ring-sky-600',
                 this.error ? 'focus:border-rose-600' : 'focus:border-sky-600',

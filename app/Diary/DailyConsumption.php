@@ -67,7 +67,7 @@ class DailyConsumption
 
     protected function calculatePercentage()
     {
-        if (!$this->user->daily_calories_goal) {
+        if (! $this->user->daily_calories_goal) {
             return null;
         }
 

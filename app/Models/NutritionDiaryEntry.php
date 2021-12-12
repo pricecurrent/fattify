@@ -2,12 +2,11 @@
 
 namespace App\Models;
 
-use App\Models\Bookmark;
 use App\Diary\Macronutrients;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Database\Eloquent\Model;
 use Facades\App\Diary\CaloriesCalculator;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class NutritionDiaryEntry extends Model
 {
@@ -41,7 +40,6 @@ class NutritionDiaryEntry extends Model
                 'carbs' => $macronutrientsIn100g->carbs,
                 'proteins' => $macronutrientsIn100g->proteins,
             ]);
-
         });
     }
 }

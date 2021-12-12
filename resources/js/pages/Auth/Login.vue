@@ -1,13 +1,17 @@
 <template>
-    <inertia-head title="Sign In — Fattify" />
+
+    <Head>
+        <title>Sign In — Fattify</title>
+    </Head>
 
     <div class="mt-4">
         <h2 class="text-3xl font-extrabold">Sign in to your account</h2>
         <p class="text-gray-600">
-            Or <inertia-link
+            Or
+            <Link
                 class="link"
                 href="register"
-            >get started for free</inertia-link>
+            >get started for free</Link>
         </p>
     </div>
     <form
@@ -45,10 +49,10 @@
 
     <div class="mt-2">
         <p>
-            <inertia-link
+            <Link
                 class="link text-sm font-normal"
                 href="forgot-password"
-            >Forgot your password?</inertia-link>
+            >Forgot your password?</Link>
         </p>
     </div>
 </template>
@@ -59,9 +63,11 @@ import { useForm } from '@inertiajs/inertia-vue3'
 import TextInput from '@/components/Shareable/Input/TextInput'
 import PrimaryButton from '@/components/Shareable/Input/PrimaryButton'
 import CheckboxInput from '@/components/Shareable/Input/CheckboxInput'
+import { Link, Head } from '@inertiajs/inertia-vue3'
+
 export default {
     layout: AuthLayout,
-    components: { TextInput, PrimaryButton, CheckboxInput },
+    components: { Link, Head, TextInput, PrimaryButton, CheckboxInput },
     setup() {
         const form = useForm({
             email: null,

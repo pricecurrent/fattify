@@ -1,8 +1,8 @@
 <template>
     <div class="pt-6 pb-3">
-        <h2 class="px-6 text-3xl font-semibold text-gray-500 flex items-center">
-            <CalendarIcon class="w-8 h-8 text-sky-600/70" />
-            <span class="ml-2">{{ date }}</span>
+        <h2 class="px-6 text-2xl font-medium text-gray-800 flex items-center justify-center">
+            <CalendarIcon class="w-5 h-8 text-sky-600/70" />
+            <span class="ml-2 font-num">{{ date }}</span>
         </h2>
         <SetCaloriesGoal
             v-if="!dailyCaloriesGoal"
@@ -14,14 +14,6 @@
                 :progress="consumption.percentage"
                 :text="consumption.calories"
             />
-        </div>
-        <div
-            v-if="consumption.calories == 0"
-            class="mt-8 px-6 "
-        >
-            <p class="text-sky-800 text-base font-semibold text-center">
-                <span class="px-2 py-1 rounded-lg shadow bg-gradient-to-r from-cyan-500/40 to-sky-400/50">Time to eat — go get some!</span>
-            </p>
         </div>
         <div
             v-if="dailyCaloriesGoal"
@@ -72,10 +64,9 @@
 
 <script>
 import axios from 'axios'
-import { Inertia } from '@inertiajs/inertia'
-import { onMounted, watch, ref, toRefs, onUnmounted } from 'vue'
+import { onMounted, ref, onUnmounted } from 'vue'
 import Graph from './../Shareable/Graph'
-import { CalendarIcon } from '@heroicons/vue/solid'
+import { CalendarIcon } from '@heroicons/vue/outline'
 import SetCaloriesGoal from '@/components/Diary/SetCaloriesGoal'
 export default {
     props: {

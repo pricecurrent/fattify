@@ -9,31 +9,31 @@
                 <div class="relative py-5 flex items-center justify-center lg:justify-between">
                     <!-- Logo -->
                     <div class="absolute left-0 flex-shrink-0 lg:static">
-                        <inertia-link
+                        <Link
                             href="/diary"
                             class="flex items-center focus:outline-none focus:ring focus:rounded-sm focus:ring-lime-400"
                         >
-                            <img
-                                src="/apple-icon-180.png"
-                                alt="Fattify"
-                                class="h-8 w-auto rounded-full shadow"
-                            >
-                            <h1 class="inline-block ml-2 text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-br from-cyan-400 to-lime-400/60">Fattify</h1>
-                        </inertia-link>
+                        <img
+                            src="/apple-icon-180.png"
+                            alt="Fattify"
+                            class="h-8 w-auto rounded-full shadow"
+                        >
+                        <h1 class="inline-block ml-2 text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-br from-cyan-400 to-lime-400/60">Fattify</h1>
+                        </Link>
                     </div>
 
                     <div class="hidden lg:grid grid-cols-3 gap-8 flex-1 mr-auto ml-12">
                         <div class="col-span-2">
                             <nav class="flex space-x-4">
-                                <inertia-link
+                                <Link
                                     v-for="link in NAV_LINKS"
                                     :key="link.title"
                                     :href="url(link)"
                                     :class="[link.active ? 'text-white' : 'text-cyan-100', 'text-sm font-medium rounded-md bg-white bg-opacity-0 px-3 py-2 hover:bg-opacity-10']"
                                     :aria-current="link.active ? 'page' : 'false'"
                                 >
-                                    {{ link.title }}
-                                </inertia-link>
+                                {{ link.title }}
+                                </Link>
                             </nav>
                         </div>
                     </div>
@@ -73,14 +73,14 @@
                             >
                                 <MenuItems class="origin-top-right z-40 absolute -right-2 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
                                     <MenuItem v-slot="{ active }">
-                                    <inertia-link
+                                    <Link
                                         as="button"
                                         href="logout"
                                         method="post"
                                         :class="[active ? 'bg-gray-100' : '', 'block w-full text-left px-4 py-2 text-sm text-gray-700']"
                                     >
-                                        Sign out
-                                    </inertia-link>
+                                    Sign out
+                                    </Link>
                                     </MenuItem>
                                 </MenuItems>
                             </transition>
@@ -213,14 +213,14 @@
                                         </button>
                                     </div>
                                     <div class="mt-3 px-2 space-y-1">
-                                        <inertia-link
+                                        <Link
                                             as="button"
                                             href="logout"
                                             method="post"
                                             class="block rounded-md px-3 py-2 text-base text-gray-900 font-medium hover:bg-gray-100 hover:text-gray-800"
                                         >
-                                            Sign out
-                                        </inertia-link>
+                                        Sign out
+                                        </Link>
                                     </div>
                                 </div>
                             </div>
@@ -267,10 +267,10 @@ import {
 } from '@headlessui/vue'
 import { Inertia } from '@inertiajs/inertia'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/vue/outline'
-import { UserIcon } from '@heroicons/vue/outline'
 import FlashMessages from '@/components/Shareable/FlashMessages'
-import Logo from '@/components/Shareable/Logo'
 import { NAV_LINKS } from '@/constants'
+import { Link } from '@inertiajs/inertia-vue3'
+
 export default {
     components: {
         Menu,
@@ -286,9 +286,8 @@ export default {
         BellIcon,
         MenuIcon,
         XIcon,
-        UserIcon,
         FlashMessages,
-        Logo,
+        Link,
     },
     setup() {
         const url = (navLink) => {

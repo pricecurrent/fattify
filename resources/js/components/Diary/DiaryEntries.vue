@@ -49,10 +49,9 @@
                             >
                                 <BookmarkIcon class="w-4 h-4 text-sky-500" />
                             </button>
-                            <!--                             <button v-on:click.prevent="remove(entry)">
-                                <TrashIcon class="w-4 h-4 text-gray-900/30" />
+                            <button v-on:click.prevent="remove(entry)">
+                                <TrashIcon class="w-4 h-4 text-red-900/60" />
                             </button>
- -->
                         </div>
                     </div>
                 </li>
@@ -92,10 +91,12 @@
 
 <script>
 import { fetchEntries } from './../../api/diary'
-import { onUnmounted, onMounted, ref, computed, watchEffect } from 'vue'
+import { onUnmounted, onMounted, ref, computed } from 'vue'
 import { BookmarkIcon, TrashIcon } from '@heroicons/vue/outline'
-import { groupBy } from 'lodash'
+import _ from 'lodash'
 import BookmarkEntryModal from '@/components/Shareable/Modals/BookmarkEntryModal'
+import { Inertia } from '@inertiajs/inertia'
+
 export default {
     props: ['date'],
     components: { BookmarkIcon, TrashIcon, BookmarkEntryModal },
@@ -126,7 +127,12 @@ export default {
             bookmarkingEntry.value = entry
             showBookmarkModal.value = true
         }
-        const remove = () => {}
+        const remove = (entry) => {
+            Inertia.delete(
+                route('nutrition-diary-entries.destroy', { nutritionDiaryEntry: entry.id }), { preserveScroll: true }
+            );
+        }
+
         const successfulVisitEventListener = async (event) => {
             if (event.detail.page.url != '/diary') return;
             entries.value = await fetchEntries({ date: props.date })
@@ -143,6 +149,7 @@ export default {
             showBookmarkModal,
             bookmark,
             bookmarkingEntry,
+            remove,
         }
     }
 }

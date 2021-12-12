@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Diary;
 
 use App\Diary\CaloriesCalculator;
 use App\Http\Requests\BookmarkEntryRequest;
-use App\Models\Bookmark;
 use App\Models\NutritionDiaryEntry;
 
 class BookmarkedNutritionDiaryEntriesController

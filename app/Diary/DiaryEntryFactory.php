@@ -2,11 +2,10 @@
 
 namespace App\Diary;
 
-use Carbon\Carbon;
-use App\Models\User;
 use App\Models\Bookmark;
 use App\Models\NutritionDiaryEntry;
-use App\Diary\WriteToDiaryException;
+use App\Models\User;
+use Carbon\Carbon;
 
 class DiaryEntryFactory
 {
@@ -15,7 +14,9 @@ class DiaryEntryFactory
     protected $madeFromBookmark;
     protected $weight;
 
-    public function __construct(protected CaloriesCalculator $caloriesCalculator) {}
+    public function __construct(protected CaloriesCalculator $caloriesCalculator)
+    {
+    }
 
     public function write(Macronutrients $macronutrients, ?string $dishName = null, ?string $mealTime = null): NutritionDiaryEntry
     {
@@ -38,24 +39,28 @@ class DiaryEntryFactory
     public function withUser(User $user)
     {
         $this->user = $user;
+
         return $this;
     }
 
     public function withDate(Carbon $date)
     {
         $this->date = $date;
+
         return $this;
     }
 
     public function setMadeFromBookmark(Bookmark $bookmark)
     {
         $this->madeFromBookmark = $bookmark;
+
         return $this;
     }
 
     public function setWeight(int $weight)
     {
         $this->weight = $weight;
+
         return $this;
     }
 

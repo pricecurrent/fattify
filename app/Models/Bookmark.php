@@ -3,10 +3,10 @@
 namespace App\Models;
 
 use App\Diary\Macronutrients;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Database\Eloquent\Model;
 use Facades\App\Diary\CaloriesCalculator;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Bookmark extends Model
 {
@@ -32,6 +32,7 @@ class Bookmark extends Model
 
         return DB::transaction(function () use ($entry, $user, $name, $macronutrientsIn100g) {
             $entry->update(['bookmarked_at' => now()]);
+
             return static::create([
                 'user_id' => $user->id,
                 'name' => $name,
@@ -40,7 +41,6 @@ class Bookmark extends Model
                 'carbs' => $macronutrientsIn100g->carbs,
                 'proteins' => $macronutrientsIn100g->proteins,
             ]);
-
         });
     }
 

@@ -19,7 +19,7 @@ class Macronutrients
 
     public function __get($key)
     {
-        if (!in_array($key, static::MACRONUTRIENT_TYPES)) {
+        if (! in_array($key, static::MACRONUTRIENT_TYPES)) {
             throw new InvalidMacronutrientException();
         }
 

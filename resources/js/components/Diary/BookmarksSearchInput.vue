@@ -41,7 +41,7 @@
                                 <input
                                     type="search"
                                     placeholder="Search..."
-                                    v-on:keydown.space.stop="foo"
+                                    v-on:keydown.space.stop="() => {}"
                                     v-model="keyword"
                                     class="w-full block px-0 pl-8 bg-white shadow-sm focus:shadow-none border-none rounded-md focus:outline-none focus:border-none focus:ring-0"
                                 >

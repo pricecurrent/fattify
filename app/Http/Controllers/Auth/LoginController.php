@@ -16,11 +16,11 @@ class LoginController
     {
         $request->validate(['email' => ['required', 'email'], 'password' => 'required']);
 
-        if (!auth()->attempt($request->only('email', 'password'), $request->remember)) {
+        if (! auth()->attempt($request->only('email', 'password'), $request->remember)) {
             throw ValidationException::withMessages(['email' => 'Invalid credentials']);
         }
 
-        return redirect()->route('diary')->with('success', 'Welcome, '.auth()->user()->name);
+        return redirect()->route('diary')->with('success', 'Welcome, ' . auth()->user()->name);
     }
 
     public function logout()

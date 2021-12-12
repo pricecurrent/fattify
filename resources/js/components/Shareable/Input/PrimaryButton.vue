@@ -41,12 +41,12 @@ export default {
     computed: {
         classNames() {
             return [
-                'relative w-full md:w-auto px-4 py-3',
-                'font-semibold tracking-wider text-white text-lg uppercase',
-                'border-4 border-black/60 bg-origin-border',
+                'relative w-full md:w-auto px-3 py-2',
+                'text-white font-bold tracking-wide text-sm uppercase font-num',
+                'border-2 border-black/60 bg-origin-border rounded-sm',
                 'bg-gradient-to-r from-sky-400 to-fuchsia-600/90 transition duration-300',
                 'hover:from-fuchsia-600 hover:to-sky-400',
-                'focus:outline-none focus:ring-8 focus:ring-offset-4 focus:ring-fuchsia-600 focus:border-transparent focus:rounded-md focus:scale-105',
+                'focus:outline-none focus:ring focus:ring-offset-4 focus:ring-fuchsia-600 focus:border-transparent',
                 'focus:from-fuchsia-600 focus:to-sky-400',
                 'disabled:opacity-80',
             ]

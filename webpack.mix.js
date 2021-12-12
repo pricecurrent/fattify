@@ -9,7 +9,7 @@ mix
     ]);
 mix.version().sourceMaps()
 if (!mix.inProduction()) {
-    mix.browserSync('https://fattify-inertia.test');
+    mix.browserSync('https://fattify.nz');
 }
 mix.alias({
     ziggy: path.resolve('vendor/tightenco/ziggy/dist/vue'),

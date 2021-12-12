@@ -25,7 +25,7 @@
                     type="submit"
                     :loading="form.processing"
                 >
-                    <span>Write it down</span>
+                    <span>Save</span>
                 </PrimaryButton>
             </div>
         </div>
@@ -50,7 +50,8 @@ export default {
         })
         const submit = () => {
             form.post('/nutrition-diary-entries/bookmarks', {
-                onSuccess: () => form.reset(),
+                preserveScroll: true,
+                onSuccess: () => form.reset('bookmark_id', 'weight'),
             })
         }
         return { form, submit, MEAL_TIMES }

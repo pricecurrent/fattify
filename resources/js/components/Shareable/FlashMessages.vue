@@ -51,7 +51,7 @@
                             <div class="ml-4 flex-shrink-0 flex">
                                 <button
                                     @click="show = false"
-                                    class="rounded-md inline-flex text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                                    class="rounded-md inline-flex text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500"
                                     :class="[error ? 'text-red-50' : 'text-green-50']"
                                 >
                                     <XIcon

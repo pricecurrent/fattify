@@ -2,11 +2,10 @@
 
 namespace App\Diary;
 
-use Carbon\Carbon;
-use App\Models\User;
 use App\Models\Bookmark;
-use App\Diary\Macronutrients;
 use App\Models\NutritionDiaryEntry;
+use App\Models\User;
+use Carbon\Carbon;
 
 class Diary
 {
@@ -15,7 +14,8 @@ class Diary
 
     public function __construct(
         protected DiaryEntryFactory $entryFactory
-    ) {}
+    ) {
+    }
 
     public function forUser(User $user)
     {

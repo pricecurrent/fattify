@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Requests\Bookmarks\IndexBookmarksRequest;
 use App\Models\User;
 use App\Transformers\BookmarkTransformer;
-use App\Http\Requests\Bookmarks\IndexBookmarksRequest;
 
 class UserBookmarksController
 {
