@@ -6,6 +6,7 @@
             </div>
             <div class="space-y-4 sm:space-y-8 sm:row-start-1 sm:row-span-2 sm:col-start-2">
                 <TextInput
+                    type="tel"
                     v-model="form.weight"
                     placeholder="Weight"
                     :error="form.errors.weight"
