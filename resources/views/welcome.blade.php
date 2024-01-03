@@ -1,7 +1,7 @@
 @extends('layouts.base')
 
 @section ('head')
-<title>Fattify</title>
+<title>Fittify</title>
 @stop
 
 @section('content')
@@ -26,9 +26,9 @@
                             <img
                                 class="w-auto h-5"
                                 src="/buddy-packman.svg"
-                                alt="Fattify"
+                                alt="Fittify"
                             >
-                            <span class="text-xl font-extrabold text-emerald-800">Fattify</span>
+                            <span class="text-xl font-extrabold text-emerald-800">Fittify</span>
                         </a>
                     </div>
                 </div>

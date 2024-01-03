@@ -15,10 +15,10 @@
                         >
                         <img
                             src="/apple-icon-180.png"
-                            alt="Fattify"
+                            alt="Fittify"
                             class="h-8 w-auto rounded-full shadow"
                         >
-                        <h1 class="inline-block ml-2 text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-br from-cyan-400 to-lime-400/60">Fattify</h1>
+                        <h1 class="inline-block ml-2 text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-br from-cyan-400 to-lime-400/60">Fittify</h1>
                         </Link>
                     </div>
 
@@ -241,7 +241,7 @@
         <footer>
             <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 lg:max-w-7xl">
                 <div class="border-t border-gray-200 py-8 text-sm text-gray-500 text-center sm:text-left">
-                    <span class="block sm:inline">&copy; 2021 Fattify inc.</span>
+                    <span class="block sm:inline">&copy; 2024 Fittify.</span>
                     <span class="block sm:inline">All rights reserved.</span>
                 </div>
             </div>

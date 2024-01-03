@@ -1,7 +1,7 @@
 <template>
 
     <Head>
-        <title>Sign In — Fattify</title>
+        <title>Sign In — Fittify</title>
     </Head>
 
     <div class="mt-4">
