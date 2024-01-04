@@ -4,7 +4,7 @@ namespace App\Diary;
 
 class Macronutrients
 {
-    public const MACRONUTRIENT_TYPES = ['carbs', 'proteins', 'fats'];
+    public const FIELDS = ['carbs', 'proteins', 'fats', 'name'];
 
     protected $data;
 
@@ -19,10 +19,25 @@ class Macronutrients
 
     public function __get($key)
     {
-        if (! in_array($key, static::MACRONUTRIENT_TYPES)) {
+        if (! in_array($key, static::FIELDS)) {
             throw new InvalidMacronutrientException();
         }
 
         return $this->data[$key] ?? 0;
+    }
+
+    public function toArray()
+    {
+        return $this->data;
+    }
+
+    public static function fake($params = [])
+    {
+        return new static(array_merge([
+            'carbs' => rand(0, 100),
+            'proteins' => rand(0, 100),
+            'fats' => rand(0, 100),
+            'name' => 'Fake food',
+        ], $params));
     }
 }

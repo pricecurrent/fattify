@@ -30,4 +30,9 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'open_ai' => [
+        'key' => env('OPEN_AI_KEY'),
+        'organization' => env('OPEN_AI_ORGANIZATION'),
+    ],
+
 ];
