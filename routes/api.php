@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\Api\AiAnalyzeController;
 use App\Http\Controllers\Api\UserBookmarksController;
 use App\Http\Controllers\Api\UserDailyConsumptionController;
 use App\Http\Controllers\Api\UserNutritionDiaryEntriesController;
@@ -13,6 +12,4 @@ Route::middleware('auth:sanctum')->group(function () {
 
         Route::get('bookmarks', [UserBookmarksController::class, 'index'])->name('api.user-bookmarks.index');
     });
-
-    Route::post('analyze', AiAnalyzeController::class)->name('api.analyze');
 });

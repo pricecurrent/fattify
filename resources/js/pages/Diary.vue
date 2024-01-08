@@ -3,7 +3,7 @@
 
   <div class="lg:col-span-1 lg:col-start-2 lg:row-start-1 space-y-6">
     <div class="rounded-lg bg-white shadow">
-      <Write :date="date" />
+      <Write :date="date" :nutriDialog="nutriDialog" />
     </div>
   </div>
   <div
@@ -28,6 +28,7 @@ export default {
   props: {
     date: String,
     dailyCaloriesGoal: Number,
+    nutriDialog: null,
   },
   components: { DailyConsumption, DiaryEntries, Write, Head },
 };

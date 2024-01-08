@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Diary\AI\AiSuggestionException;
 use App\Diary\AI\OpenAiClient;
+use App\Models\NutriDialog;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Illuminate\Validation\ValidationException;
 
 class AiAnalyzeController
 {
@@ -11,8 +15,19 @@ class AiAnalyzeController
     {
         $request->validate(['prompt' => ['string', 'required']]);
 
-        $data = $client->getMacronutrientValues(request('prompt'));
+        $dialog = $request->input('dialog_id')
+            ? NutriDialog::whereUuid($request->input('dialog_id'))->firstOrFail()
+            : NutriDialog::create([
+                'uuid' => Str::uuid()->toString(),
+                'user_id' => auth()->user()->id,
+            ]);
 
-        return response()->json(array_map(fn ($i) => $i->toArray(), $data->all()));
+        try {
+            $message = $dialog->prompt($request->prompt, $client);
+        } catch (AiSuggestionException $e) {
+            throw ValidationException::withMessages(['prompt' => [$e->getMessage()]]);
+        }
+
+        return redirect()->back()->withCookie('dialog_id', $dialog->id);
     }
 }

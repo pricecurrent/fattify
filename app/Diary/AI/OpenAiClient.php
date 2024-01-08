@@ -17,7 +17,7 @@ class OpenAiClient
         return $this->client->listModels();
     }
 
-    public function getMacronutrientValues(string $prompt): Collection
+    public function getMacronutrientSuggestions(string $prompt, array $messages = []): Collection
     {
         $completion = $this->client->chat([
             'model' => 'gpt-4-1106-preview',
@@ -30,6 +30,10 @@ class OpenAiClient
                 [
                     "role" => "system",
                     "content" => "You provide response in the Json format as following: " . json_encode(['foods' => [['name' => 'food name', 'carbs' => 0, 'fats' => 0, 'proteins' => 0]]])
+                ],
+                [
+                    "role" => "system",
+                    "content" => "If you it is impossible to provide calorie breakdown based on user prompt You provide response in the Json format as following: " . json_encode(['error' => '...'])
                 ],
                 [
                     "role" => "user",
@@ -45,6 +49,7 @@ class OpenAiClient
                         ],
                     ])
                 ],
+                ...$messages,
                 [
                     "role" => "user",
                     "content" => $prompt,
@@ -57,7 +62,12 @@ class OpenAiClient
             // 'presence_penalty' => 0,
         ]);
 
-        return collect(json_decode(json_decode($completion)->choices[0]->message->content, true)['foods'])
-            ->mapInto(Macronutrients::class);
+        $response = json_decode(json_decode($completion)->choices[0]->message->content, true);
+
+        if (isset($response['error'])) {
+            throw new AiSuggestionException($response['error']);
+        }
+
+        return collect($response['foods'])->mapInto(Macronutrients::class);
     }
 }

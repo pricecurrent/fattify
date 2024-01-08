@@ -45,6 +45,11 @@ class User extends Authenticatable
         return $this->hasMany(NutritionDiaryEntry::class);
     }
 
+    public function nutriDialogs()
+    {
+        return $this->hasMany(NutriDialog::class);
+    }
+
     public function bookmarks()
     {
         return $this->hasMany(Bookmark::class);

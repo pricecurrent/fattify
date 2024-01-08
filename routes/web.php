@@ -1,16 +1,18 @@
 <?php
 
-use App\Http\Controllers\DiaryController;
-use App\Http\Controllers\UsersController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\AcceptedNutriDialogsMessageController;
+use App\Http\Controllers\Api\AiAnalyzeController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\Diary\CaloriesDiaryEntriesController;
-use App\Http\Controllers\Diary\BookmarksDiaryEntriesController;
-use App\Http\Controllers\Diary\NutritionDiaryEntriesController;
-use App\Http\Controllers\Diary\MacronutrientsDiaryEntriesController;
 use App\Http\Controllers\Diary\BookmarkedNutritionDiaryEntriesController;
+use App\Http\Controllers\Diary\BookmarksDiaryEntriesController;
+use App\Http\Controllers\Diary\CaloriesDiaryEntriesController;
+use App\Http\Controllers\Diary\MacronutrientsDiaryEntriesController;
+use App\Http\Controllers\Diary\NutritionDiaryEntriesController;
+use App\Http\Controllers\DiaryController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UsersController;
+use App\Http\Controllers\WelcomeController;
 
 Route::get('/', WelcomeController::class)->name('welcome');
 
@@ -25,6 +27,11 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::delete('nutrition-diary-entries/{nutritionDiaryEntry}', [NutritionDiaryEntriesController::class, 'destroy'])->name('nutrition-diary-entries.destroy');
 
     Route::post('bookmarked-nutrition-diary-entries/{entry}', [BookmarkedNutritionDiaryEntriesController::class, 'store'])->name('bookmarked-nutrition-diary-entries.store');
+
+    Route::post('nutrition-diary-entries', [NutritionDiaryEntriesController::class, 'store'])->name('nutrition-diary-entries.store');
+
+    Route::post('analyze', AiAnalyzeController::class)->name('api.analyze');
+    Route::post('nutri-dialog-messages/{nutriDialogMessage:uuid}/accepted', [AcceptedNutriDialogsMessageController::class, 'store'])->name('nutri-dialog-messages.accepted.store');
 });
 
 Route::get('login', [LoginController::class, 'showLoginForm'])->name('login')->middleware('guest');
