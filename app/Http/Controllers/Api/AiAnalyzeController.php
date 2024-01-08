@@ -28,6 +28,9 @@ class AiAnalyzeController
             throw ValidationException::withMessages(['prompt' => [$e->getMessage()]]);
         }
 
-        return redirect()->back()->withCookie('dialog_id', $dialog->id);
+        return redirect()
+            ->back()
+            ->withCookie('dialog_id', $dialog->id)
+            ->with('success', 'View your nutritional breakdown below.');
     }
 }

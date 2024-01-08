@@ -5,6 +5,7 @@
       aria-label="Tabs"
     >
       <a
+        href="#"
         @click.prevent="navigate('search')"
         :class="[
           isActive('search')
@@ -23,6 +24,7 @@
       </a>
 
       <a
+        href="#"
         @click.prevent="navigate('macronutrients')"
         :class="[
           isActive('macronutrients')
@@ -40,6 +42,7 @@
         />
       </a>
       <a
+        href="#"
         @click.prevent="navigate('bookmarks')"
         :class="[
           isActive('bookmarks')

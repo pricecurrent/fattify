@@ -1,19 +1,20 @@
 <template>
   <form
-    class="px-4 py-3"
-    @submit.prevent="form.post(route('api.analyze'))"
+    class="px-4 mt-4 py-3"
+    @submit.prevent="submit"
   >
     <TextareaInput
       v-model="form.prompt"
       placeholder="Specify in free form what you have eaten, e.g. 1 chicken breast no skin with mashed potato 1 small portion"
       :error="form.errors.prompt"
+      @keydown.meta.enter="submit"
     />
 
     <div class="mt-4 flex justify-end">
       <div>
         <PrimaryButton
           type="submit"
-          :disabled="form.processing"
+          :loading="form.processing"
           >Analyze</PrimaryButton
         >
       </div>
@@ -67,7 +68,18 @@
           <p class="text-sm leading-6 text-gray-500">Suggested Nutrients</p>
         </div>
       </div>
-      <div class="mt-8 flow-root p-6 border border-gray-300 rounded shadow-sm">
+      <div
+        class="mt-8 relative flow-root p-6 border border-gray-300 rounded shadow-sm"
+      >
+        <div class="absolute top-4 right-4 mb-4">
+          <a
+            href="#"
+            @click.prevent="showHelpPopup = true"
+            class="text-gray-400 hover:text-gray-500"
+          >
+            <QuestionMarkCircleIcon class="w-5 h-5 text-purple-500" />
+          </a>
+        </div>
         <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
           <div
             class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8"
@@ -138,15 +150,23 @@
       </div>
     </li>
   </ul>
+  <HelpNutrySuggestionModal
+    :open="showHelpPopup === true"
+    @close="showHelpPopup = false"
+  />
 </template>
 
 <script>
-import { ChevronDoubleRightIcon } from '@heroicons/vue/outline'
+import {
+  ChevronDoubleRightIcon,
+  QuestionMarkCircleIcon,
+} from '@heroicons/vue/outline'
 import TextareaInput from '@/components/Shareable/Input/TextareaInput'
 import PrimaryButton from '@/components/Shareable/Input/PrimaryButton'
 import { useForm } from '@inertiajs/inertia-vue3'
 import SecondaryButton from '@/components/Shareable/Input/SecondaryButton'
 import { Inertia } from '@inertiajs/inertia'
+import HelpNutrySuggestionModal from '@/components/Shareable/Modals/HelpNutrySuggestionModal'
 
 export default {
   components: {
@@ -154,26 +174,37 @@ export default {
     PrimaryButton,
     SecondaryButton,
     ChevronDoubleRightIcon,
+    QuestionMarkCircleIcon,
+    HelpNutrySuggestionModal,
   },
   props: ['nutriDialog'],
   data() {
     return {
       user: Inertia.page.props.auth.user,
+      showHelpPopup: false,
       form: useForm({
         prompt: '',
-        dialog_id: this.nutriDialog?.uuid,
       }),
     }
   },
   methods: {
-    route,
+    submit() {
+      this.form
+        .transform(data => ({
+          ...data,
+          dialog_id: this.nutriDialog?.uuid,
+        }))
+        .post(route('api.analyze'), {
+          onSuccess: () => {
+            this.form.reset()
+          },
+        })
+    },
     setPreviousPrompt(message) {
       this.form.prompt = message.prompt
     },
     saveToDiary(message) {
-      this.$inertia.post(
-        this.route(`nutri-dialog-messages.accepted.store`, message),
-      )
+      this.$inertia.post(route(`nutri-dialog-messages.accepted.store`, message))
     },
   },
 }

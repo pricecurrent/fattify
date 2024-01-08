@@ -33,21 +33,7 @@ class OpenAiClient
                 ],
                 [
                     "role" => "system",
-                    "content" => "If you it is impossible to provide calorie breakdown based on user prompt You provide response in the Json format as following: " . json_encode(['error' => '...'])
-                ],
-                [
-                    "role" => "user",
-                    "content" => "I ate omelette with 3 egg whites and 1 whole egg. I have eaten a slice of bread around 100g. Hummus 50g"
-                ],
-                [
-                    "role" => "assistant",
-                    "content" => json_encode([
-                        'foods' => [
-                            ['name' => 'omelette', 'carbs' => 0, 'fats' => 5, 'proteins' => 20],
-                            ['name' => 'bread', 'carbs' => 60, 'fats' => 5, 'proteins' => 8],
-                            ['name' => 'hummus', 'carbs' => 15, 'fats' => 31, 'proteins' => 8],
-                        ],
-                    ])
+                    "content" => "If it is impossible to provide calorie breakdown based on user prompt You provide response in the Json format as following: " . json_encode(['error' => '...'])
                 ],
                 ...$messages,
                 [

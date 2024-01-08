@@ -44,40 +44,50 @@
           >
             <div class="px-4 pt-5 sm:p-6 sm:pb-4">
               <div class="sm:flex sm:items-start">
-                <div class="mt-3 sm:mt-0 sm:ml-4 sm:text-left">
+                <div class="prose mt-3 sm:mt-0 sm:ml-4 sm:text-left">
                   <DialogTitle
                     as="h3"
-                    class="text-lg leading-6 font-medium text-gray-900"
+                    class="text-lg leading-6 font-bold text-gray-900"
                   >
-                    Bookmark Your Entry
+                    Nutritionist Assistant Guide
                   </DialogTitle>
                   <div class="mt-2">
-                    <div class="mt-4 space-y-2">
-                      <div>
-                        <TextInput
-                          v-model="form.name"
-                          label="Bookmark name"
-                          placeholder="Potato"
-                          :error="form.errors.name"
-                        />
-                      </div>
-                    </div>
+                    <ul>
+                      <li>
+                        <h4>Direct Communication:</h4>
+                        <p>
+                          If the nutrition breakdown needs tweaking, talk to the
+                          assistant. Mention any specifics from your meal, like
+                          "I had half a portion of the salad," or ask to modify
+                          numbers, such as "Change my protein intake to 25
+                          grams."
+                        </p>
+                      </li>
+                      <li>
+                        <h4>Confirm Your Changes:</h4>
+                        <p>
+                          Once you are happy with the suggestions, click "Save
+                          to Diary." This action will log the details into your
+                          daily records, ensuring your diary is up-to-date with
+                          your nutritional journey.
+                        </p>
+                      </li>
+                      <p>
+                        Lean on the Nutritionist Assistant to simplify your meal
+                        tracking and stay aligned with your health goals.
+                      </p>
+                    </ul>
                   </div>
                 </div>
               </div>
             </div>
             <div class="mt-4 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-              <PrimaryButton
-                @click.prevent="submit"
-                class="!py-2 !text-base !normal-case !tracking-normal !font-num"
-                >Save</PrimaryButton
-              >
               <div class="text-center w-full">
                 <a
                   href="#"
                   @click.prevent="close"
                   class="inline-block mt-3 text-center text-gray-500 leading-none border-b pb-px border-gray-400"
-                  >Cancel</a
+                  >Ok</a
                 >
               </div>
             </div>
@@ -102,8 +112,9 @@ import SecondaryButton from "@/components/Shareable/Input/SecondaryButton";
 import TextInput from "@/components/Shareable/Input/TextInput";
 import { ref } from "vue";
 import { useForm } from "@inertiajs/inertia-vue3";
+
 export default {
-  props: { open: Boolean, entry: Object },
+  props: { open: Boolean },
   components: {
     Dialog,
     DialogOverlay,
@@ -117,19 +128,8 @@ export default {
   },
   setup(props, context) {
     const close = () => context.emit("close");
-    const form = useForm({
-      name: props.entry.dishName,
-    });
-    const submit = () => {
-      form.post(`/bookmarked-nutrition-diary-entries/${props.entry.id}`, {
-        preserveScroll: true,
-        onSuccess: () => close(),
-      });
-    };
     return {
       close,
-      form,
-      submit,
     };
   },
 };
