@@ -14,6 +14,6 @@ class UsersController
         }
         $user->update(array_merge($request->validated(), ['avatar' => $avatarPath ?? $user->avatar]));
 
-        return redirect()->route('profile')->with('success', 'Updated!');
+        return redirect()->back()->with('success', 'Updated!');
     }
 }

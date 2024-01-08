@@ -20,7 +20,7 @@ class AiAnalyzeControllerTest extends TestCase
         $user = User::factory()->create([]);
         $this->mock(OpenAiClient::class)
             ->shouldReceive('getMacronutrientSuggestions')
-            ->with($prompt)
+            ->with($prompt, [])
             ->once()
             ->andReturn(collect([Macronutrients::fake(['name' => 'chicken breast']), Macronutrients::fake(['name' => 'carrot'])]));
 
@@ -46,11 +46,11 @@ class AiAnalyzeControllerTest extends TestCase
     public function it_adds_suggestion_to_existing_dialog()
     {
         $prompt = 'I ate 100 grams of chicken breast and rice weighted 200 grams uncooked';
-        $user = User::factory()->create([]);
+        $user = User::factory()->create();
         $dialog = NutriDialog::factory()->for($user)->hasMessages(3)->create();
         $this->mock(OpenAiClient::class)
             ->shouldReceive('getMacronutrientSuggestions')
-            ->with($prompt)
+            ->with($prompt, $dialog->formatMessagesForAi())
             ->once()
             ->andReturn(collect([Macronutrients::fake(['name' => 'chicken breast']), Macronutrients::fake(['name' => 'carrot'])]));
 
