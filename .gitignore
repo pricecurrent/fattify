@@ -17,3 +17,6 @@ yarn-error.log
 /.idea
 /.vscode
 .DS_Store
+/public/css/app.css.map
+/public/js/app.js.LICENSE.txt
+/public/js/app.js.map
