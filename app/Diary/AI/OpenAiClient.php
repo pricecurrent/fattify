@@ -48,7 +48,13 @@ class OpenAiClient
             // 'presence_penalty' => 0,
         ]);
 
-        $response = json_decode(json_decode($completion)->choices[0]->message->content, true);
+        $completion = json_decode($completion);
+
+        if (isset($completion->error)) {
+            throw new AiSuggestionException($completion->error->message);
+        }
+
+        $response = json_decode($completion->choices[0]->message->content, true);
 
         if (isset($response['error'])) {
             throw new AiSuggestionException($response['error']);
