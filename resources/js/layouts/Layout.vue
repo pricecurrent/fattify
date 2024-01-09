@@ -7,7 +7,6 @@
         >
             <div class="max-w-3xl mx-auto px-4 py-5 sm:px-6 lg:max-w-7xl lg:px-8">
                 <div class="relative py-5 flex items-center justify-center lg:justify-between">
-                    <!-- Logo -->
                     <div class="absolute left-0 flex-shrink-0 lg:static">
                         <Link
                             href="/diary"
@@ -38,7 +37,6 @@
                         </div>
                     </div>
 
-                    <!-- Right section on desktop -->
                     <div class="hidden lg:ml-4 lg:flex lg:items-center lg:pr-0.5">
                         <button
                             type="button"
@@ -51,7 +49,6 @@
                             />
                         </button>
 
-                        <!-- Profile dropdown -->
                         <Menu
                             as="div"
                             class="ml-4 relative flex-shrink-0"
@@ -87,9 +84,7 @@
                         </Menu>
                     </div>
 
-                    <!-- Menu button -->
                     <div class="absolute right-0 flex-shrink-0 lg:hidden">
-                        <!-- Mobile menu button -->
                         <PopoverButton class="bg-transparent p-2 rounded-md inline-flex items-center justify-center text-cyan-200 hover:text-white hover:bg-white hover:bg-opacity-10 focus:outline-none focus:ring-2 focus:ring-white">
                             <MenuIcon
                                 v-if="!open"
@@ -232,7 +227,6 @@
         <main class="-mt-24 pb-8">
             <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8">
                 <h1 class="sr-only">Page title</h1>
-                <!-- Main 3 column grid -->
                 <div class="grid grid-cols-1 gap-4 items-start lg:grid-cols-3 lg:gap-8">
                     <slot />
                 </div>
@@ -250,6 +244,11 @@
         <FlashMessages />
 
     </div>
+    <div class="fixed bottom-0 right-0 mr-5 mb-5">
+        <button class="p-3 rounded-full bg-white ring ring-offset-2 ring-fuchsia-400 hover:bg-fuchsia-100" @click="$fotion.open()">
+            <BugAntIcon class="w-7 h-7 text-purple-500" />
+        </button>
+    </div>
 </template>
 
 <script>
@@ -266,7 +265,7 @@ import {
     TransitionRoot,
 } from '@headlessui/vue'
 import { Inertia } from '@inertiajs/inertia'
-import { BellIcon, MenuIcon, XIcon } from '@heroicons/vue/outline'
+import { BellIcon, MenuIcon, XIcon, BugAntIcon } from '@heroicons/vue/24/outline'
 import FlashMessages from '@/components/Shareable/FlashMessages'
 import { NAV_LINKS } from '@/constants'
 import { Link } from '@inertiajs/inertia-vue3'
@@ -288,6 +287,7 @@ export default {
         XIcon,
         FlashMessages,
         Link,
+        BugAntIcon,
     },
     setup() {
         const url = (navLink) => {

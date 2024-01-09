@@ -2,14 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
-@layer base {
-    body {
-        -webkit-tap-highlight-color: transparent;
-    }
-    a.link {
-        @apply font-medium text-sky-600 hover:text-sky-700 transition duration-150;
-    }
+@font-face {
+  font-family: "Holipop";
+  src: url("../fonts/Holipop.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 
+@font-face {
+  font-family: "Fragmentcore";
+  src: url("../fonts/Fragmentcore.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@layer base {
+  body {
+    -webkit-tap-highlight-color: transparent;
+  }
+  a.link {
+    @apply font-medium text-sky-600 hover:text-sky-700 transition duration-150;
+  }
+}

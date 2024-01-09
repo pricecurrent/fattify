@@ -160,7 +160,7 @@
 import {
   ChevronDoubleRightIcon,
   QuestionMarkCircleIcon,
-} from '@heroicons/vue/outline'
+} from '@heroicons/vue/24/outline'
 import TextareaInput from '@/components/Shareable/Input/TextareaInput'
 import PrimaryButton from '@/components/Shareable/Input/PrimaryButton'
 import { useForm } from '@inertiajs/inertia-vue3'

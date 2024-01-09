@@ -98,7 +98,7 @@
           d="M9 13h6m-3-3v6m-9 1V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"
         />
       </svg>
-      <h3 class="mt-2 text-sm font-medium text-gray-900">No food</h3>
+      <h3 class="mt-2 text-sm font-medium text-gray-900">Diary is Empty</h3>
       <p class="mt-1 text-sm text-gray-500">Nothing has been eaten today</p>
     </div>
   </div>
@@ -111,69 +111,66 @@
 </template>
 
 <script>
-import { fetchEntries } from "./../../api/diary";
-import { onUnmounted, onMounted, ref, computed } from "vue";
-import { BookmarkIcon, TrashIcon } from "@heroicons/vue/outline";
-import _ from "lodash";
-import BookmarkEntryModal from "@/components/Shareable/Modals/BookmarkEntryModal";
-import { Inertia } from "@inertiajs/inertia";
+import { fetchEntries } from './../../api/diary'
+import { onUnmounted, onMounted, ref, computed } from 'vue'
+import { BookmarkIcon, TrashIcon } from '@heroicons/vue/24/outline'
+import _ from 'lodash'
+import BookmarkEntryModal from '@/components/Shareable/Modals/BookmarkEntryModal'
+import { Inertia } from '@inertiajs/inertia'
 
 export default {
-  props: ["date"],
+  props: ['date'],
   components: { BookmarkIcon, TrashIcon, BookmarkEntryModal },
   setup(props) {
-    const entries = ref([]);
-    const showBookmarkModal = ref(false);
-    const bookmarkingEntry = ref(null);
+    const entries = ref([])
+    const showBookmarkModal = ref(false)
+    const bookmarkingEntry = ref(null)
     const groupedEntries = computed(() => {
-      const grouped = _(entries.value).groupBy("mealTime").value();
+      const grouped = _(entries.value).groupBy('mealTime').value()
       const sorted = Object.keys(grouped)
         .sort((a, b) => {
-          let indexOfA = ["breakfast", "lunch", "dinner", "other"].indexOf(a);
-          let indexOfB = ["breakfast", "lunch", "dinner", "other"].indexOf(b);
-          if (indexOfA > indexOfB) return 1;
-          if (indexOfA < indexOfB) return -1;
-          return 0;
+          let indexOfA = ['breakfast', 'lunch', 'dinner', 'other'].indexOf(a)
+          let indexOfB = ['breakfast', 'lunch', 'dinner', 'other'].indexOf(b)
+          if (indexOfA > indexOfB) return 1
+          if (indexOfA < indexOfB) return -1
+          return 0
         })
         .reduce((obj, key) => {
-          obj[key] = grouped[key];
-          return obj;
-        }, {});
-      return sorted;
-    });
-    const totalCaloriesInMealTime = (mealTime) => {
-      return _(groupedEntries.value[mealTime]).sumBy("calories");
-    };
-    const bookmark = (entry) => {
-      bookmarkingEntry.value = entry;
-      showBookmarkModal.value = true;
-    };
-    const remove = (entry) => {
+          obj[key] = grouped[key]
+          return obj
+        }, {})
+      return sorted
+    })
+    const totalCaloriesInMealTime = mealTime => {
+      return _(groupedEntries.value[mealTime]).sumBy('calories')
+    }
+    const bookmark = entry => {
+      bookmarkingEntry.value = entry
+      showBookmarkModal.value = true
+    }
+    const remove = entry => {
       Inertia.delete(
-        route("nutrition-diary-entries.destroy", {
+        route('nutrition-diary-entries.destroy', {
           nutritionDiaryEntry: entry.id,
         }),
         { preserveScroll: true },
-      );
-    };
+      )
+    }
 
-    const successfulVisitEventListener = async (event) => {
-      if (event.detail.page.url != "/diary") return;
-      entries.value = await fetchEntries({ date: props.date });
-    };
+    const successfulVisitEventListener = async event => {
+      if (event.detail.page.url != '/diary') return
+      entries.value = await fetchEntries({ date: props.date })
+    }
     onMounted(async () => {
-      document.addEventListener(
-        "inertia:success",
-        successfulVisitEventListener,
-      );
-      entries.value = await fetchEntries({ date: props.date });
-    });
+      document.addEventListener('inertia:success', successfulVisitEventListener)
+      entries.value = await fetchEntries({ date: props.date })
+    })
     onUnmounted(() =>
       document.removeEventListener(
-        "inertia:success",
+        'inertia:success',
         successfulVisitEventListener,
       ),
-    );
+    )
     return {
       entries,
       groupedEntries,
@@ -182,7 +179,7 @@ export default {
       bookmark,
       bookmarkingEntry,
       remove,
-    };
+    }
   },
-};
+}
 </script>

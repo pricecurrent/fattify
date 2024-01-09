@@ -1,7 +1,7 @@
 <template>
   <Head title="Sign Up — Fittify" />
   <div class="mt-4">
-    <h2 class="text-3xl font-extrabold">Create an Account</h2>
+    <h2 class="text-4xl font-serif font-extrabold">Create an Account</h2>
     <p class="text-gray-600">
       Or
       <Link class="link" href="/login">Sign In</Link>

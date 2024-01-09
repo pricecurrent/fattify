@@ -80,14 +80,14 @@
 
     <div class="overflow-hidden border-b border-gray-400 border-opacity-10 pb-16">
         <div class="max-w-3xl mx-auto pt-48 pb-8 px-4 sm:px-6 lg:px-8">
-            <h1 class="text-5xl font-extrabold text-gray-900">
+            <h1 class="text-7xl font-serif font-bold text-gray-900">
                 Track your calories
                 <br class="sm:hidden">
                 <span class="bg-clip-text bg-gradient-to-r from-emerald-600 text-transparent to-lime-700">with ease</span>
             </h1>
 
             <a
-                class="mt-8 block text-center w-full py-3 rounded border border-emerald-500 text-green-900 font-semibold text-sm border-b-emerald-500/60 hover:bg-gradient-to-r transition hover:from-teal-700 hover:to-lime-700 hover:text-white md:text-base"
+                class="mt-8 block text-center w-full py-3 rounded border border-emerald-500 text-green-900 text-sm border-b-emerald-500/60 hover:bg-gradient-to-r transition hover:from-teal-700 hover:to-lime-700 hover:text-white md:text-base"
                 href="{{ route('register') }}"
             >Sign Up for Free</a>
         </div>

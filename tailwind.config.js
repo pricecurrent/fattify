@@ -10,6 +10,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ["Poppins", ...defaultTheme.fontFamily.sans],
+        serif: ["Fragmentcore", ...defaultTheme.fontFamily.serif],
         num: ["Nunito"],
       },
       spacing: {

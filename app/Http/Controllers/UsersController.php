@@ -12,6 +12,7 @@ class UsersController
         if ($request->avatar) {
             $avatarPath = $request->avatar->store('/', 'avatars');
         }
+
         $user->update(array_merge($request->validated(), ['avatar' => $avatarPath ?? $user->avatar]));
 
         return redirect()->back()->with('success', 'Updated!');

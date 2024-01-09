@@ -42,7 +42,7 @@
 </template>
 
 <script>
-import { InformationCircleIcon } from "@heroicons/vue/solid";
+import { InformationCircleIcon } from "@heroicons/vue/24/solid";
 import { ref } from "vue";
 import { useForm } from "@inertiajs/inertia-vue3";
 import TextInput from "@/components/Shareable/Input/TextInput";

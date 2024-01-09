@@ -32,11 +32,14 @@ class UsersControllerTest extends TestCase
         ]);
 
         $this->withoutExceptionHandling();
-        $response = $this->actingAs($this->user)->from('/profile')->json('put', route('users.update', $this->user), [
-            'name' => 'new name',
-            'bio' => 'new bio',
-            'avatar' => $file = UploadedFile::fake()->image('avatar.png'),
-        ]);
+        $response = $this
+            ->actingAs($this->user)
+            ->from('/profile')
+            ->json('put', route('users.update', $this->user), [
+                'name' => 'new name',
+                'bio' => 'new bio',
+                'avatar' => $file = UploadedFile::fake()->image('avatar.png'),
+            ]);
 
         $response->assertRedirect(route('profile'));
         $this->user->refresh();

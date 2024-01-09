@@ -71,9 +71,9 @@
 
 <script>
 import { ref, watch, toRefs } from 'vue'
-import { CheckCircleIcon } from '@heroicons/vue/outline'
-import { XCircleIcon } from '@heroicons/vue/outline'
-import { XIcon } from '@heroicons/vue/solid'
+import { CheckCircleIcon } from '@heroicons/vue/24/outline'
+import { XCircleIcon } from '@heroicons/vue/24/outline'
+import { XIcon } from '@heroicons/vue/24/solid'
 import { Inertia } from '@inertiajs/inertia'
 export default {
     components: {

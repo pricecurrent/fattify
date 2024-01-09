@@ -4,7 +4,7 @@
       class="px-6 text-2xl font-medium text-gray-800 flex items-center justify-center"
     >
       <CalendarIcon class="w-5 h-8 text-sky-600/70" />
-      <span class="ml-2 font-num">{{ date }}</span>
+      <span class="ml-2 font-serif font-bold tracking-wider">{{ date }}</span>
     </h2>
     <SetCaloriesGoal
       v-if="!dailyCaloriesGoal"
@@ -82,7 +82,7 @@
 import axios from 'axios'
 import { onMounted, ref, onUnmounted } from 'vue'
 import Graph from './../Shareable/Graph'
-import { CalendarIcon } from '@heroicons/vue/outline'
+import { CalendarIcon } from '@heroicons/vue/24/outline'
 import SetCaloriesGoal from '@/components/Diary/SetCaloriesGoal'
 export default {
   props: {

@@ -72,7 +72,7 @@
 
 <script>
 import { Listbox, ListboxButton, ListboxLabel, ListboxOption, ListboxOptions } from '@headlessui/vue'
-import { CheckIcon, SelectorIcon } from '@heroicons/vue/solid'
+import { CheckIcon, SelectorIcon } from '@heroicons/vue/24/solid'
 
 export default {
     inheritAttrs: false,

@@ -99,8 +99,8 @@ import {
   ListboxOption,
 } from "@headlessui/vue";
 import { selectInputClassNames } from "@/html-classes";
-import { CheckIcon, SelectorIcon, SearchIcon } from "@heroicons/vue/solid";
-import { BookmarkIcon } from "@heroicons/vue/outline";
+import { CheckIcon, SelectorIcon, SearchIcon } from "@heroicons/vue/24/solid";
+import { BookmarkIcon } from "@heroicons/vue/24/outline";
 import axios from "axios";
 import { debounce } from "lodash";
 

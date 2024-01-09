@@ -96,7 +96,7 @@ import {
   TransitionChild,
   TransitionRoot,
 } from "@headlessui/vue";
-import { ExclamationIcon } from "@heroicons/vue/outline";
+import { ExclamationIcon } from "@heroicons/vue/24/outline";
 import PrimaryButton from "@/components/Shareable/Input/PrimaryButton";
 import SecondaryButton from "@/components/Shareable/Input/SecondaryButton";
 import TextInput from "@/components/Shareable/Input/TextInput";

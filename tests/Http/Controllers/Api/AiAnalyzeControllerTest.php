@@ -68,7 +68,6 @@ class AiAnalyzeControllerTest extends TestCase
         $this->assertEquals($prompt, $message->prompt);
         $this->assertCount(2, $message->suggestions);
         $this->assertEquals($user->id, $dialog->user_id);
-        // assert the food is contained within the suggestions
         $this->assertEquals('chicken breast', $message->suggestions[0]['name']);
         $this->assertEquals('carrot', $message->suggestions[1]['name']);
     }
