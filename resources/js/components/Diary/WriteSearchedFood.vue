@@ -165,9 +165,9 @@ import TextareaInput from '@/components/Shareable/Input/TextareaInput.vue'
 import PrimaryButton from '@/components/Shareable/Input/PrimaryButton.vue'
 import { useForm } from '@inertiajs/vue3'
 import SecondaryButton from '@/components/Shareable/Input/SecondaryButton.vue'
-import { router } from '@inertiajs/vue3'
 import HelpNutrySuggestionModal from '@/components/Shareable/Modals/HelpNutrySuggestionModal.vue'
 import { usePage } from '@inertiajs/vue3'
+import { router } from '@inertiajs/vue3'
 
 export default {
   components: {
@@ -205,7 +205,7 @@ export default {
       this.form.prompt = message.prompt
     },
     saveToDiary(message) {
-      this.$inertia.post(route(`nutri-dialog-messages.accepted.store`, message))
+      router.post(route(`nutri-dialog-messages.accepted.store`, message))
     },
   },
 }

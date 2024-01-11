@@ -2,10 +2,10 @@
 
 namespace Tests\Http\Controllers;
 
-use Tests\TestCase;
 use App\Models\User;
-use Inertia\Testing\Assert;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Inertia\Testing\AssertableInertia;
+use Tests\TestCase;
 
 class DiaryControllerTest extends TestCase
 {
@@ -13,7 +13,7 @@ class DiaryControllerTest extends TestCase
 
     /**
      * @test
-     * @covers App\Http\Controllers\DiaryController
+     * @covers \App\Http\Controllers\DiaryController
      */
     public function guests_can_not_access_diary()
     {
@@ -22,7 +22,7 @@ class DiaryControllerTest extends TestCase
 
     /**
      * @test
-     * @covers App\Http\Controllers\DiaryController
+     * @covers \App\Http\Controllers\DiaryController
      */
     public function it_shows_a_diary()
     {
@@ -32,7 +32,7 @@ class DiaryControllerTest extends TestCase
 
         $response = $this->actingAs($user)->json('get', 'diary');
 
-        $response->assertInertia(function (Assert $page) {
+        $response->assertInertia(function (AssertableInertia $page) {
             $page->component('Diary')
                 ->where('date', now()->format('F d, Y'))
                 ->where('dailyCaloriesGoal', 2400);

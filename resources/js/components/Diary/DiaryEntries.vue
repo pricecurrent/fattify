@@ -149,7 +149,7 @@ export default {
       showBookmarkModal.value = true
     }
     const remove = entry => {
-      Inertia.delete(
+      router.delete(
         route('nutrition-diary-entries.destroy', {
           nutritionDiaryEntry: entry.id,
         }),
