@@ -4,14 +4,22 @@ import Layout from '@/layouts/Layout.vue'
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers'
 
 createInertiaApp({
-  resolve: name =>
-    resolvePageComponent(
+  resolve: name => {
+    console.log({ name })
+    const resolvedPages = import.meta.glob('./Pages/**/*.vue')
+    console.log({ resolvedPages })
+
+    const page = resolvePageComponent(
       `./Pages/${name}.vue`,
-      import.meta.glob('./Pages/**/*.vue'),
+      resolvedPages,
     ).then(page => {
+      console.log({ page })
       page.default.layout = page?.default?.layout || Layout
       return page
-    }),
+    })
+
+    return page
+  },
 
   // resolve: name => {
   //   const pages = import.meta.glob('./Pages/**/*.vue', { eager: true })
