@@ -1,13 +1,13 @@
 <template>
   <form @submit.prevent="submit">
     <div
-      class="space-y-4 sm:grid sm:grid-rows-2 sm:grid-flow-col sm:gap-x-8 sm:space-y-0"
+      class="space-y-4 sm:grid sm:grid-flow-col sm:grid-rows-2 sm:gap-x-8 sm:space-y-0"
     >
       <div class="row-start-1 sm:col-start-1">
         <BookmarksSearchInput v-model="form.bookmark_id" />
       </div>
       <div
-        class="space-y-4 sm:space-y-8 sm:row-start-1 sm:row-span-2 sm:col-start-2"
+        class="space-y-4 sm:col-start-2 sm:row-span-2 sm:row-start-1 sm:space-y-8"
       >
         <TextInput
           type="tel"
@@ -26,7 +26,7 @@
         />
       </div>
       <div
-        class="sm:flex sm:flex-col justify-end mt-4 sm:col-start-1 sm:row-start-2 sm:mt-8"
+        class="mt-4 justify-end sm:col-start-1 sm:row-start-2 sm:mt-8 sm:flex sm:flex-col"
       >
         <PrimaryButton
           type="submit"

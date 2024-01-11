@@ -1,9 +1,9 @@
 <template>
-  <div class="pt-6 pb-3">
+  <div class="pb-3 pt-6">
     <h2
-      class="px-6 text-2xl font-medium text-gray-800 flex items-center justify-center"
+      class="flex items-center justify-center px-6 text-2xl font-medium text-gray-800"
     >
-      <CalendarIcon class="w-5 h-8 text-sky-600/70" />
+      <CalendarIcon class="h-8 w-5 text-sky-600/70" />
       <span class="ml-2 font-serif font-bold tracking-wider">{{ date }}</span>
     </h2>
     <SetCaloriesGoal
@@ -11,7 +11,7 @@
       class="mt-8"
     />
 
-    <div class="px-6 mt-8 w-full max-w-xs mx-auto">
+    <div class="mx-auto mt-8 w-full max-w-xs px-6">
       <Graph
         :progress="consumption.percentage"
         :text="consumption.calories"
@@ -21,7 +21,7 @@
       v-if="dailyCaloriesGoal"
       class="mt-8 px-6"
     >
-      <p class="text-gray-700 text-sm">
+      <p class="text-sm text-gray-700">
         * Your daily calories goal is
         <span class="font-num font-semibold">{{ dailyCaloriesGoal }}.</span>
       </p>
@@ -29,47 +29,47 @@
   </div>
 
   <div
-    class="px-6 pb-6 pt-3 mt-3 border-t-2 border-sky-200/50 bg-gradient-to-br from-sky-50 to-sky-400/30"
+    class="mt-3 border-t-2 border-sky-200/50 bg-gradient-to-br from-sky-50 to-sky-400/30 px-6 pb-6 pt-3"
   >
     <div class="grid grid-cols-3 gap-x-8">
       <div class="text-center">
-        <div class="font-medium text-xs uppercase text-sky-500 tracking-wide">
+        <div class="text-xs font-medium uppercase tracking-wide text-sky-500">
           Proteins
         </div>
-        <div class="font-num font-bold text-2xl text-sky-700">
+        <div class="font-num text-2xl font-bold text-sky-700">
           <span>{{ consumption.proteins }}</span>
           <span class="text-base">g.</span>
         </div>
         <div class="border-t border-sky-300">
-          <span class="text-xs text-sky-600 font-medium"
+          <span class="text-xs font-medium text-sky-600"
             >{{ consumption.proteinsPercentage }}%</span
           >
         </div>
       </div>
       <div class="text-center">
-        <div class="font-medium text-xs uppercase text-sky-500 tracking-wide">
+        <div class="text-xs font-medium uppercase tracking-wide text-sky-500">
           Fats
         </div>
-        <div class="font-num font-bold text-2xl text-sky-700">
+        <div class="font-num text-2xl font-bold text-sky-700">
           <span>{{ consumption.fats }}</span>
           <span class="text-base">g.</span>
         </div>
         <div class="border-t border-sky-300">
-          <span class="text-xs text-sky-600 font-medium"
+          <span class="text-xs font-medium text-sky-600"
             >{{ consumption.fatsPercentage }}%</span
           >
         </div>
       </div>
       <div class="text-center">
-        <div class="font-medium text-xs uppercase text-sky-500 tracking-wide">
+        <div class="text-xs font-medium uppercase tracking-wide text-sky-500">
           Carbs
         </div>
-        <div class="font-num font-bold text-2xl text-sky-700">
+        <div class="font-num text-2xl font-bold text-sky-700">
           <span>{{ consumption.carbs }}</span>
           <span class="text-base">g.</span>
         </div>
         <div class="border-t border-sky-300">
-          <span class="text-xs text-sky-600 font-medium"
+          <span class="text-xs font-medium text-sky-600"
             >{{ consumption.carbsPercentage }}%</span
           >
         </div>

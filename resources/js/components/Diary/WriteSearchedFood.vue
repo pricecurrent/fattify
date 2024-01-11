@@ -1,6 +1,6 @@
 <template>
   <form
-    class="px-4 mt-4 py-3"
+    class="mt-4 px-4 py-3"
     @submit.prevent="submit"
   >
     <TextareaInput
@@ -23,7 +23,7 @@
 
   <ul
     role="list"
-    class="divide-y px-4 divide-gray-100"
+    class="divide-y divide-gray-100 px-4"
     v-if="nutriDialog?.messages?.length > 0"
   >
     <li
@@ -44,14 +44,14 @@
             <a
               href="#"
               @click.prevent="setPreviousPrompt(message)"
-              class="text-sm text-gray-600 inline-flex space-x-1 items-center"
+              class="inline-flex items-center space-x-1 text-sm text-gray-600"
             >
               <span>Your entry</span>
-              <ChevronDoubleRightIcon class="w-3 h-3 text-gray-500" />
+              <ChevronDoubleRightIcon class="h-3 w-3 text-gray-500" />
             </a>
           </div>
         </div>
-        <p class="pl-4 ml-4 mt-3 border-l-2 border-gray-300 text-gray-800">
+        <p class="ml-4 mt-3 border-l-2 border-gray-300 pl-4 text-gray-800">
           {{ message.prompt }}
         </p>
       </div>
@@ -69,15 +69,15 @@
         </div>
       </div>
       <div
-        class="mt-8 relative flow-root p-6 border border-gray-300 rounded shadow-sm"
+        class="relative mt-8 flow-root rounded border border-gray-300 p-6 shadow-sm"
       >
-        <div class="absolute top-4 right-4 mb-4">
+        <div class="absolute right-4 top-4 mb-4">
           <a
             href="#"
             @click.prevent="showHelpPopup = true"
             class="text-gray-400 hover:text-gray-500"
           >
-            <QuestionMarkCircleIcon class="w-5 h-5 text-purple-500" />
+            <QuestionMarkCircleIcon class="h-5 w-5 text-purple-500" />
           </a>
         </div>
         <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">

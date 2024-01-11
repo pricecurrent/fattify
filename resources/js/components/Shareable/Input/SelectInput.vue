@@ -12,7 +12,7 @@
       >
         {{ label }}
       </ListboxLabel>
-      <div class="mt-1 relative">
+      <div class="relative mt-1">
         <ListboxButton :class="classNames">
           <span
             v-if="selected"
@@ -25,7 +25,7 @@
             >{{ placeholder ? placeholder : 'Select' }}</span
           >
           <span
-            class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none"
+            class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2"
           >
             <ChevronUpDownIcon
               class="h-5 w-5 text-gray-400"
@@ -40,7 +40,7 @@
           leave-to-class="opacity-0"
         >
           <ListboxOptions
-            class="absolute z-10 mt-1 w-full bg-white shadow-lg max-h-60 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm"
+            class="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
           >
             <ListboxOption
               as="template"
@@ -51,8 +51,8 @@
             >
               <li
                 :class="[
-                  active ? 'text-white bg-sky-600' : 'text-gray-900',
-                  'cursor-default select-none relative py-2 pl-8 pr-4',
+                  active ? 'bg-sky-600 text-white' : 'text-gray-900',
+                  'relative cursor-default select-none py-2 pl-8 pr-4',
                 ]"
               >
                 <span
@@ -84,7 +84,7 @@
     </Listbox>
     <div
       v-if="error"
-      class="mt-1 text-sm text-red-500 leading-4"
+      class="mt-1 text-sm leading-4 text-red-500"
     >
       {{ error }}
     </div>

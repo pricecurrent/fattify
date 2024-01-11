@@ -10,7 +10,7 @@
       class="relative"
     >
       <div
-        class="border-t border-b border-gray-200 bg-gray-50 px-6 py-1 text-sm font-medium text-gray-500"
+        class="border-b border-t border-gray-200 bg-gray-50 px-6 py-1 text-sm font-medium text-gray-500"
       >
         <div class="flex items-center justify-between">
           <h3 class="capitalize">{{ mealTime }}</h3>
@@ -29,14 +29,14 @@
           class="bg-white"
         >
           <div
-            class="relative px-6 py-5 flex items-center space-x-3 hover:bg-gray-50"
+            class="relative flex items-center space-x-3 px-6 py-5 hover:bg-gray-50"
           >
-            <div class="flex-1 min-w-0">
+            <div class="min-w-0 flex-1">
               <p class="text-sm font-medium text-gray-900">
                 {{ entry.dishName }}
                 <span
                   v-show="entry.weight"
-                  class="text-cyan-700 text-xs inline-block ml-px"
+                  class="ml-px inline-block text-xs text-cyan-700"
                   >{{ entry.weight }}g.</span
                 >
               </p>
@@ -48,15 +48,15 @@
                   <span> cal.</span>
                 </div>
                 <div class="ml-4">
-                  <span class="font-num text-cyan-700 font-semibold">{{
+                  <span class="font-num font-semibold text-cyan-700">{{
                     entry.proteins
                   }}</span>
                   &bull;
-                  <span class="font-num text-cyan-700 font-semibold">{{
+                  <span class="font-num font-semibold text-cyan-700">{{
                     entry.fats
                   }}</span>
                   &bull;
-                  <span class="font-num text-cyan-700 font-semibold">{{
+                  <span class="font-num font-semibold text-cyan-700">{{
                     entry.carbs
                   }}</span>
                 </div>
@@ -70,10 +70,10 @@
                   entry.bookmarkedAt === null
                 "
               >
-                <BookmarkIcon class="w-4 h-4 text-sky-500" />
+                <BookmarkIcon class="h-4 w-4 text-sky-500" />
               </button>
               <button v-on:click.prevent="remove(entry)">
-                <TrashIcon class="w-4 h-4 text-red-900/60" />
+                <TrashIcon class="h-4 w-4 text-red-900/60" />
               </button>
             </div>
           </div>
@@ -82,7 +82,7 @@
     </div>
   </nav>
   <div v-else>
-    <div class="text-center py-5">
+    <div class="py-5 text-center">
       <svg
         class="mx-auto h-12 w-12 text-gray-400"
         fill="none"

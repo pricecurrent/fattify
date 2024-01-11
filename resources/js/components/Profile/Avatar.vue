@@ -2,16 +2,16 @@
   <div class="flex items-center">
     <img
       v-if="preview"
-      class="object-cover rounded-full h-32 w-32 shadow-xl ring ring-offset-4 ring-fuchsia-500/70"
+      class="h-32 w-32 rounded-full object-cover shadow-xl ring ring-fuchsia-500/70 ring-offset-4"
       :src="preview"
       alt="avatar"
     />
-    <label class="relative flex items-center justify-center w-36 h-36 mx-auto">
+    <label class="relative mx-auto flex h-36 w-36 items-center justify-center">
       <SecondaryButton>Change photo</SecondaryButton>
       <FileInput
         id="user-photo"
         v-model="file"
-        class="absolute w-full h-full opacity-0 cursor-pointer border-gray-300 rounded-md"
+        class="absolute h-full w-full cursor-pointer rounded-md border-gray-300 opacity-0"
       />
     </label>
   </div>

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full h-full"
+    class="h-full w-full"
     ref="graph"
   ></div>
 </template>

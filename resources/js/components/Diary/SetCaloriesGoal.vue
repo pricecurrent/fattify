@@ -22,7 +22,7 @@
         <form
           v-if="showField"
           @submit.prevent="form.put(`/users/${$page.props.auth.user.id}`)"
-          class="flex items-center mt-2"
+          class="mt-2 flex items-center"
         >
           <div class="flex-1">
             <TextInput
@@ -32,7 +32,7 @@
               placeholder="3000"
             />
           </div>
-          <div class="flex-1 flex items-center justify-center">
+          <div class="flex flex-1 items-center justify-center">
             <SecondaryButton
               type="submit"
               value="save"

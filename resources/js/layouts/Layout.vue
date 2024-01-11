@@ -2,17 +2,17 @@
   <div class="min-h-screen bg-gray-100">
     <Popover
       as="header"
-      class="pb-24 bg-gradient-to-l from-cyan-800 to-green-900 pt-safe-top"
+      class="bg-gradient-to-l from-cyan-800 to-green-900 pb-24 pt-safe-top"
       v-slot="{ open }"
     >
-      <div class="max-w-3xl mx-auto px-4 py-5 sm:px-6 lg:max-w-7xl lg:px-8">
+      <div class="mx-auto max-w-3xl px-4 py-5 sm:px-6 lg:max-w-7xl lg:px-8">
         <div
-          class="relative py-5 flex items-center justify-center lg:justify-between"
+          class="relative flex items-center justify-center py-5 lg:justify-between"
         >
           <div class="absolute left-0 flex-shrink-0 lg:static">
             <Link
               href="/diary"
-              class="flex items-center focus:outline-none focus:ring focus:rounded-sm focus:ring-lime-400"
+              class="flex items-center focus:rounded-sm focus:outline-none focus:ring focus:ring-lime-400"
             >
               <img
                 src="/apple-icon-180.png"
@@ -20,14 +20,14 @@
                 class="h-8 w-auto rounded-full shadow"
               />
               <h1
-                class="inline-block ml-2 text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-br from-cyan-400 to-lime-400/60"
+                class="ml-2 inline-block bg-gradient-to-br from-cyan-400 to-lime-400/60 bg-clip-text text-2xl font-extrabold text-transparent"
               >
                 Fittify
               </h1>
             </Link>
           </div>
 
-          <div class="hidden lg:grid grid-cols-3 gap-8 flex-1 mr-auto ml-12">
+          <div class="ml-12 mr-auto hidden flex-1 grid-cols-3 gap-8 lg:grid">
             <div class="col-span-2">
               <nav class="flex space-x-4">
                 <Link
@@ -36,7 +36,7 @@
                   :href="url(link)"
                   :class="[
                     link.active ? 'text-white' : 'text-cyan-100',
-                    'text-sm font-medium rounded-md bg-white bg-opacity-0 px-3 py-2 hover:bg-opacity-10',
+                    'rounded-md bg-white bg-opacity-0 px-3 py-2 text-sm font-medium hover:bg-opacity-10',
                   ]"
                   :aria-current="link.active ? 'page' : 'false'"
                 >
@@ -49,7 +49,7 @@
           <div class="hidden lg:ml-4 lg:flex lg:items-center lg:pr-0.5">
             <button
               type="button"
-              class="flex-shrink-0 p-1 text-cyan-200 rounded-full hover:text-white hover:bg-white hover:bg-opacity-10 focus:outline-none focus:ring-2 focus:ring-white"
+              class="flex-shrink-0 rounded-full p-1 text-cyan-200 hover:bg-white hover:bg-opacity-10 hover:text-white focus:outline-none focus:ring-2 focus:ring-white"
             >
               <span class="sr-only">View notifications</span>
               <BellIcon
@@ -60,15 +60,15 @@
 
             <Menu
               as="div"
-              class="ml-4 relative flex-shrink-0"
+              class="relative ml-4 flex-shrink-0"
             >
               <div>
                 <MenuButton
-                  class="rounded-full flex text-sm border-none focus:outline-none focus:ring-opacity-100"
+                  class="flex rounded-full border-none text-sm focus:outline-none focus:ring-opacity-100"
                 >
                   <span class="sr-only">Open user menu</span>
                   <img
-                    class="h-8 w-8 rounded-full text-white bg-cover"
+                    class="h-8 w-8 rounded-full bg-cover text-white"
                     :src="user.avatar_url"
                     alt="avatat"
                   />
@@ -80,7 +80,7 @@
                 leave-to-class="transform opacity-0 scale-95"
               >
                 <MenuItems
-                  class="origin-top-right z-40 absolute -right-2 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+                  class="absolute -right-2 z-40 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
                 >
                   <MenuItem v-slot="{ active }">
                     <Link
@@ -89,7 +89,7 @@
                       method="post"
                       :class="[
                         active ? 'bg-gray-100' : '',
-                        'block w-full text-left px-4 py-2 text-sm text-gray-700',
+                        'block w-full px-4 py-2 text-left text-sm text-gray-700',
                       ]"
                     >
                       Sign out
@@ -102,7 +102,7 @@
 
           <div class="absolute right-0 flex-shrink-0 lg:hidden">
             <PopoverButton
-              class="bg-transparent p-2 rounded-md inline-flex items-center justify-center text-cyan-200 hover:text-white hover:bg-white hover:bg-opacity-10 focus:outline-none focus:ring-2 focus:ring-white"
+              class="inline-flex items-center justify-center rounded-md bg-transparent p-2 text-cyan-200 hover:bg-white hover:bg-opacity-10 hover:text-white focus:outline-none focus:ring-2 focus:ring-white"
             >
               <Bars3Icon
                 v-if="!open"
@@ -118,10 +118,10 @@
           </div>
         </div>
         <div
-          class="hidden lg:block py-4 border-t border-cyan-50 border-opacity-20"
+          class="hidden border-t border-cyan-50 border-opacity-20 py-4 lg:block"
         >
           <h1
-            class="text-4xl font-bold bg-clip-text bg-gradient-to-r text-transparent inline-block from-cyan-100 to-yellow-50"
+            class="inline-block bg-gradient-to-r from-cyan-100 to-yellow-50 bg-clip-text text-4xl font-bold text-transparent"
           ></h1>
         </div>
       </div>
@@ -142,7 +142,7 @@
           >
             <PopoverOverlay
               static
-              class="z-20 fixed inset-0 bg-black bg-opacity-25"
+              class="fixed inset-0 z-20 bg-black bg-opacity-25"
             />
           </TransitionChild>
 
@@ -158,12 +158,12 @@
             <PopoverPanel
               focus
               static
-              class="z-30 absolute top-0 inset-x-0 max-w-3xl mx-auto w-full p-2 transition transform origin-top"
+              class="absolute inset-x-0 top-0 z-30 mx-auto w-full max-w-3xl origin-top transform p-2 transition"
             >
               <div
-                class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y divide-gray-200"
+                class="divide-y divide-gray-200 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5"
               >
-                <div class="pt-3 pb-2">
+                <div class="pb-2 pt-3">
                   <div class="flex items-center justify-between px-4">
                     <div>
                       <svg
@@ -192,7 +192,7 @@
                     </div>
                     <div class="-mr-2">
                       <PopoverButton
-                        class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-cyan-500"
+                        class="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-cyan-500"
                       >
                         <span class="sr-only">Close menu</span>
                         <XMarkIcon
@@ -202,35 +202,35 @@
                       </PopoverButton>
                     </div>
                   </div>
-                  <div class="mt-3 px-2 space-y-1">
+                  <div class="mt-3 space-y-1 px-2">
                     <a
                       v-for="item in NAV_LINKS"
                       :key="item.title"
                       :href="url(item)"
-                      class="block rounded-md px-3 py-2 text-base text-gray-900 font-medium hover:bg-gray-100 hover:text-gray-800"
+                      class="block rounded-md px-3 py-2 text-base font-medium text-gray-900 hover:bg-gray-100 hover:text-gray-800"
                       >{{ item.title }}</a
                     >
                   </div>
                 </div>
-                <div class="pt-4 pb-2">
+                <div class="pb-2 pt-4">
                   <div class="flex items-center px-5">
                     <div class="flex-shrink-0">
                       <img
-                        class="bg-cover h-10 w-10 rounded-full"
+                        class="h-10 w-10 rounded-full bg-cover"
                         :src="user.avatar_url"
                         alt=""
                       />
                     </div>
                     <div class="ml-3 min-w-0 flex-1">
-                      <div class="text-base font-medium text-gray-800 truncate">
+                      <div class="truncate text-base font-medium text-gray-800">
                         {{ user.name }}
                       </div>
-                      <div class="text-sm font-medium text-gray-500 truncate">
+                      <div class="truncate text-sm font-medium text-gray-500">
                         {{ user.email }}
                       </div>
                     </div>
                     <button
-                      class="ml-auto flex-shrink-0 bg-white p-1 text-gray-400 rounded-full hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500"
+                      class="ml-auto flex-shrink-0 rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
                     >
                       <span class="sr-only">View notifications</span>
                       <BellIcon
@@ -239,12 +239,12 @@
                       />
                     </button>
                   </div>
-                  <div class="mt-3 px-2 space-y-1">
+                  <div class="mt-3 space-y-1 px-2">
                     <Link
                       as="button"
                       href="logout"
                       method="post"
-                      class="block rounded-md px-3 py-2 text-base text-gray-900 font-medium hover:bg-gray-100 hover:text-gray-800"
+                      class="block rounded-md px-3 py-2 text-base font-medium text-gray-900 hover:bg-gray-100 hover:text-gray-800"
                     >
                       Sign out
                     </Link>
@@ -257,17 +257,17 @@
       </TransitionRoot>
     </Popover>
     <main class="-mt-24 pb-8">
-      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+      <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
         <h1 class="sr-only">Page title</h1>
-        <div class="grid grid-cols-1 gap-4 items-start lg:grid-cols-3 lg:gap-8">
+        <div class="grid grid-cols-1 items-start gap-4 lg:grid-cols-3 lg:gap-8">
           <slot />
         </div>
       </div>
     </main>
     <footer>
-      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 lg:max-w-7xl">
+      <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
         <div
-          class="border-t border-gray-200 py-8 text-sm text-gray-500 text-center sm:text-left"
+          class="border-t border-gray-200 py-8 text-center text-sm text-gray-500 sm:text-left"
         >
           <span class="block sm:inline">&copy; 2024 Fittify.</span>
           <span class="block sm:inline">All rights reserved.</span>
@@ -277,12 +277,12 @@
 
     <FlashMessages />
   </div>
-  <div class="fixed bottom-0 right-0 mr-5 mb-5">
+  <div class="fixed bottom-0 right-0 mb-5 mr-5">
     <button
-      class="p-3 rounded-full bg-white ring ring-offset-2 ring-fuchsia-400 hover:bg-fuchsia-100"
+      class="rounded-full bg-white p-3 ring ring-fuchsia-400 ring-offset-2 hover:bg-fuchsia-100"
       @click="$fotion.open()"
     >
-      <BugAntIcon class="w-7 h-7 text-purple-500" />
+      <BugAntIcon class="h-7 w-7 text-purple-500" />
     </button>
   </div>
 </template>

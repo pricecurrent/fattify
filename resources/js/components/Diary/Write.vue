@@ -1,5 +1,5 @@
 <template>
-  <div class="md:px-6 md:mt-4 lg:mt-0">
+  <div class="md:mt-4 md:px-6 lg:mt-0">
     <WritingMode v-model="writingMode" />
   </div>
   <div>

@@ -6,12 +6,12 @@
     <Dialog
       as="div"
       static
-      class="fixed z-10 inset-0 overflow-y-auto"
+      class="fixed inset-0 z-10 overflow-y-auto"
       @close="close"
       :open="open"
     >
       <div
-        class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 sm:block sm:p-0"
+        class="flex min-h-screen items-end justify-center px-4 pb-20 pt-4 sm:block sm:p-0"
       >
         <TransitionChild
           as="template"
@@ -29,7 +29,7 @@
 
         <!-- This element is to trick the browser into centering the modal contents. -->
         <span
-          class="hidden sm:inline-block sm:align-middle sm:h-screen"
+          class="hidden sm:inline-block sm:h-screen sm:align-middle"
           aria-hidden="true"
           >&#8203;</span
         >
@@ -43,14 +43,14 @@
           leave-to="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
         >
           <div
-            class="inline-block align-bottom w-full bg-white text-left overflow-hidden shadow-xl transform transition-all border-8 border-b-cyan-900 border-cyan-700 border-t-cyan-500 sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
+            class="inline-block w-full transform overflow-hidden border-8 border-cyan-700 border-b-cyan-900 border-t-cyan-500 bg-white text-left align-bottom shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:align-middle"
           >
             <div class="px-4 pt-5 sm:p-6 sm:pb-4">
               <div class="sm:flex sm:items-start">
-                <div class="prose mt-3 sm:mt-0 sm:ml-4 sm:text-left">
+                <div class="prose mt-3 sm:ml-4 sm:mt-0 sm:text-left">
                   <DialogTitle
                     as="h3"
-                    class="text-lg leading-6 font-bold text-gray-900"
+                    class="text-lg font-bold leading-6 text-gray-900"
                   >
                     Nutritionist Assistant Guide
                   </DialogTitle>
@@ -84,12 +84,12 @@
                 </div>
               </div>
             </div>
-            <div class="mt-4 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-              <div class="text-center w-full">
+            <div class="mt-4 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+              <div class="w-full text-center">
                 <a
                   href="#"
                   @click.prevent="close"
-                  class="inline-block mt-3 text-center text-gray-500 leading-none border-b pb-px border-gray-400"
+                  class="mt-3 inline-block border-b border-gray-400 pb-px text-center leading-none text-gray-500"
                   >Ok</a
                 >
               </div>

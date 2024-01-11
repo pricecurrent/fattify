@@ -16,14 +16,14 @@
     />
     <div
       v-if="$slots['trailing-addon']"
-      class="absolute inset-y-0 right-0 flex items-center justify-center px-4 bg-gradient-to-br from-fuchsia-50 to-cyan-50"
+      class="absolute inset-y-0 right-0 flex items-center justify-center bg-gradient-to-br from-fuchsia-50 to-cyan-50 px-4"
     >
       <slot name="trailing-addon" />
     </div>
   </div>
   <div
     v-if="error"
-    class="mt-1 text-sm text-red-500 leading-4"
+    class="mt-1 text-sm leading-4 text-red-500"
   >
     {{ error }}
   </div>

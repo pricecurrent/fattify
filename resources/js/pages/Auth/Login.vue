@@ -4,7 +4,7 @@
   </Head>
 
   <div class="mt-4">
-    <h2 class="text-4xl font-serif font-extrabold">Sign in to your account</h2>
+    <h2 class="font-serif text-4xl font-extrabold">Sign in to your account</h2>
     <p class="text-gray-600">
       Or
       <Link

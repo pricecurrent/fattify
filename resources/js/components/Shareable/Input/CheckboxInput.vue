@@ -1,7 +1,7 @@
 <template>
   <label
     :for="id"
-    class="space-x-2 inline-flex items-center leading-none"
+    class="inline-flex items-center space-x-2 leading-none"
   >
     <input
       :id="id"

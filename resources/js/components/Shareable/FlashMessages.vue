@@ -2,9 +2,9 @@
   <!-- Global notification live region, render this permanently at the end of the document -->
   <div
     aria-live="assertive"
-    class="fixed inset-0 flex items-end px-4 py-6 pointer-events-none sm:p-6 sm:items-start"
+    class="pointer-events-none fixed inset-0 flex items-end px-4 py-6 sm:items-start sm:p-6"
   >
-    <div class="w-full flex flex-col items-center space-y-4 sm:items-end">
+    <div class="flex w-full flex-col items-center space-y-4 sm:items-end">
       <!-- Notification panel, dynamically insert this into the live region when it needs to be displayed -->
       <transition
         enter-active-class="transform ease-out duration-300 transition"
@@ -16,7 +16,7 @@
       >
         <div
           v-if="show"
-          class="max-w-sm w-full shadow-lg rounded-lg pointer-events-auto ring-1 ring-black ring-opacity-5 overflow-hidden"
+          class="pointer-events-auto w-full max-w-sm overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5"
           :class="[error ? 'bg-red-50' : 'bg-green-50']"
         >
           <div class="p-4">
@@ -48,10 +48,10 @@
                   Fix that
                 </p>
               </div>
-              <div class="ml-4 flex-shrink-0 flex">
+              <div class="ml-4 flex flex-shrink-0">
                 <button
                   @click="show = false"
-                  class="rounded-md inline-flex text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500"
+                  class="inline-flex rounded-md text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2"
                   :class="[error ? 'text-red-50' : 'text-green-50']"
                 >
                   <XMarkIcon

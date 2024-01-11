@@ -11,7 +11,7 @@
         >
           <span>{{ selectedBookmark.name }}</span>
           <span
-            class="ml-2 text-xs text-gray-500 font-num inline-block font-bold"
+            class="ml-2 inline-block font-num text-xs font-bold text-gray-500"
           >
             {{ selectedBookmark.proteins }} / {{ selectedBookmark.fats }} /
             {{ selectedBookmark.carbs }}
@@ -25,10 +25,10 @@
           Select Bookmark
         </span>
         <span
-          class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none"
+          class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2"
         >
           <ChevronUpDownIcon
-            class="w-5 h-5 text-gray-400"
+            class="h-5 w-5 text-gray-400"
             aria-hidden="true"
           />
         </span>
@@ -40,23 +40,23 @@
       >
         <div v-show="open">
           <ListboxOptions
-            class="absolute z-10 w-full pb-1 mt-1 overflow-auto text-base bg-white rounded-md shadow-lg max-h-72 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
+            class="absolute z-10 mt-1 max-h-72 w-full overflow-auto rounded-md bg-white pb-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
           >
             <div
-              class="sticky top-0 z-10 px-3 pt-4 pb-3 bg-gray-100 border-gray-200 border-b-2 border-transparent focus-within:border-sky-500 focus-within:bg-white transition"
+              class="sticky top-0 z-10 border-b-2 border-gray-200 border-transparent bg-gray-100 px-3 pb-3 pt-4 transition focus-within:border-sky-500 focus-within:bg-white"
             >
               <div class="relative">
                 <div
                   class="absolute inset-y-0 left-2 flex items-center justify-center"
                 >
-                  <MagnifyingGlassIcon class="w-5 h-5 text-gray-400" />
+                  <MagnifyingGlassIcon class="h-5 w-5 text-gray-400" />
                 </div>
                 <input
                   type="search"
                   placeholder="Search..."
                   v-on:keydown.space.stop="() => {}"
                   v-model="keyword"
-                  class="w-full block px-0 pl-8 bg-white shadow-sm focus:shadow-none border-none rounded-md focus:outline-none focus:border-none focus:ring-0"
+                  class="block w-full rounded-md border-none bg-white px-0 pl-8 shadow-sm focus:border-none focus:shadow-none focus:outline-none focus:ring-0"
                 />
               </div>
             </div>
@@ -70,8 +70,8 @@
             >
               <li
                 :class="[
-                  active ? 'text-amber-900 bg-amber-100' : 'text-gray-900',
-                  'cursor-default select-none relative py-2 pl-10 pr-4',
+                  active ? 'bg-amber-100 text-amber-900' : 'text-gray-900',
+                  'relative cursor-default select-none py-2 pl-10 pr-4',
                 ]"
               >
                 <span
@@ -86,7 +86,7 @@
                   class="absolute inset-y-0 left-0 flex items-center pl-3 text-amber-600"
                 >
                   <CheckIcon
-                    class="w-5 h-5"
+                    class="h-5 w-5"
                     aria-hidden="true"
                   />
                 </span>
@@ -94,9 +94,9 @@
             </ListboxOption>
             <div v-show="bookmarks.length == 0">
               <div
-                class="cursor-default select-none relative px-4 py-3 flex flex-col justify-center items-center"
+                class="relative flex cursor-default select-none flex-col items-center justify-center px-4 py-3"
               >
-                <BookmarkIcon class="w-8 h-8 text-sky-500/50" />
+                <BookmarkIcon class="h-8 w-8 text-sky-500/50" />
                 <div class="mt-2 text-sm">{{ emptyBookmarksCopy }}</div>
                 <!-- <div class="mt-1 text-sm">You may <a href="#"class="link">create one</a> here</div> -->
               </div>

@@ -2,12 +2,12 @@
   <inertia-head title="My Profile — Fittify" />
 
   <div class="relative col-span-3">
-    <div class="bg-white rounded-lg shadow overflow-hidden">
+    <div class="overflow-hidden rounded-lg bg-white shadow">
       <form
         v-on:submit.prevent="submit"
         class="px-6 py-4"
       >
-        <div class="grid grid-cols-1 md:grid-cols-4 md:gap-x-6 space-y-4">
+        <div class="grid grid-cols-1 space-y-4 md:grid-cols-4 md:gap-x-6">
           <div class="col-span-full md:col-span-1">
             <Avatar
               v-model="form.avatar"

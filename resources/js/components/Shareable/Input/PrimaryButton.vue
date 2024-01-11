@@ -8,7 +8,7 @@
   >
     <TransitionRoot
       :show="loading"
-      class="absolute inset-0 w-full h-full backdrop-blur flex items-center justify-center"
+      class="absolute inset-0 flex h-full w-full items-center justify-center backdrop-blur"
       enter="transition-opacity duration-75 delay-300"
       enter-from="opacity-0"
       enter-to="opacity-100"
@@ -17,7 +17,7 @@
       leave-to="opacity-0"
     >
       <Puff
-        class="stroke-6 stroke-current"
+        class="stroke-current stroke-6"
         src="https://samherbert.net/svg-loaders/svg-loaders/three-dots.svg"
       />
     </TransitionRoot>
