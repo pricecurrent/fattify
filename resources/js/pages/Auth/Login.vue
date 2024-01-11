@@ -7,10 +7,17 @@
     <h2 class="text-4xl font-serif font-extrabold">Sign in to your account</h2>
     <p class="text-gray-600">
       Or
-      <Link class="link" href="register">get started for free</Link>
+      <Link
+        class="link"
+        href="register"
+        >get started for free</Link
+      >
     </p>
   </div>
-  <form @submit.prevent="form.post('/login')" class="mt-6">
+  <form
+    @submit.prevent="form.post('/login')"
+    class="mt-6"
+  >
     <div>
       <TextInput
         v-model="form.email"
@@ -27,10 +34,15 @@
       />
     </div>
     <div class="mt-2">
-      <CheckboxInput v-model="form.remember" label="Remember Me" />
+      <CheckboxInput
+        v-model="form.remember"
+        label="Remember Me"
+      />
     </div>
     <div class="mt-4">
-      <PrimaryButton type="submit" :disabled="form.processing"
+      <PrimaryButton
+        type="submit"
+        :disabled="form.processing"
         >Login</PrimaryButton
       >
     </div>
@@ -38,7 +50,9 @@
 
   <div class="mt-2">
     <p>
-      <Link class="link text-sm font-normal" href="forgot-password"
+      <Link
+        class="link text-sm font-normal"
+        href="forgot-password"
         >Forgot your password?</Link
       >
     </p>
@@ -46,12 +60,12 @@
 </template>
 
 <script>
-import AuthLayout from "@/layouts/AuthLayout.vue";
-import { useForm } from "@inertiajs/vue3";
-import TextInput from "@/components/Shareable/Input/TextInput.vue";
-import PrimaryButton from "@/components/Shareable/Input/PrimaryButton.vue";
-import CheckboxInput from "@/components/Shareable/Input/CheckboxInput.vue";
-import { Link, Head } from "@inertiajs/vue3";
+import AuthLayout from '@/layouts/AuthLayout.vue'
+import { useForm } from '@inertiajs/vue3'
+import TextInput from '@/components/Shareable/Input/TextInput.vue'
+import PrimaryButton from '@/components/Shareable/Input/PrimaryButton.vue'
+import CheckboxInput from '@/components/Shareable/Input/CheckboxInput.vue'
+import { Link, Head } from '@inertiajs/vue3'
 
 export default {
   layout: AuthLayout,
@@ -61,8 +75,8 @@ export default {
       email: null,
       password: null,
       remember: true,
-    });
-    return { form };
+    })
+    return { form }
   },
-};
+}
 </script>

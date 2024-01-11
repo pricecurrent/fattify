@@ -15,31 +15,36 @@
       />
     </label>
   </div>
-  <p class="text-sm text-red-500" v-if="error">{{ error }}</p>
+  <p
+    class="text-sm text-red-500"
+    v-if="error"
+  >
+    {{ error }}
+  </p>
 </template>
 <script>
-import { UserCircleIcon } from "@heroicons/vue/24/solid";
-import { ref, watch, computed, toRef } from "vue";
-import FileInput from "@/components/Shareable/Input/FileInput.vue";
-import SecondaryButton from "@/components/Shareable/Input/SecondaryButton.vue";
+import { UserCircleIcon } from '@heroicons/vue/24/solid'
+import { ref, watch, computed, toRef } from 'vue'
+import FileInput from '@/components/Shareable/Input/FileInput.vue'
+import SecondaryButton from '@/components/Shareable/Input/SecondaryButton.vue'
 export default {
-  props: ["modelValue", "preview", "error"],
+  props: ['modelValue', 'preview', 'error'],
   components: { FileInput, UserCircleIcon, SecondaryButton },
   setup(props, { emit }) {
-    const file = ref(null);
-    const preview = ref(props.preview);
-    watch(file, (value) => {
+    const file = ref(null)
+    const preview = ref(props.preview)
+    watch(file, value => {
       if (!value) {
-        return (preview.value = props.preview);
+        return (preview.value = props.preview)
       }
-      const reader = new FileReader();
-      reader.readAsDataURL(value);
-      reader.onload = (e) => {
-        preview.value = e.target.result;
-      };
-      emit("update:modelValue", value);
-    });
-    return { file, preview };
+      const reader = new FileReader()
+      reader.readAsDataURL(value)
+      reader.onload = e => {
+        preview.value = e.target.result
+      }
+      emit('update:modelValue', value)
+    })
+    return { file, preview }
   },
-};
+}
 </script>

@@ -4,10 +4,17 @@
     <h2 class="text-4xl font-serif font-extrabold">Create an Account</h2>
     <p class="text-gray-600">
       Or
-      <Link class="link" href="/login">Sign In</Link>
+      <Link
+        class="link"
+        href="/login"
+        >Sign In</Link
+      >
     </p>
   </div>
-  <form @submit.prevent="form.post('/register')" class="mt-6 pb-8">
+  <form
+    @submit.prevent="form.post('/register')"
+    class="mt-6 pb-8"
+  >
     <div class="space-y-2">
       <div>
         <TextInput
@@ -43,7 +50,9 @@
       </div>
     </div>
     <div class="mt-8">
-      <PrimaryButton type="submit" :disabled="form.processing"
+      <PrimaryButton
+        type="submit"
+        :disabled="form.processing"
         >Login</PrimaryButton
       >
     </div>
@@ -51,11 +60,11 @@
 </template>
 
 <script>
-import AuthLayout from "@/layouts/AuthLayout.vue";
-import { useForm } from "@inertiajs/vue3";
-import TextInput from "@/components/Shareable/Input/TextInput.vue";
-import PrimaryButton from "@/components/Shareable/Input/PrimaryButton.vue";
-import { Link, Head } from "@inertiajs/vue3";
+import AuthLayout from '@/layouts/AuthLayout.vue'
+import { useForm } from '@inertiajs/vue3'
+import TextInput from '@/components/Shareable/Input/TextInput.vue'
+import PrimaryButton from '@/components/Shareable/Input/PrimaryButton.vue'
+import { Link, Head } from '@inertiajs/vue3'
 
 export default {
   layout: AuthLayout,
@@ -66,8 +75,8 @@ export default {
       email: null,
       password: null,
       password_confirmation: null,
-    });
-    return { form };
+    })
+    return { form }
   },
-};
+}
 </script>

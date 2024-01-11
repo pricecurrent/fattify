@@ -1,6 +1,11 @@
 <template>
   <div>
-    <Listbox v-bind="$attrs" as="div" v-model="selected" :id="id">
+    <Listbox
+      v-bind="$attrs"
+      as="div"
+      v-model="selected"
+      :id="id"
+    >
       <ListboxLabel
         v-if="label"
         class="block text-sm font-medium text-gray-700"
@@ -9,12 +14,16 @@
       </ListboxLabel>
       <div class="mt-1 relative">
         <ListboxButton :class="classNames">
-          <span v-if="selected" class="block truncate">{{
-            selected.name
-          }}</span>
-          <span v-else class="block truncate">{{
-            placeholder ? placeholder : "Select"
-          }}</span>
+          <span
+            v-if="selected"
+            class="block truncate"
+            >{{ selected.name }}</span
+          >
+          <span
+            v-else
+            class="block truncate"
+            >{{ placeholder ? placeholder : 'Select' }}</span
+          >
           <span
             class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none"
           >
@@ -62,7 +71,10 @@
                     'absolute inset-y-0 left-0 flex items-center pl-1.5',
                   ]"
                 >
-                  <CheckIcon class="h-5 w-5" aria-hidden="true" />
+                  <CheckIcon
+                    class="h-5 w-5"
+                    aria-hidden="true"
+                  />
                 </span>
               </li>
             </ListboxOption>
@@ -70,7 +82,10 @@
         </transition>
       </div>
     </Listbox>
-    <div v-if="error" class="mt-1 text-sm text-red-500 leading-4">
+    <div
+      v-if="error"
+      class="mt-1 text-sm text-red-500 leading-4"
+    >
       {{ error }}
     </div>
   </div>
@@ -83,8 +98,8 @@ import {
   ListboxLabel,
   ListboxOption,
   ListboxOptions,
-} from "@headlessui/vue";
-import { CheckIcon, ChevronUpDownIcon } from "@heroicons/vue/24/solid";
+} from '@headlessui/vue'
+import { CheckIcon, ChevronUpDownIcon } from '@heroicons/vue/24/solid'
 
 export default {
   inheritAttrs: false,
@@ -101,7 +116,7 @@ export default {
     id: {
       type: String,
       default() {
-        return `select-input-${Math.random().toString(36).substr(2, 9)}`;
+        return `select-input-${Math.random().toString(36).substr(2, 9)}`
       },
     },
     modelValue: String,
@@ -113,30 +128,30 @@ export default {
   data() {
     return {
       selected: null,
-    };
+    }
   },
   computed: {
     classNames() {
       return [
-        "block w-full py-2 px-3",
-        "text-lg font-medium text-left",
-        "border-4 ",
-        "shadow-lg",
-        "transition",
-        "focus:outline-none",
-        this.error ? "bg-rose-50" : "bg-white",
+        'block w-full py-2 px-3',
+        'text-lg font-medium text-left',
+        'border-4 ',
+        'shadow-lg',
+        'transition',
+        'focus:outline-none',
+        this.error ? 'bg-rose-50' : 'bg-white',
         this.error
-          ? "border-red-600 border-b-red-800 border-t-red-400 rounded"
-          : "border-sky-600 border-b-sky-800 border-t-sky-400 rounded",
-        this.error ? "focus:ring-rose-600" : "focus:ring-sky-600",
-        this.error ? "focus:border-rose-600" : "focus:border-sky-600",
-      ];
+          ? 'border-red-600 border-b-red-800 border-t-red-400 rounded'
+          : 'border-sky-600 border-b-sky-800 border-t-sky-400 rounded',
+        this.error ? 'focus:ring-rose-600' : 'focus:ring-sky-600',
+        this.error ? 'focus:border-rose-600' : 'focus:border-sky-600',
+      ]
     },
   },
   watch: {
     selected(selected) {
-      this.$emit("update:modelValue", selected.value);
+      this.$emit('update:modelValue', selected.value)
     },
   },
-};
+}
 </script>

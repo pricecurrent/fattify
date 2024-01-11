@@ -70,11 +70,11 @@
 </template>
 
 <script>
-import { ref, watch, toRefs } from "vue";
-import { CheckCircleIcon } from "@heroicons/vue/24/outline";
-import { XCircleIcon } from "@heroicons/vue/24/outline";
-import { XMarkIcon } from "@heroicons/vue/24/outline";
-import { router } from "@inertiajs/vue3";
+import { ref, watch, toRefs } from 'vue'
+import { CheckCircleIcon } from '@heroicons/vue/24/outline'
+import { XCircleIcon } from '@heroicons/vue/24/outline'
+import { XMarkIcon } from '@heroicons/vue/24/outline'
+import { router } from '@inertiajs/vue3'
 export default {
   components: {
     CheckCircleIcon,
@@ -84,31 +84,31 @@ export default {
   data() {
     return {
       show: false,
-    };
+    }
   },
   computed: {
     error() {
-      return this.$page.props.flash.error;
+      return this.$page.props.flash.error
     },
     subtext() {},
     success() {
-      return this.$page.props.flash.success;
+      return this.$page.props.flash.success
     },
   },
   watch: {
-    "$page.props.flash": {
+    '$page.props.flash': {
       handler(newValue) {
         if (newValue.error || newValue.success) {
-          this.show = true;
+          this.show = true
         }
       },
       deep: true,
     },
     show(newValue) {
       if (newValue === true) {
-        setTimeout(() => (this.show = false), 3000);
+        setTimeout(() => (this.show = false), 3000)
       }
     },
   },
-};
+}
 </script>

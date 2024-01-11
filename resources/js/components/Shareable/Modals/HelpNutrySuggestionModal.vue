@@ -1,5 +1,8 @@
 <template>
-  <TransitionRoot as="template" :show="open">
+  <TransitionRoot
+    as="template"
+    :show="open"
+  >
     <Dialog
       as="div"
       static
@@ -105,13 +108,13 @@ import {
   DialogTitle,
   TransitionChild,
   TransitionRoot,
-} from "@headlessui/vue";
-import { ExclamationTriangleIcon } from "@heroicons/vue/24/outline";
-import PrimaryButton from "@/components/Shareable/Input/PrimaryButton.vue";
-import SecondaryButton from "@/components/Shareable/Input/SecondaryButton.vue";
-import TextInput from "@/components/Shareable/Input/TextInput.vue";
-import { ref } from "vue";
-import { useForm } from "@inertiajs/vue3";
+} from '@headlessui/vue'
+import { ExclamationTriangleIcon } from '@heroicons/vue/24/outline'
+import PrimaryButton from '@/components/Shareable/Input/PrimaryButton.vue'
+import SecondaryButton from '@/components/Shareable/Input/SecondaryButton.vue'
+import TextInput from '@/components/Shareable/Input/TextInput.vue'
+import { ref } from 'vue'
+import { useForm } from '@inertiajs/vue3'
 
 export default {
   props: { open: Boolean },
@@ -127,10 +130,10 @@ export default {
     TextInput,
   },
   setup(props, context) {
-    const close = () => context.emit("close");
+    const close = () => context.emit('close')
     return {
       close,
-    };
+    }
   },
-};
+}
 </script>
