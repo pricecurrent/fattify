@@ -5,8 +5,10 @@ import Layout from '@/layouts/Layout.vue'
 createInertiaApp({
   resolve: name => {
     const pages = import.meta.glob('./Pages/**/*.vue', { eager: true })
+    console.log({ pages })
     let page = pages[`./Pages/${name}.vue`]
-    page.default.layout = page.default.layout || Layout
+    console.log({ page })
+    page.default.layout = page?.default?.layout || Layout
     return page
   },
   setup({ el, App, props, plugin }) {
