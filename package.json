@@ -1,39 +1,31 @@
 {
   "private": true,
   "scripts": {
-    "dev": "npm run development",
-    "development": "mix",
-    "watch": "mix watch",
-    "watch-poll": "mix watch -- --watch-options-poll=1000",
-    "hot": "mix watch --hot",
-    "prod": "npm run production",
-    "production": "mix --production",
-    "fix-js": "eslint-auto-fix"
+    "dev": "vite",
+    "build": "vite build"
   },
   "devDependencies": {
+    "@babel/eslint-parser": "^7.23.3",
     "@headlessui/vue": "^1.2.0",
-    "@tailwindcss/forms": "^0.4.0",
+    "@heroicons/vue": "^2.1.1",
+    "@inertiajs/vue3": "^1.0.14",
+    "@tailwindcss/forms": "^0.5.3",
     "@tailwindcss/typography": "^0.5.10",
-    "@vue/compiler-sfc": "^3.1.1",
-    "autoprefixer": "^10.4.0",
-    "axios": "^0.24",
-    "browser-sync": "^2.26.14",
-    "browser-sync-webpack-plugin": "^2.3.0",
-    "eslint": "^8.4",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-vue": "^8.2",
-    "laravel-mix": "^6.0.6",
+    "@vitejs/plugin-vue": "^5.0.3",
+    "autoprefixer": "^10.4.12",
+    "axios": "^1.6.4",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-vue": "^9.20.0",
+    "laravel-vite-plugin": "^1.0.1",
     "lodash": "^4.17.19",
-    "postcss": "^8.4.4",
+    "postcss": "^8.4.31",
+    "prettier": "^3.1.1",
     "progressbar.js": "^1.1.0",
-    "tailwindcss": "^3.0.0",
+    "tailwindcss": "^3.2.1",
+    "vite": "^5.0.11",
+    "vue": "^3.4.1",
     "vue-loader": "^16.2.0"
   },
-  "dependencies": {
-    "@heroicons/vue": "^2.1.1",
-    "@inertiajs/inertia": "^0.10.1",
-    "@inertiajs/inertia-vue3": "^0.5.2",
-    "@inertiajs/progress": "^0.2.5",
-    "vue": "^3.1.1"
-  }
+  "type": "module"
 }

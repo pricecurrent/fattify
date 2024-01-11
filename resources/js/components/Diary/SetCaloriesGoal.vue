@@ -33,7 +33,11 @@
             />
           </div>
           <div class="flex-1 flex items-center justify-center">
-            <SecondaryButton type="submit" value="save">Save</SecondaryButton>
+            <SecondaryButton
+              type="submit"
+              value="save"
+              >Save</SecondaryButton
+            >
           </div>
         </form>
       </div>
@@ -42,22 +46,22 @@
 </template>
 
 <script>
-import { InformationCircleIcon } from "@heroicons/vue/24/solid";
-import { ref } from "vue";
-import { useForm } from "@inertiajs/inertia-vue3";
-import TextInput from "@/components/Shareable/Input/TextInput";
-import SecondaryButton from "@/components/Shareable/Input/SecondaryButton";
+import { InformationCircleIcon } from '@heroicons/vue/24/solid'
+import { ref } from 'vue'
+import { useForm } from '@inertiajs/vue3'
+import TextInput from '@/components/Shareable/Input/TextInput.vue'
+import SecondaryButton from '@/components/Shareable/Input/SecondaryButton.vue'
 export default {
   components: { InformationCircleIcon, TextInput, SecondaryButton },
   setup() {
-    const showField = ref(false);
+    const showField = ref(false)
     const form = useForm({
       daily_calories_goal: null,
-    });
+    })
     return {
       showField,
       form,
-    };
+    }
   },
-};
+}
 </script>

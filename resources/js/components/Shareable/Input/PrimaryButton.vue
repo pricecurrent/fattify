@@ -27,7 +27,7 @@
 
 <script>
 import { TransitionRoot } from "@headlessui/vue";
-import Puff from "@/components/Icons/SvgLoaders/Puff";
+import Puff from "@/components/Icons/SvgLoaders/Puff.vue";
 export default {
   props: {
     type: { type: String, default: "button" },

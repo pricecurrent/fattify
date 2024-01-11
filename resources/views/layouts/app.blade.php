@@ -1,14 +1,11 @@
 @extends ('layouts.base')
 
 @section('head')
-<script
-    src="{{ mix('/js/app.js') }}"
-    defer
-></script>
-
+@routes
+@vite(['resources/js/app.js'])
+@inertiaHead
 @endsection
 
 @section ('content')
-@routes
 @inertia
 @stop

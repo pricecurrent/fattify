@@ -3,15 +3,15 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "Holipop";
-  src: url("../fonts/Holipop.woff") format("woff");
+  font-family: 'Holipop';
+  src: url('../fonts/Holipop.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Fragmentcore";
-  src: url("../fonts/Fragmentcore.woff") format("woff");
+  font-family: 'Fragmentcore';
+  src: url('../fonts/Fragmentcore.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }

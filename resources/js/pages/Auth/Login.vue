@@ -46,12 +46,12 @@
 </template>
 
 <script>
-import AuthLayout from "@/layouts/AuthLayout";
-import { useForm } from "@inertiajs/inertia-vue3";
-import TextInput from "@/components/Shareable/Input/TextInput";
-import PrimaryButton from "@/components/Shareable/Input/PrimaryButton";
-import CheckboxInput from "@/components/Shareable/Input/CheckboxInput";
-import { Link, Head } from "@inertiajs/inertia-vue3";
+import AuthLayout from "@/layouts/AuthLayout.vue";
+import { useForm } from "@inertiajs/vue3";
+import TextInput from "@/components/Shareable/Input/TextInput.vue";
+import PrimaryButton from "@/components/Shareable/Input/PrimaryButton.vue";
+import CheckboxInput from "@/components/Shareable/Input/CheckboxInput.vue";
+import { Link, Head } from "@inertiajs/vue3";
 
 export default {
   layout: AuthLayout,

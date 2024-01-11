@@ -5,7 +5,6 @@ namespace Database\Factories;
 use App\Models\User;
 use App\Models\Model;
 use App\Models\NutritionDiaryEntry;
-use App\Models\NutritoinDiaryEntry;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class NutritionDiaryEntryFactory extends Factory

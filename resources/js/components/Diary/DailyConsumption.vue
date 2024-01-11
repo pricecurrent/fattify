@@ -81,9 +81,9 @@
 <script>
 import axios from 'axios'
 import { onMounted, ref, onUnmounted } from 'vue'
-import Graph from './../Shareable/Graph'
+import Graph from '@/components/Shareable/Graph.vue'
 import { CalendarIcon } from '@heroicons/vue/24/outline'
-import SetCaloriesGoal from '@/components/Diary/SetCaloriesGoal'
+import SetCaloriesGoal from '@/components/Diary/SetCaloriesGoal.vue'
 export default {
   props: {
     date: String,

@@ -86,12 +86,12 @@
 
                     <div class="absolute right-0 flex-shrink-0 lg:hidden">
                         <PopoverButton class="bg-transparent p-2 rounded-md inline-flex items-center justify-center text-cyan-200 hover:text-white hover:bg-white hover:bg-opacity-10 focus:outline-none focus:ring-2 focus:ring-white">
-                            <MenuIcon
+                            <Bars3Icon
                                 v-if="!open"
                                 class="block h-6 w-6"
                                 aria-hidden="true"
                             />
-                            <XIcon
+                            <XMarkIcon
                                 v-else
                                 class="block h-6 w-6"
                                 aria-hidden="true"
@@ -170,7 +170,7 @@
                                         <div class="-mr-2">
                                             <PopoverButton class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-cyan-500">
                                                 <span class="sr-only">Close menu</span>
-                                                <XIcon
+                                                <XMarkIcon
                                                     class="h-6 w-6"
                                                     aria-hidden="true"
                                                 />
@@ -264,11 +264,14 @@ import {
     TransitionChild,
     TransitionRoot,
 } from '@headlessui/vue'
-import { Inertia } from '@inertiajs/inertia'
-import { BellIcon, MenuIcon, XIcon, BugAntIcon } from '@heroicons/vue/24/outline'
-import FlashMessages from '@/components/Shareable/FlashMessages'
+import { router } from '@inertiajs/vue3'
+import { BellIcon, Bars3Icon, XMarkIcon, BugAntIcon } from '@heroicons/vue/24/outline'
+import FlashMessages from '@/components/Shareable/FlashMessages.vue'
 import { NAV_LINKS } from '@/constants'
-import { Link } from '@inertiajs/inertia-vue3'
+import { Link } from '@inertiajs/vue3'
+import {usePage} from '@inertiajs/vue3'
+
+
 
 export default {
     components: {
@@ -283,8 +286,8 @@ export default {
         TransitionChild,
         TransitionRoot,
         BellIcon,
-        MenuIcon,
-        XIcon,
+        Bars3Icon,
+        XMarkIcon,
         FlashMessages,
         Link,
         BugAntIcon,
@@ -293,7 +296,7 @@ export default {
         const url = (navLink) => {
             return window.route(navLink.route)
         }
-        const user = Inertia.page.props.auth.user
+        const user = usePage().props.auth.user
         return {
             user,
             NAV_LINKS,

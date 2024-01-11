@@ -23,10 +23,10 @@
 </template>
 <script>
 import { ref } from 'vue'
-import WritingMode from './WritingMode'
-import WriteFromBookmarks from './WriteFromBookmarks'
-import WriteMacronutrients from './WriteMacronutrients'
-import WriteSearchedFood from './WriteSearchedFood'
+import WritingMode from '@/components/Diary/WritingMode.vue'
+import WriteFromBookmarks from '@/components/Diary/WriteFromBookmarks.vue'
+import WriteMacronutrients from '@/components/Diary/WriteMacronutrients.vue'
+import WriteSearchedFood from '@/components/Diary/WriteSearchedFood.vue'
 export default {
   props: {
     date: String,

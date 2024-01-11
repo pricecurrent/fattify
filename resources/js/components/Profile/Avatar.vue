@@ -20,8 +20,8 @@
 <script>
 import { UserCircleIcon } from "@heroicons/vue/24/solid";
 import { ref, watch, computed, toRef } from "vue";
-import FileInput from "@/components/Shareable/Input/FileInput";
-import SecondaryButton from "@/components/Shareable/Input/SecondaryButton";
+import FileInput from "@/components/Shareable/Input/FileInput.vue";
+import SecondaryButton from "@/components/Shareable/Input/SecondaryButton.vue";
 export default {
   props: ["modelValue", "preview", "error"],
   components: { FileInput, UserCircleIcon, SecondaryButton },

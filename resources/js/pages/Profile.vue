@@ -39,13 +39,15 @@
 </template>
 
 <script>
-import { useForm } from "@inertiajs/inertia-vue3";
-import { Inertia } from "@inertiajs/inertia";
+import { useForm } from "@inertiajs/vue3";
+import { router } from "@inertiajs/vue3";
 import { ref } from "vue";
-import TextInput from "@/components/Shareable/Input/TextInput";
-import TextareaInput from "@/components/Shareable/Input/TextareaInput";
-import PrimaryButton from "@/components/Shareable/Input/PrimaryButton";
-import Avatar from "@/components/Profile/Avatar";
+import TextInput from "@/components/Shareable/Input/TextInput.vue";
+import TextareaInput from "@/components/Shareable/Input/TextareaInput.vue";
+import PrimaryButton from "@/components/Shareable/Input/PrimaryButton.vue";
+import Avatar from "@/components/Profile/Avatar.vue";
+import { usePage } from "@inertiajs/vue3";
+
 export default {
   components: {
     TextInput,
@@ -56,16 +58,16 @@ export default {
   setup() {
     const form = useForm({
       _method: "put",
-      name: Inertia.page.props.auth.user.name,
+      name: usePage().props.auth.user.name,
       avatar: null,
-      bio: Inertia.page.props.auth.user.bio,
+      bio: usePage().props.auth.user.bio,
     });
     const availableToHire = ref(true);
     const privateAccount = ref(false);
     const allowCommenting = ref(true);
     const allowMentions = ref(true);
     const submit = () => {
-      form.post(`/users/${Inertia.page.props.auth.user.id}`, {
+      form.post(`/users/${usePage().props.auth.user.id}`, {
         preserveScroll: true,
       });
     };

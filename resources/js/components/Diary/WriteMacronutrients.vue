@@ -81,7 +81,10 @@
       </div>
       <div class="mt-6">
         <div class="md:flex md:justify-end">
-          <PrimaryButton type="submit" :loading="form.processing">
+          <PrimaryButton
+            type="submit"
+            :loading="form.processing"
+          >
             <span>Save</span>
           </PrimaryButton>
         </div>
@@ -91,14 +94,14 @@
 </template>
 
 <script>
-import { useForm } from "@inertiajs/inertia-vue3";
-import TextInput from "@/components/Shareable/Input/TextInput";
-import SelectInput from "@/components/Shareable/Input/SelectInput";
-import PrimaryButton from "@/components/Shareable/Input/PrimaryButton";
-import { MEAL_TIMES } from "@/constants";
+import { useForm } from '@inertiajs/vue3'
+import TextInput from '@/components/Shareable/Input/TextInput.vue'
+import SelectInput from '@/components/Shareable/Input/SelectInput.vue'
+import PrimaryButton from '@/components/Shareable/Input/PrimaryButton.vue'
+import { MEAL_TIMES } from '@/constants'
 export default {
   components: { SelectInput, TextInput, PrimaryButton },
-  props: ["date"],
+  props: ['date'],
   setup(props) {
     const form = useForm({
       weight: null,
@@ -108,15 +111,15 @@ export default {
       date: props.date,
       dish_name: null,
       meal_time: null,
-    });
+    })
     const submit = () => {
-      form.post("nutrition-diary-entries/macronutrients", {
+      form.post('nutrition-diary-entries/macronutrients', {
         preserveScroll: true,
         onSuccess: () =>
-          form.reset("proteins", "fats", "carbs", "dish_name", "weight"),
-      });
-    };
-    return { form, submit, MEAL_TIMES };
+          form.reset('proteins', 'fats', 'carbs', 'dish_name', 'weight'),
+      })
+    }
+    return { form, submit, MEAL_TIMES }
   },
-};
+}
 </script>

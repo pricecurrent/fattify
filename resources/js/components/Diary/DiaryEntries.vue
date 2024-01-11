@@ -115,8 +115,8 @@ import { fetchEntries } from './../../api/diary'
 import { onUnmounted, onMounted, ref, computed } from 'vue'
 import { BookmarkIcon, TrashIcon } from '@heroicons/vue/24/outline'
 import _ from 'lodash'
-import BookmarkEntryModal from '@/components/Shareable/Modals/BookmarkEntryModal'
-import { Inertia } from '@inertiajs/inertia'
+import BookmarkEntryModal from '@/components/Shareable/Modals/BookmarkEntryModal.vue'
+import { router } from '@inertiajs/vue3'
 
 export default {
   props: ['date'],

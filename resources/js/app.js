@@ -1,27 +1,25 @@
-require("./bootstrap");
-import { createApp, h } from "vue";
-import { createInertiaApp } from "@inertiajs/inertia-vue3";
-import { InertiaProgress } from "@inertiajs/progress";
-import Layout from "@/layouts/Layout";
-
-InertiaProgress.init();
+import '../css/app.css'
+import { createApp, h } from 'vue'
+import { createInertiaApp } from '@inertiajs/vue3'
+import Layout from '@/layouts/Layout.vue'
 
 createInertiaApp({
-  resolve: (name) => {
-    const page = require(`./pages/${name}`).default;
-    page.layout = page.layout || Layout;
-    return page;
+  resolve: name => {
+    const pages = import.meta.glob('./Pages/**/*.vue', { eager: true })
+    let page = pages[`./Pages/${name}.vue`]
+    page.default.layout = page.default.layout || Layout
+    return page
   },
-  setup({ el, app, props, plugin }) {
-    const vueApp = createApp({ render: () => h(app, props) });
-    vueApp.use(plugin);
-    vueApp.mount(el);
+  setup({ el, App, props, plugin }) {
+    const vueApp = createApp({ render: () => h(App, props) })
+    vueApp.use(plugin)
+    vueApp.mount(el)
 
     const fotion = new Fotion({
-      reference: "OUtDiwFSR",
+      reference: 'OUtDiwFSR',
       email: props.initialPage.props?.auth?.user?.email,
-    });
+    })
 
-    vueApp.config.globalProperties.$fotion = fotion;
+    vueApp.config.globalProperties.$fotion = fotion
   },
-});
+})

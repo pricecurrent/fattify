@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Requests\DiaryEntries\IndexDiaryEntriesRequest;
+use App\Http\Resources\NutritionDiaryEntryResource;
 use App\Models\NutritionDiaryEntry;
 use App\Models\User;
-use App\Transformers\NutritionDiaryEntryTransformer;
 
 class UserNutritionDiaryEntriesController
 {
@@ -16,6 +16,6 @@ class UserNutritionDiaryEntriesController
             ->whereDate('date', '=', $request->getDate())
             ->get();
 
-        return fractal($entries, new NutritionDiaryEntryTransformer())->respond();
+        return NutritionDiaryEntryResource::collection($entries);
     }
 }

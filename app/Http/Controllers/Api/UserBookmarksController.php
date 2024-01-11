@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Requests\Bookmarks\IndexBookmarksRequest;
+use App\Http\Resources\BookmarkResource;
 use App\Models\User;
-use App\Transformers\BookmarkTransformer;
 
 class UserBookmarksController
 {
@@ -16,6 +16,6 @@ class UserBookmarksController
             ->orderBy('last_used_at', 'desc')
             ->get();
 
-        return fractal($bookmarks, new BookmarkTransformer());
+        return BookmarkResource::collection($bookmarks);
     }
 }

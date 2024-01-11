@@ -6,9 +6,7 @@ use Tests\TestCase;
 use App\Diary\Macronutrients;
 use App\Diary\DiaryEntryFactory;
 use App\Diary\WriteToDiaryException;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-use App\Modules\Sales\Infrastructure\PostCutoffChanges\SkipOrderPostCutoffService;
 
 class DiaryEntryFactoryTest extends TestCase
 {

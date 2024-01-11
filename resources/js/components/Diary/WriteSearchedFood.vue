@@ -161,12 +161,13 @@ import {
   ChevronDoubleRightIcon,
   QuestionMarkCircleIcon,
 } from '@heroicons/vue/24/outline'
-import TextareaInput from '@/components/Shareable/Input/TextareaInput'
-import PrimaryButton from '@/components/Shareable/Input/PrimaryButton'
-import { useForm } from '@inertiajs/inertia-vue3'
-import SecondaryButton from '@/components/Shareable/Input/SecondaryButton'
-import { Inertia } from '@inertiajs/inertia'
-import HelpNutrySuggestionModal from '@/components/Shareable/Modals/HelpNutrySuggestionModal'
+import TextareaInput from '@/components/Shareable/Input/TextareaInput.vue'
+import PrimaryButton from '@/components/Shareable/Input/PrimaryButton.vue'
+import { useForm } from '@inertiajs/vue3'
+import SecondaryButton from '@/components/Shareable/Input/SecondaryButton.vue'
+import { router } from '@inertiajs/vue3'
+import HelpNutrySuggestionModal from '@/components/Shareable/Modals/HelpNutrySuggestionModal.vue'
+import { usePage } from '@inertiajs/vue3'
 
 export default {
   components: {
@@ -180,7 +181,7 @@ export default {
   props: ['nutriDialog'],
   data() {
     return {
-      user: Inertia.page.props.auth.user,
+      user: usePage().props.auth.user,
       showHelpPopup: false,
       form: useForm({
         prompt: '',

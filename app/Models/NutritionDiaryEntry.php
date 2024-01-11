@@ -19,7 +19,10 @@ class NutritionDiaryEntry extends Model
      */
     protected $guarded = [];
 
-    protected $dates = ['date', 'bookmarked_at'];
+    protected $casts = [
+        'date' => 'datetime',
+        'bookmarked_at' => 'datetime',
+    ];
 
     public function bookmarkAs(string $name)
     {

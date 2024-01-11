@@ -1,8 +1,14 @@
 <template>
-  <Listbox v-model="selectedBookmark" v-slot="{ open }">
+  <Listbox
+    v-model="selectedBookmark"
+    v-slot="{ open }"
+  >
     <div class="relative mt-1">
       <ListboxButton :class="selectButtonClassNames">
-        <span v-if="selectedBookmark" class="block truncate">
+        <span
+          v-if="selectedBookmark"
+          class="block truncate"
+        >
           <span>{{ selectedBookmark.name }}</span>
           <span
             class="ml-2 text-xs text-gray-500 font-num inline-block font-bold"
@@ -12,11 +18,19 @@
           </span>
         </span>
 
-        <span v-else class="block truncate"> Select Bookmark </span>
+        <span
+          v-else
+          class="block truncate"
+        >
+          Select Bookmark
+        </span>
         <span
           class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none"
         >
-          <SelectorIcon class="w-5 h-5 text-gray-400" aria-hidden="true" />
+          <ChevronUpDownIcon
+            class="w-5 h-5 text-gray-400"
+            aria-hidden="true"
+          />
         </span>
       </ListboxButton>
       <transition
@@ -29,13 +43,13 @@
             class="absolute z-10 w-full pb-1 mt-1 overflow-auto text-base bg-white rounded-md shadow-lg max-h-72 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
           >
             <div
-              class="sticky top-0 z-10 border-b px-3 pt-4 pb-3 bg-gray-100 border-gray-200 border-b-2 border-transparent focus-within:border-sky-500 focus-within:bg-white transition"
+              class="sticky top-0 z-10 px-3 pt-4 pb-3 bg-gray-100 border-gray-200 border-b-2 border-transparent focus-within:border-sky-500 focus-within:bg-white transition"
             >
               <div class="relative">
                 <div
                   class="absolute inset-y-0 left-2 flex items-center justify-center"
                 >
-                  <SearchIcon class="w-5 h-5 text-gray-400" />
+                  <MagnifyingGlassIcon class="w-5 h-5 text-gray-400" />
                 </div>
                 <input
                   type="search"
@@ -71,7 +85,10 @@
                   v-if="selected"
                   class="absolute inset-y-0 left-0 flex items-center pl-3 text-amber-600"
                 >
-                  <CheckIcon class="w-5 h-5" aria-hidden="true" />
+                  <CheckIcon
+                    class="w-5 h-5"
+                    aria-hidden="true"
+                  />
                 </span>
               </li>
             </ListboxOption>
@@ -97,23 +114,27 @@ import {
   ListboxButton,
   ListboxOptions,
   ListboxOption,
-} from "@headlessui/vue";
-import { selectInputClassNames } from "@/html-classes";
-import { CheckIcon, SelectorIcon, SearchIcon } from "@heroicons/vue/24/solid";
-import { BookmarkIcon } from "@heroicons/vue/24/outline";
-import axios from "axios";
-import { debounce } from "lodash";
+} from '@headlessui/vue'
+import { selectInputClassNames } from '@/html-classes'
+import {
+  CheckIcon,
+  ChevronUpDownIcon,
+  MagnifyingGlassIcon,
+} from '@heroicons/vue/24/solid'
+import { BookmarkIcon } from '@heroicons/vue/24/outline'
+import axios from 'axios'
+import { debounce } from 'lodash'
 
 export default {
-  props: ["modelValue"],
+  props: ['modelValue'],
   components: {
     Listbox,
     ListboxButton,
     ListboxOptions,
     ListboxOption,
     CheckIcon,
-    SelectorIcon,
-    SearchIcon,
+    ChevronUpDownIcon,
+    MagnifyingGlassIcon,
     BookmarkIcon,
   },
   data() {
@@ -121,7 +142,7 @@ export default {
       selectedBookmark: null,
       keyword: null,
       bookmarks: [],
-    };
+    }
   },
   methods: {
     async fetchBookmarks() {
@@ -130,54 +151,54 @@ export default {
         {
           params: { search: this.keyword },
         },
-      );
-      this.bookmarks = response.data.data;
+      )
+      this.bookmarks = response.data.data
     },
     inertiaSuccessEventListener(event) {
-      if (event.detail.page.url != "/diary") return;
-      this.keyword = null;
-      this.fetchBookmarks();
+      if (event.detail.page.url != '/diary') return
+      this.keyword = null
+      this.fetchBookmarks()
     },
   },
   computed: {
     selectButtonClassNames() {
-      return [...selectInputClassNames, "text-base"];
+      return [...selectInputClassNames, 'text-base']
     },
     emptyBookmarksCopy() {
       return this.keyword && this.bookmarks.length == 0
-        ? "There are no bookmarks found."
-        : "You have no bookmarks.";
+        ? 'There are no bookmarks found.'
+        : 'You have no bookmarks.'
     },
   },
   watch: {
     keyword: {
       handler: debounce(function () {
-        this.fetchBookmarks();
+        this.fetchBookmarks()
       }, 333),
     },
     selectedBookmark(value) {
       if (value) {
-        this.$emit("update:modelValue", value.id);
+        this.$emit('update:modelValue', value.id)
       }
     },
     modelValue(value) {
       if (value === null) {
-        this.selectedBookmark = null;
+        this.selectedBookmark = null
       }
     },
   },
   async mounted() {
-    await this.fetchBookmarks();
+    await this.fetchBookmarks()
     document.addEventListener(
-      "inertia:success",
+      'inertia:success',
       this.inertiaSuccessEventListener,
-    );
+    )
   },
   unmounted() {
     document.removeEventListener(
-      "inertia:success",
+      'inertia:success',
       this.inertiaSuccessEventListener,
-    );
+    )
   },
-};
+}
 </script>

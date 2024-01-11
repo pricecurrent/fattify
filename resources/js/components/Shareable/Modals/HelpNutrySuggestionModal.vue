@@ -106,12 +106,12 @@ import {
   TransitionChild,
   TransitionRoot,
 } from "@headlessui/vue";
-import { ExclamationIcon } from "@heroicons/vue/24/outline";
-import PrimaryButton from "@/components/Shareable/Input/PrimaryButton";
-import SecondaryButton from "@/components/Shareable/Input/SecondaryButton";
-import TextInput from "@/components/Shareable/Input/TextInput";
+import { ExclamationTriangleIcon } from "@heroicons/vue/24/outline";
+import PrimaryButton from "@/components/Shareable/Input/PrimaryButton.vue";
+import SecondaryButton from "@/components/Shareable/Input/SecondaryButton.vue";
+import TextInput from "@/components/Shareable/Input/TextInput.vue";
 import { ref } from "vue";
-import { useForm } from "@inertiajs/inertia-vue3";
+import { useForm } from "@inertiajs/vue3";
 
 export default {
   props: { open: Boolean },
@@ -121,7 +121,7 @@ export default {
     DialogTitle,
     TransitionChild,
     TransitionRoot,
-    ExclamationIcon,
+    ExclamationTriangleIcon,
     PrimaryButton,
     SecondaryButton,
     TextInput,

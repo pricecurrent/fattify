@@ -18,8 +18,8 @@ class Bookmark extends Model
      */
     protected $guarded = [];
 
-    protected $dates = [
-        'last_used_at',
+    protected $casts = [
+        'last_used_at' => 'datetime',
     ];
 
     public static function createFromEntry(NutritionDiaryEntry $entry, User $user, string $name)
