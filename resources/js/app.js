@@ -12,7 +12,7 @@ createInertiaApp({
 
   resolve: name => {
     console.log({ name })
-    const resolvedPages = import.meta.glob('./Pages/Diary.vue')
+    const resolvedPages = import.meta.glob('./Pages/**/*.vue')
     console.log({ resolvedPages })
 
     const page = resolvePageComponent(
