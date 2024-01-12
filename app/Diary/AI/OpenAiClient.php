@@ -29,11 +29,15 @@ class OpenAiClient
                 ],
                 [
                     "role" => "system",
-                    "content" => "You provide response in the Json format as following: " . json_encode(['foods' => [['name' => 'food name', 'carbs' => 0, 'fats' => 0, 'proteins' => 0]]])
+                    "content" => "When providing a response, please include any previously generated suggestions. You provide response in the Json format as following: " . json_encode(['foods' => [['name' => 'food name', 'carbs' => 0, 'fats' => 0, 'proteins' => 0]]])
                 ],
                 [
                     "role" => "system",
                     "content" => "If it is impossible to provide calorie breakdown based on user prompt You provide response in the Json format as following: " . json_encode(['error' => '...'])
+                ],
+                [
+                    "role" => "system",
+                    "content" => "If you need more details to be able to provide accurate nutrients suggestions, replay with a clarifying question with the following format. But don't be to strict and don't try to argue the values user submits explicitly." . json_encode(['clarification' => '...'])
                 ],
                 ...$messages,
                 [
@@ -51,13 +55,17 @@ class OpenAiClient
         $completion = json_decode($completion);
 
         if (isset($completion->error)) {
-            throw new AiSuggestionException($completion->error->message);
+            throw AiSuggestionException::internalError($response['error']);
         }
 
         $response = json_decode($completion->choices[0]->message->content, true);
 
         if (isset($response['error'])) {
-            throw new AiSuggestionException($response['error']);
+            throw AiSuggestionException::invalidPrompt($response['error']);
+        }
+
+        if (isset($response['clarification'])) {
+            throw AiSuggestionException::needsClarification($response['clarification']);
         }
 
         return collect($response['foods'])->mapInto(Macronutrients::class);

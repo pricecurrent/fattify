@@ -2,6 +2,9 @@
 
 namespace App\Models;
 
+use App\Diary\AI\AiSuggestionException;
+use App\Diary\AI\AiSuggestionExceptionReason;
+use App\Diary\AI\NutriDialogMessageType;
 use App\Diary\AI\OpenAiClient;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -19,6 +22,16 @@ class NutriDialog extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public static function retrieve(?string $dialogId)
+    {
+        return $dialogId
+            ? static::whereUuid($dialogId)->firstOrFail()
+            : static::create([
+                'uuid' => Str::uuid()->toString(),
+                'user_id' => auth()->user()->id,
+            ]);
     }
 
     public function formatMessagesForAi()
@@ -42,15 +55,27 @@ class NutriDialog extends Model
             ->toArray();
     }
 
-    public function prompt(string $prompt, OpenAiClient $client)
+    public function ask(string $prompt, OpenAiClient $client)
     {
-        $suggestions = $client->getMacronutrientSuggestions($prompt, $this->formatMessagesForAi());
-
-        $this->messages()->create([
+        $message = $this->messages()->make([
             'uuid' => Str::uuid()->toString(),
             'prompt' => $prompt,
-            'suggestions' => array_map(fn ($suggestion) => $suggestion->toArray(), $suggestions->toArray()),
         ]);
+
+        try {
+            $suggestions = $client->getMacronutrientSuggestions($prompt, $this->formatMessagesForAi());
+        } catch (AiSuggestionException $e) {
+            if ($e->reason === AiSuggestionExceptionReason::NEEDS_CLARIFICATION) {
+                $message->clarification = $e->getMessage();
+                $message->type = NutriDialogMessageType::CLARIFICATION;
+                $message->save();
+            }
+
+            throw $e;
+        }
+
+        $message->suggestions = array_map(fn ($suggestion) => $suggestion->toArray(), $suggestions->toArray());
+        $message->save();
     }
 
     public function close()

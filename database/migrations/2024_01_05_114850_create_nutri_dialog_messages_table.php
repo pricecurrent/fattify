@@ -18,7 +18,7 @@ class CreateNutriDialogMessagesTable extends Migration
             $table->uuid('uuid');
             $table->foreignId('nutri_dialog_id')->constrained()->cascadeOnDelete();
             $table->text('prompt');
-            $table->text('suggestions');
+            $table->text('suggestions')->nullable();
             $table->timestamps();
         });
     }

@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Api;
 
 use App\Diary\AI\AiSuggestionException;
+use App\Diary\AI\AiSuggestionExceptionReason;
 use App\Diary\AI\OpenAiClient;
 use App\Models\NutriDialog;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 
 class AiAnalyzeController
@@ -15,17 +15,14 @@ class AiAnalyzeController
     {
         $request->validate(['prompt' => ['string', 'required']]);
 
-        $dialog = $request->input('dialog_id')
-            ? NutriDialog::whereUuid($request->input('dialog_id'))->firstOrFail()
-            : NutriDialog::create([
-                'uuid' => Str::uuid()->toString(),
-                'user_id' => auth()->user()->id,
-            ]);
+        $dialog = NutriDialog::retrieve($request->dialog_id);
 
         try {
-            $message = $dialog->prompt($request->prompt, $client);
+            $message = $dialog->ask($request->prompt, $client);
         } catch (AiSuggestionException $e) {
-            throw ValidationException::withMessages(['prompt' => [$e->getMessage()]]);
+            if ($e->reason === AiSuggestionExceptionReason::INVALID_PROMPT) {
+                throw ValidationException::withMessages(['prompt' => [$e->getMessage()]]);
+            }
         }
 
         return redirect()

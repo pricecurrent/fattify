@@ -3,6 +3,7 @@
 namespace Tests\Diary\AI;
 
 use App\Diary\AI\AiSuggestionException;
+use App\Diary\AI\AiSuggestionExceptionReason;
 use App\Diary\AI\OpenAiClient;
 use App\Models\NutriDialog;
 use App\Models\NutriDialogMessage;
@@ -58,11 +59,27 @@ class OpenAiClientTest extends TestCase
         try {
             $suggestions = $client->getMacronutrientSuggestions('the colors are red, the trees are blue');
         } catch (AiSuggestionException $e) {
-            $this->assertTrue(true);
+            $this->assertEquals($e->reason, AiSuggestionExceptionReason::INVALID_PROMPT);
 
             return;
         }
 
         $this->fail('No exception thrown on gibberish');
+    }
+
+    /** @test */
+    public function it_asks_for_clarifications_when_needed()
+    {
+        $client = resolve(OpenAiClient::class);
+
+        try {
+            $suggestions = $client->getMacronutrientSuggestions('I ate chicken');
+        } catch (AiSuggestionException $e) {
+            $this->assertEquals($e->reason, AiSuggestionExceptionReason::NEEDS_CLARIFICATION);
+
+            return;
+        }
+
+        $this->fail('No Exception was thrown with clarification response');
     }
 }

@@ -3,12 +3,24 @@
     class="mt-4 px-4 py-3"
     @submit.prevent="submit"
   >
-    <TextareaInput
-      v-model="form.prompt"
-      placeholder="Specify in free form what you have eaten, e.g. 1 chicken breast no skin with mashed potato 1 small portion"
-      :error="form.errors.prompt"
-      @keydown.meta.enter="submit"
-    />
+    <div class="relative">
+      <div class="absolute right-4 top-4 mb-4">
+        <a
+          href="#"
+          @click.prevent="showHelpPopup = true"
+          class="text-gray-400 hover:text-gray-500"
+        >
+          <QuestionMarkCircleIcon class="h-5 w-5 text-purple-500" />
+        </a>
+      </div>
+
+      <TextareaInput
+        v-model="form.prompt"
+        placeholder="Specify in free form what you have eaten, e.g. 1 chicken breast no skin with mashed potato 1 small portion"
+        :error="form.errors.prompt"
+        @keydown.meta.enter="submit"
+      />
+    </div>
 
     <div class="mt-4 flex justify-end">
       <div>
@@ -68,86 +80,7 @@
           <p class="text-sm leading-6 text-gray-500">Suggested Nutrients</p>
         </div>
       </div>
-      <div
-        class="relative mt-8 flow-root rounded border border-gray-300 p-6 shadow-sm"
-      >
-        <div class="absolute right-4 top-4 mb-4">
-          <a
-            href="#"
-            @click.prevent="showHelpPopup = true"
-            class="text-gray-400 hover:text-gray-500"
-          >
-            <QuestionMarkCircleIcon class="h-5 w-5 text-purple-500" />
-          </a>
-        </div>
-        <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-          <div
-            class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8"
-          >
-            <table class="min-w-full divide-y divide-gray-300">
-              <thead>
-                <tr class="divide-x divide-gray-200">
-                  <th
-                    scope="col"
-                    class="py-3.5 pl-4 pr-4 text-left text-sm font-semibold text-gray-900 sm:pl-0"
-                  >
-                    Name
-                  </th>
-                  <th
-                    scope="col"
-                    class="px-4 py-3.5 text-left text-sm font-semibold text-gray-900"
-                  >
-                    Fats
-                  </th>
-                  <th
-                    scope="col"
-                    class="px-4 py-3.5 text-left text-sm font-semibold text-gray-900"
-                  >
-                    Carbs
-                  </th>
-                  <th
-                    scope="col"
-                    class="py-3.5 pl-4 pr-4 text-left text-sm font-semibold text-gray-900 sm:pr-0"
-                  >
-                    Proteins
-                  </th>
-                </tr>
-              </thead>
-              <tbody class="divide-y divide-gray-200 bg-white">
-                <tr
-                  v-for="(item, index) in message.suggestions"
-                  :key="index"
-                  class="divide-x divide-gray-200"
-                >
-                  <td
-                    class="py-4 pl-4 pr-4 text-sm font-medium text-gray-900 sm:pl-0"
-                  >
-                    {{ item.name }}
-                  </td>
-                  <td class="whitespace-nowrap p-4 text-sm text-gray-500">
-                    {{ item.fats }}
-                  </td>
-                  <td class="whitespace-nowrap p-4 text-sm text-gray-500">
-                    {{ item.carbs }}
-                  </td>
-                  <td
-                    class="whitespace-nowrap py-4 pl-4 pr-4 text-sm text-gray-500 sm:pr-0"
-                  >
-                    {{ item.proteins }}
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-      <div class="mt-4 flex justify-end gap-x-4">
-        <div>
-          <SecondaryButton @click.prevent="saveToDiary(message)">
-            Save to Diary
-          </SecondaryButton>
-        </div>
-      </div>
+      <NutriDialogMessage :message="message" />
     </li>
   </ul>
   <HelpNutrySuggestionModal
@@ -164,19 +97,19 @@ import {
 import TextareaInput from '@/components/Shareable/Input/TextareaInput.vue'
 import PrimaryButton from '@/components/Shareable/Input/PrimaryButton.vue'
 import { useForm } from '@inertiajs/vue3'
-import SecondaryButton from '@/components/Shareable/Input/SecondaryButton.vue'
 import HelpNutrySuggestionModal from '@/components/Shareable/Modals/HelpNutrySuggestionModal.vue'
 import { usePage } from '@inertiajs/vue3'
-import { router } from '@inertiajs/vue3'
+
+import NutriDialogMessage from '@/components/Diary/NutriDialogMessage.vue'
 
 export default {
   components: {
     TextareaInput,
     PrimaryButton,
-    SecondaryButton,
     ChevronDoubleRightIcon,
     QuestionMarkCircleIcon,
     HelpNutrySuggestionModal,
+    NutriDialogMessage,
   },
   props: ['nutriDialog'],
   data() {
@@ -203,9 +136,6 @@ export default {
     },
     setPreviousPrompt(message) {
       this.form.prompt = message.prompt
-    },
-    saveToDiary(message) {
-      router.post(route(`nutri-dialog-messages.accepted.store`, message))
     },
   },
 }
