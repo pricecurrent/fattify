@@ -37,8 +37,8 @@
                         href="{{ route('login') }}"
                         class="
                                 whitespace-nowrap
-                                bg-teal-100
-                                hover:bg-teal-200
+                                bg-lime-100
+                                hover:bg-lime-200
                                 rounded-full
                                 py-1.5
                                 px-3
@@ -47,7 +47,7 @@
                                 justify-center
                                 text-xs
                                 font-medium
-                                text-teal-700
+                                text-lime-700
                                 transition
                                 ease-in-out
                                 duration-150
@@ -57,8 +57,8 @@
                         href="{{ route('register') }}"
                         class="
                                 whitespace-nowrap
-                                bg-teal-500
-                                hover:bg-teal-600
+                                bg-lime-500
+                                hover:bg-lime-600
                                 rounded-full
                                 py-1.5
                                 px-3
@@ -78,16 +78,16 @@
         </div>
     </div>
 
-    <div class="overflow-hidden border-b border-gray-400 border-opacity-10 pb-16">
+    <div class="overflow-hidden border-b border-stone-400 border-opacity-10 pb-16">
         <div class="max-w-3xl mx-auto pt-48 pb-8 px-4 sm:px-6 lg:px-8">
-            <h1 class="text-7xl font-serif font-bold text-gray-900">
+            <h1 class="text-7xl font-serif font-bold text-stone-900">
                 Track your calories
                 <br class="sm:hidden">
                 <span class="bg-clip-text bg-gradient-to-r from-emerald-600 text-transparent to-lime-700">with ease</span>
             </h1>
 
             <a
-                class="mt-8 block text-center w-full py-3 rounded border border-emerald-500 text-teal-900 text-sm border-b-emerald-500/60 hover:bg-gradient-to-r transition hover:from-teal-700 hover:to-lime-700 hover:text-white md:text-base"
+                class="mt-8 block text-center w-full py-3 rounded border border-emerald-500 text-lime-900 text-sm border-b-emerald-500/60 hover:bg-gradient-to-r transition hover:from-lime-700 hover:to-lime-700 hover:text-white md:text-base"
                 href="{{ route('register') }}"
             >Sign Up for Free</a>
         </div>

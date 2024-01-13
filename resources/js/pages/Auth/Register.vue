@@ -2,7 +2,7 @@
   <Head title="Sign Up — Fittify" />
   <div class="mt-4">
     <h2 class="font-serif text-4xl font-extrabold">Create an Account</h2>
-    <p class="text-gray-600">
+    <p class="text-stone-600">
       Or
       <Link
         class="link"

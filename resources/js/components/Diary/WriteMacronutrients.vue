@@ -37,7 +37,7 @@
           />
         </div>
       </div>
-      <p class="mt-1 text-sm text-gray-400">
+      <p class="mt-1 text-sm text-stone-400">
         Please specify macronutrients contained in
         <span class="font-num font-bold">100g</span>
       </p>
@@ -55,7 +55,7 @@
           >
             <template #trailing-addon>g.</template>
           </TextInput>
-          <p class="mt-1 text-sm text-gray-400">
+          <p class="mt-1 text-sm text-stone-400">
             Here specify the amount of food you actually ate.
           </p>
         </div>
@@ -68,7 +68,7 @@
             :options="MEAL_TIMES"
           >
           </SelectInput>
-          <p class="mt-1 text-sm text-gray-400">
+          <p class="mt-1 text-sm text-stone-400">
             Please specify when you ate this meal
           </p>
         </div>
@@ -79,7 +79,7 @@
             placeholder="3 eggs"
             :error="form.errors.dish_name"
           />
-          <p class="mt-1 text-sm text-gray-400">What did you eat?</p>
+          <p class="mt-1 text-sm text-stone-400">What did you eat?</p>
         </div>
       </div>
       <div class="mt-6">

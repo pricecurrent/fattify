@@ -1,58 +1,58 @@
 <template>
   <div v-if="message.type === 'suggestion'">
     <div
-      class="mt-8 flow-root rounded border border-gray-300 bg-teal-50 p-6 shadow-sm"
+      class="mt-8 flow-root rounded border border-stone-300 bg-lime-50 p-6 shadow-sm"
     >
       <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
-          <table class="min-w-full divide-y divide-gray-300">
+          <table class="min-w-full divide-y divide-stone-300">
             <thead>
-              <tr class="divide-x divide-gray-200">
+              <tr class="divide-x divide-stone-200">
                 <th
                   scope="col"
-                  class="py-3.5 pl-4 pr-4 text-left text-sm font-semibold text-gray-900 sm:pl-0"
+                  class="py-3.5 pl-4 pr-4 text-left text-sm font-semibold text-stone-900 sm:pl-0"
                 >
                   Name
                 </th>
                 <th
                   scope="col"
-                  class="px-4 py-3.5 text-left text-sm font-semibold text-gray-900"
+                  class="px-4 py-3.5 text-left text-sm font-semibold text-stone-900"
                 >
                   Fats
                 </th>
                 <th
                   scope="col"
-                  class="px-4 py-3.5 text-left text-sm font-semibold text-gray-900"
+                  class="px-4 py-3.5 text-left text-sm font-semibold text-stone-900"
                 >
                   Carbs
                 </th>
                 <th
                   scope="col"
-                  class="py-3.5 pl-4 pr-4 text-left text-sm font-semibold text-gray-900 sm:pr-0"
+                  class="py-3.5 pl-4 pr-4 text-left text-sm font-semibold text-stone-900 sm:pr-0"
                 >
                   Proteins
                 </th>
               </tr>
             </thead>
-            <tbody class="divide-y divide-gray-200 bg-white">
+            <tbody class="divide-y divide-stone-200 bg-white">
               <tr
                 v-for="(item, index) in message.suggestions"
                 :key="index"
-                class="divide-x divide-gray-200"
+                class="divide-x divide-stone-200"
               >
                 <td
-                  class="py-4 pl-4 pr-4 text-sm font-medium text-gray-900 sm:pl-0"
+                  class="py-4 pl-4 pr-4 text-sm font-medium text-stone-900 sm:pl-0"
                 >
                   {{ item.name }}
                 </td>
-                <td class="whitespace-nowrap p-4 text-sm text-gray-500">
+                <td class="whitespace-nowrap p-4 text-sm text-stone-500">
                   {{ item.fats }}
                 </td>
-                <td class="whitespace-nowrap p-4 text-sm text-gray-500">
+                <td class="whitespace-nowrap p-4 text-sm text-stone-500">
                   {{ item.carbs }}
                 </td>
                 <td
-                  class="whitespace-nowrap py-4 pl-4 pr-4 text-sm text-gray-500 sm:pr-0"
+                  class="whitespace-nowrap py-4 pl-4 pr-4 text-sm text-stone-500 sm:pr-0"
                 >
                   {{ item.proteins }}
                 </td>

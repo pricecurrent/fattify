@@ -1,9 +1,9 @@
 <template>
   <div
-    class="rounded-lg border bg-gray-100 shadow"
+    class="rounded-lg border bg-stone-100 shadow"
     :class="[error ? 'ring-2 ring-red-600' : '']"
   >
-    <header class="border-b border-gray-300 px-4 py-3">
+    <header class="border-b border-stone-300 px-4 py-3">
       <div class="flex items-center justify-between">
         <div>
           <label

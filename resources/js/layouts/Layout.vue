@@ -1,8 +1,8 @@
 <template>
-  <div class="min-h-screen bg-gray-100">
+  <div class="min-h-screen bg-stone-100">
     <Popover
       as="header"
-      class="bg-gradient-to-l from-teal-800 to-teal-900 pb-24 pt-safe-top"
+      class="bg-gradient-to-l hidden md:block from-lime-800 to-lime-900 pb-24 pt-safe-top"
       v-slot="{ open }"
     >
       <div class="mx-auto max-w-3xl px-4 py-5 sm:px-6 lg:max-w-7xl lg:px-8">
@@ -20,7 +20,7 @@
                 class="h-8 w-auto rounded-full shadow"
               />
               <h1
-                class="ml-2 inline-block bg-gradient-to-br from-teal-400 to-lime-400/60 bg-clip-text text-2xl font-extrabold text-transparent"
+                class="ml-2 inline-block bg-gradient-to-br from-lime-400 to-lime-400/60 bg-clip-text text-2xl font-extrabold text-transparent"
               >
                 Fittify
               </h1>
@@ -35,7 +35,7 @@
                   :key="link.title"
                   :href="url(link)"
                   :class="[
-                    link.active ? 'text-white' : 'text-teal-100',
+                    link.active ? 'text-white' : 'text-lime-100',
                     'rounded-md bg-white bg-opacity-0 px-3 py-2 text-sm font-medium hover:bg-opacity-10',
                   ]"
                   :aria-current="link.active ? 'page' : 'false'"
@@ -49,7 +49,7 @@
           <div class="hidden lg:ml-4 lg:flex lg:items-center lg:pr-0.5">
             <button
               type="button"
-              class="flex-shrink-0 rounded-full p-1 text-teal-200 hover:bg-white hover:bg-opacity-10 hover:text-white focus:outline-none focus:ring-2 focus:ring-white"
+              class="flex-shrink-0 rounded-full p-1 text-lime-200 hover:bg-white hover:bg-opacity-10 hover:text-white focus:outline-none focus:ring-2 focus:ring-white"
             >
               <span class="sr-only">View notifications</span>
               <BellIcon
@@ -88,8 +88,8 @@
                       href="logout"
                       method="post"
                       :class="[
-                        active ? 'bg-gray-100' : '',
-                        'block w-full px-4 py-2 text-left text-sm text-gray-700',
+                        active ? 'bg-stone-100' : '',
+                        'block w-full px-4 py-2 text-left text-sm text-stone-700',
                       ]"
                     >
                       Sign out
@@ -102,7 +102,7 @@
 
           <div class="absolute right-0 flex-shrink-0 lg:hidden">
             <PopoverButton
-              class="inline-flex items-center justify-center rounded-md bg-transparent p-2 text-teal-200 hover:bg-white hover:bg-opacity-10 hover:text-white focus:outline-none focus:ring-2 focus:ring-white"
+              class="inline-flex items-center justify-center rounded-md bg-transparent p-2 text-lime-200 hover:bg-white hover:bg-opacity-10 hover:text-white focus:outline-none focus:ring-2 focus:ring-white"
             >
               <Bars3Icon
                 v-if="!open"
@@ -118,10 +118,10 @@
           </div>
         </div>
         <div
-          class="hidden border-t border-teal-50 border-opacity-20 py-4 lg:block"
+          class="hidden border-t border-lime-50 border-opacity-20 py-4 lg:block"
         >
           <h1
-            class="inline-block bg-gradient-to-r from-teal-100 to-yellow-50 bg-clip-text text-4xl font-bold text-transparent"
+            class="inline-block bg-gradient-to-r from-lime-100 to-yellow-50 bg-clip-text text-4xl font-bold text-transparent"
           ></h1>
         </div>
       </div>
@@ -161,7 +161,7 @@
               class="absolute inset-x-0 top-0 z-30 mx-auto w-full max-w-3xl origin-top transform p-2 transition"
             >
               <div
-                class="divide-y divide-gray-200 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5"
+                class="divide-y divide-stone-200 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5"
               >
                 <div class="pb-2 pt-3">
                   <div class="flex items-center justify-between px-4">
@@ -192,7 +192,7 @@
                     </div>
                     <div class="-mr-2">
                       <PopoverButton
-                        class="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-teal-500"
+                        class="inline-flex items-center justify-center rounded-md bg-white p-2 text-stone-400 hover:bg-stone-100 hover:text-stone-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-lime-500"
                       >
                         <span class="sr-only">Close menu</span>
                         <XMarkIcon
@@ -207,7 +207,7 @@
                       v-for="item in NAV_LINKS"
                       :key="item.title"
                       :href="url(item)"
-                      class="block rounded-md px-3 py-2 text-base font-medium text-gray-900 hover:bg-gray-100 hover:text-gray-800"
+                      class="block rounded-md px-3 py-2 text-base font-medium text-stone-900 hover:bg-stone-100 hover:text-stone-800"
                       >{{ item.title }}</a>
                   </div>
                 </div>
@@ -221,15 +221,15 @@
                       />
                     </div>
                     <div class="ml-3 min-w-0 flex-1">
-                      <div class="truncate text-base font-medium text-gray-800">
+                      <div class="truncate text-base font-medium text-stone-800">
                         {{ user.name }}
                       </div>
-                      <div class="truncate text-sm font-medium text-gray-500">
+                      <div class="truncate text-sm font-medium text-stone-500">
                         {{ user.email }}
                       </div>
                     </div>
                     <button
-                      class="ml-auto flex-shrink-0 rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2"
+                      class="ml-auto flex-shrink-0 rounded-full bg-white p-1 text-stone-400 hover:text-stone-500 focus:outline-none focus:ring-2 focus:ring-lime-500 focus:ring-offset-2"
                     >
                       <span class="sr-only">View notifications</span>
                       <BellIcon
@@ -243,7 +243,7 @@
                       as="button"
                       href="logout"
                       method="post"
-                      class="block rounded-md px-3 py-2 text-base font-medium text-gray-900 hover:bg-gray-100 hover:text-gray-800"
+                      class="block rounded-md px-3 py-2 text-base font-medium text-stone-900 hover:bg-stone-100 hover:text-stone-800"
                     >
                       Sign out
                     </Link>
@@ -255,7 +255,7 @@
         </div>
       </TransitionRoot>
     </Popover>
-    <main class="-mt-24 pb-8">
+    <main class="md:-mt-24 pb-8">
       <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
         <h1 class="sr-only">Page title</h1>
         <div class="grid grid-cols-1 items-start gap-4 lg:grid-cols-3 lg:gap-8">
@@ -266,7 +266,7 @@
     <footer>
       <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
         <div
-          class="border-t border-gray-200 py-8 text-center text-sm text-gray-500 sm:text-left"
+          class="border-t border-stone-200 py-8 text-center text-sm text-stone-500 sm:text-left"
         >
           <span class="block sm:inline">&copy; 2024 Fittify.</span>
           <span class="block sm:inline">All rights reserved.</span>
@@ -278,10 +278,10 @@
   </div>
   <div class="fixed bottom-0 right-0 mb-5 mr-5">
     <button
-      class="rounded-full bg-transparent backdrop-blur p-3 ring ring-teal-400 ring-offset-2 hover:bg-teal-100"
+      class="rounded-full bg-transparent backdrop-blur p-3 ring ring-lime-400 ring-offset-2 hover:bg-lime-100"
       @click="$fotion.open()"
     >
-      <BugAntIcon class="h-7 w-7 text-teal-500" />
+      <BugAntIcon class="h-7 w-7 text-lime-500" />
     </button>
   </div>
 </template>

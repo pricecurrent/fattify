@@ -44,12 +44,11 @@ export default {
   computed: {
     classNames() {
       return [
-        'relative w-full px-3.5 py-2 rounded-lg shadow shadow-teal-200',
-        'text-gray-900 font-num text-sm uppercase tracking-wider',
-        // 'bg-gradient-to-r from-10% from-green-200 to-lime-300 transition duration-300',
-        'bg-teal-200 transition duration-300',
-        'hover:bg-teal-600',
-        'focus:outline-none focus:ring focus:ring-offset-1 focus:ring-teal-500 focus:border-transparent',
+        'relative w-full px-3.5 py-2 rounded-lg shadow shadow-lime-200',
+        'text-stone-900 font-num text-sm uppercase tracking-wider',
+        'bg-lime-200 transition duration-300',
+        'hover:bg-lime-300',
+        'focus:outline-none focus:ring focus:ring-offset-1 focus:ring-lime-500 focus:border-transparent',
         'disabled:opacity-80 disabled:pointer-event-none',
       ]
     },

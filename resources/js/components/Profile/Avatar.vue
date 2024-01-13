@@ -2,7 +2,7 @@
   <div class="flex items-center">
     <img
       v-if="preview"
-      class="h-32 w-32 rounded-full object-cover shadow-xl ring ring-teal-500/70 ring-offset-4"
+      class="h-32 w-32 rounded-full object-cover shadow-xl ring ring-lime-500/70 ring-offset-4"
       :src="preview"
       alt="avatar"
     />
@@ -11,7 +11,7 @@
       <FileInput
         id="user-photo"
         v-model="file"
-        class="absolute h-full w-full cursor-pointer rounded-md border-gray-300 opacity-0"
+        class="absolute h-full w-full cursor-pointer rounded-md border-stone-300 opacity-0"
       />
     </label>
   </div>

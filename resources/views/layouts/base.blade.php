@@ -176,7 +176,7 @@
     @yield('head')
 </head>
 
-<body class="antialiased min-h-screen font-sans text-gray-800 bg-gradient-to-r from-teal-800 to-teal-900">
+<body class="antialiased min-h-screen font-sans text-stone-800 bg-gradient-to-r from-lime-800 to-lime-900">
     @yield('content')
 </body>
 

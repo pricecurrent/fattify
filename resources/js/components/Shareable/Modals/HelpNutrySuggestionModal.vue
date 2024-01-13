@@ -23,7 +23,7 @@
           leave-to="opacity-0"
         >
           <DialogOverlay
-            class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
+            class="fixed inset-0 bg-stone-500 bg-opacity-75 transition-opacity"
           />
         </TransitionChild>
 
@@ -43,14 +43,14 @@
           leave-to="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
         >
           <div
-            class="inline-block w-full transform overflow-hidden border-8 border-teal-700 border-b-teal-900 border-t-teal-500 bg-white text-left align-bottom shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:align-middle"
+            class="inline-block w-full transform overflow-hidden border-8 border-lime-700 border-b-lime-900 border-t-lime-500 bg-white text-left align-bottom shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:align-middle"
           >
             <div class="px-4 pt-5 sm:p-6 sm:pb-4">
               <div class="sm:flex sm:items-start">
                 <div class="prose mt-3 sm:ml-4 sm:mt-0 sm:text-left">
                   <DialogTitle
                     as="h3"
-                    class="text-lg font-bold leading-6 text-gray-900"
+                    class="text-lg font-bold leading-6 text-stone-900"
                   >
                     Nutritionist Assistant Guide
                   </DialogTitle>
@@ -89,7 +89,7 @@
                 <a
                   href="#"
                   @click.prevent="close"
-                  class="mt-3 inline-block border-b border-gray-400 pb-px text-center leading-none text-gray-500"
+                  class="mt-3 inline-block border-b border-stone-400 pb-px text-center leading-none text-stone-500"
                   >Ok</a
                 >
               </div>

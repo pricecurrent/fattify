@@ -1,7 +1,7 @@
 <template>
   <div>
     <nav
-      class="relative flex divide-x divide-gray-200 overflow-x-hidden rounded-tl-lg rounded-tr-lg shadow"
+      class="relative flex divide-x divide-stone-200 overflow-x-hidden rounded-tl-lg rounded-tr-lg shadow"
       aria-label="Tabs"
     >
       <a
@@ -9,15 +9,15 @@
         @click.prevent="navigate('search')"
         :class="[
           isActive('search')
-            ? 'text-gray-900'
-            : 'text-gray-500 hover:text-gray-700',
-          'group relative min-w-0 flex-1 overflow-hidden rounded-r-lg bg-white px-4 py-4 text-center text-sm font-medium hover:bg-gray-50 focus:z-10',
+            ? 'text-stone-900'
+            : 'text-stone-500 hover:text-stone-700',
+          'group relative min-w-0 flex-1 overflow-hidden rounded-r-lg bg-white px-4 py-4 text-center text-sm font-medium hover:bg-stone-50 focus:z-10',
         ]"
       >
         <span>SmartTrack</span>
         <span
           :class="[
-            isActive('search') ? 'bg-teal-500' : 'bg-transparent',
+            isActive('search') ? 'bg-lime-500' : 'bg-transparent',
             'absolute inset-x-0 bottom-0 h-0.5',
           ]"
         />
@@ -28,15 +28,15 @@
         @click.prevent="navigate('macronutrients')"
         :class="[
           isActive('macronutrients')
-            ? 'text-gray-900'
-            : 'text-gray-500 hover:text-gray-700',
-          'group relative min-w-0 flex-1 overflow-hidden bg-white px-4 py-4 text-center text-sm font-medium hover:bg-gray-50 focus:z-10',
+            ? 'text-stone-900'
+            : 'text-stone-500 hover:text-stone-700',
+          'group relative min-w-0 flex-1 overflow-hidden bg-white px-4 py-4 text-center text-sm font-medium hover:bg-stone-50 focus:z-10',
         ]"
       >
         <span>SelfTrack</span>
         <span
           :class="[
-            isActive('macronutrients') ? 'bg-teal-500' : 'bg-transparent',
+            isActive('macronutrients') ? 'bg-lime-500' : 'bg-transparent',
             'absolute inset-x-0 bottom-0 h-0.5',
           ]"
         />
@@ -46,15 +46,15 @@
         @click.prevent="navigate('bookmarks')"
         :class="[
           isActive('bookmarks')
-            ? 'text-gray-900'
-            : 'text-gray-500 hover:text-gray-700',
-          'group relative min-w-0 flex-1 overflow-hidden bg-white px-4 py-4 text-center text-sm font-medium hover:bg-gray-50 focus:z-10',
+            ? 'text-stone-900'
+            : 'text-stone-500 hover:text-stone-700',
+          'group relative min-w-0 flex-1 overflow-hidden bg-white px-4 py-4 text-center text-sm font-medium hover:bg-stone-50 focus:z-10',
         ]"
       >
         <span>Bookmarks</span>
         <span
           :class="[
-            isActive('bookmarks') ? 'bg-teal-500' : 'bg-transparent',
+            isActive('bookmarks') ? 'bg-lime-500' : 'bg-transparent',
             'absolute inset-x-0 bottom-0 h-0.5',
           ]"
         />

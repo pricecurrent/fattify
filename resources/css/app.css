@@ -21,6 +21,6 @@
     -webkit-tap-highlight-color: transparent;
   }
   a.link {
-    @apply font-medium text-teal-600 transition duration-150 hover:text-teal-700;
+    @apply font-medium text-lime-600 transition duration-150 hover:text-lime-700;
   }
 }

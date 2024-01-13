@@ -10,7 +10,7 @@
       class="relative"
     >
       <div
-        class="border-b border-t border-gray-200 bg-gray-50 px-6 py-1 text-sm font-medium text-gray-500"
+        class="border-b border-t border-stone-200 bg-stone-50 px-6 py-1 text-sm font-medium text-stone-500"
       >
         <div class="flex items-center justify-between">
           <h3 class="capitalize">{{ mealTime }}</h3>
@@ -22,25 +22,25 @@
           </div>
         </div>
       </div>
-      <ul class="relative z-0 divide-y divide-gray-200">
+      <ul class="relative z-0 divide-y divide-stone-200">
         <li
           v-for="entry in groupedEntries[mealTime]"
           :key="entry.id"
           class="bg-white"
         >
           <div
-            class="relative flex items-center space-x-3 px-6 py-5 hover:bg-gray-50"
+            class="relative flex items-center space-x-3 px-6 py-5 hover:bg-stone-50"
           >
             <div class="min-w-0 flex-1">
-              <p class="text-sm font-medium text-gray-900">
+              <p class="text-sm font-medium text-stone-900">
                 {{ entry.dishName }}
                 <span
                   v-show="entry.weight"
-                  class="ml-px inline-block text-xs text-teal-700"
+                  class="ml-px inline-block text-xs text-lime-700"
                   >{{ entry.weight }}g.</span
                 >
               </p>
-              <div class="mt-1 flex items-center text-sm text-gray-500">
+              <div class="mt-1 flex items-center text-sm text-stone-500">
                 <div>
                   <span class="font-num font-semibold">{{
                     entry.calories
@@ -48,15 +48,15 @@
                   <span> cal.</span>
                 </div>
                 <div class="ml-4">
-                  <span class="font-num font-semibold text-teal-700">{{
+                  <span class="font-num font-semibold text-lime-700">{{
                     entry.proteins
                   }}</span>
                   &bull;
-                  <span class="font-num font-semibold text-teal-700">{{
+                  <span class="font-num font-semibold text-lime-700">{{
                     entry.fats
                   }}</span>
                   &bull;
-                  <span class="font-num font-semibold text-teal-700">{{
+                  <span class="font-num font-semibold text-lime-700">{{
                     entry.carbs
                   }}</span>
                 </div>
@@ -70,7 +70,7 @@
                   entry.bookmarkedAt === null
                 "
               >
-                <BookmarkIcon class="h-4 w-4 text-teal-500" />
+                <BookmarkIcon class="h-4 w-4 text-lime-500" />
               </button>
               <button v-on:click.prevent="remove(entry)">
                 <TrashIcon class="h-4 w-4 text-red-900/60" />
@@ -84,7 +84,7 @@
   <div v-else>
     <div class="py-5 text-center">
       <svg
-        class="mx-auto h-12 w-12 text-gray-400"
+        class="mx-auto h-12 w-12 text-stone-400"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -98,8 +98,8 @@
           d="M9 13h6m-3-3v6m-9 1V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"
         />
       </svg>
-      <h3 class="mt-2 text-sm font-medium text-gray-900">Diary is Empty</h3>
-      <p class="mt-1 text-sm text-gray-500">Nothing has been eaten today</p>
+      <h3 class="mt-2 text-sm font-medium text-stone-900">Diary is Empty</h3>
+      <p class="mt-1 text-sm text-stone-500">Nothing has been eaten today</p>
     </div>
   </div>
   <BookmarkEntryModal

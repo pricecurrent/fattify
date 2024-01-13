@@ -1,9 +1,9 @@
 <template>
   <div
-    class="rounded-lg border bg-gray-100 shadow"
+    class="rounded-lg border bg-stone-100 shadow"
     :class="[error ? 'ring-2 ring-red-600' : '']"
   >
-    <header class="border-b border-gray-300 px-4 py-3">
+    <header class="border-b border-stone-300 px-4 py-3">
       <div class="flex items-center justify-between">
         <div>
           <label
@@ -46,7 +46,7 @@
             class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2"
           >
             <ChevronUpDownIcon
-              class="h-5 w-5 text-gray-400"
+              class="h-5 w-5 text-stone-400"
               aria-hidden="true"
             />
           </span>
@@ -69,7 +69,7 @@
             >
               <li
                 :class="[
-                  active ? 'bg-teal-600 text-white' : 'text-gray-900',
+                  active ? 'bg-lime-600 text-white' : 'text-stone-900',
                   'relative cursor-default select-none py-2 pl-8 pr-4',
                 ]"
               >
@@ -85,7 +85,7 @@
                 <span
                   v-if="selected"
                   :class="[
-                    active ? 'text-white' : 'text-teal-600',
+                    active ? 'text-white' : 'text-lime-600',
                     'absolute inset-y-0 left-0 flex items-center pl-1.5',
                   ]"
                 >

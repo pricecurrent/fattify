@@ -1,9 +1,9 @@
 <template>
   <div
-    class="rounded-lg border bg-gray-100 shadow"
+    class="rounded-lg border bg-stone-100 shadow"
     :class="[error ? 'ring-2 ring-red-600' : '']"
   >
-    <header class="border-b border-gray-300 px-4 py-3">
+    <header class="border-b border-stone-300 px-4 py-3">
       <div class="flex items-center justify-between">
         <div>
           <label
@@ -36,7 +36,7 @@
       />
       <div
         v-if="$slots['trailing-addon']"
-        class="absolute inset-y-0 right-0 flex items-center justify-center bg-gray-200 px-4"
+        class="absolute inset-y-0 right-0 flex items-center justify-center bg-stone-200 px-4"
       >
         <slot name="trailing-addon" />
       </div>
@@ -79,16 +79,16 @@ export default {
         'transition',
         this.error
           ? 'from-rose-100 to-red-500/30 placeholder-red-700'
-          : 'from-teal-50 to-teal-200/10',
+          : 'from-lime-50 to-lime-200/10',
         this.error
           ? 'border-red-600 border-b-red-800 border-t-red-400 rounded'
-          : 'border-teal-600 border-b-teal-800 border-t-teal-400 rounded',
+          : 'border-lime-600 border-b-lime-800 border-t-lime-400 rounded',
         this.error
           ? 'focus-within:border-rose-600'
-          : 'focus-within:border-teal-600',
+          : 'focus-within:border-lime-600',
         this.error
           ? 'focus-within:ring-rose-600'
-          : 'focus-within:ring-teal-600',
+          : 'focus-within:ring-lime-600',
       ]
     },
   },

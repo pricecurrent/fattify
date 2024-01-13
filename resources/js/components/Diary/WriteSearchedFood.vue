@@ -15,7 +15,7 @@
           <a
             href="#"
             @click.prevent="showHelpPopup = true"
-            class="text-gray-400 hover:text-gray-500"
+            class="text-stone-400 hover:text-stone-500"
           >
             <QuestionMarkCircleIcon class="h-6 w-6 text-lime-700" />
           </a>
@@ -34,7 +34,7 @@
 
   <ul
     role="list"
-    class="divide-y divide-gray-100 px-4"
+    class="divide-y divide-stone-100 px-4"
     v-if="nutriDialog?.messages?.length > 0"
   >
     <li
@@ -55,28 +55,28 @@
             <a
               href="#"
               @click.prevent="setPreviousPrompt(message)"
-              class="inline-flex items-center space-x-1 text-sm text-gray-600"
+              class="inline-flex items-center space-x-1 text-sm text-stone-600"
             >
               <span>Your entry</span>
-              <ChevronDoubleRightIcon class="h-3 w-3 text-gray-500" />
+              <ChevronDoubleRightIcon class="h-3 w-3 text-stone-500" />
             </a>
           </div>
         </div>
-        <p class="ml-4 mt-3 border-l-2 border-gray-300 pl-4 text-gray-800">
+        <p class="ml-4 mt-3 border-l-2 border-stone-300 pl-4 text-stone-800">
           {{ message.prompt }}
         </p>
       </div>
       <div class="mt-8 flex min-w-0 gap-x-4">
         <img
-          class="h-12 w-12 flex-none rounded-full bg-gray-50"
+          class="h-12 w-12 flex-none rounded-full bg-stone-50"
           src="@/assets/images/nutritionist-avatar.png"
           alt="Nutritionist Assistant"
         />
         <div class="min-w-0 flex-auto">
-          <p class="text-sm font-semibold leading-6 text-gray-900">
+          <p class="text-sm font-semibold leading-6 text-stone-900">
             Nutritionist Assistant's Analysis
           </p>
-          <p class="text-sm leading-6 text-gray-500">Suggested Nutrients</p>
+          <p class="text-sm leading-6 text-stone-500">Suggested Nutrients</p>
         </div>
       </div>
       <NutriDialogMessage :message="message" />
