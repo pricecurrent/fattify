@@ -36,7 +36,7 @@
                 {{ entry.dishName }}
                 <span
                   v-show="entry.weight"
-                  class="ml-px inline-block text-xs text-cyan-700"
+                  class="ml-px inline-block text-xs text-teal-700"
                   >{{ entry.weight }}g.</span
                 >
               </p>
@@ -48,15 +48,15 @@
                   <span> cal.</span>
                 </div>
                 <div class="ml-4">
-                  <span class="font-num font-semibold text-cyan-700">{{
+                  <span class="font-num font-semibold text-teal-700">{{
                     entry.proteins
                   }}</span>
                   &bull;
-                  <span class="font-num font-semibold text-cyan-700">{{
+                  <span class="font-num font-semibold text-teal-700">{{
                     entry.fats
                   }}</span>
                   &bull;
-                  <span class="font-num font-semibold text-cyan-700">{{
+                  <span class="font-num font-semibold text-teal-700">{{
                     entry.carbs
                   }}</span>
                 </div>
@@ -70,7 +70,7 @@
                   entry.bookmarkedAt === null
                 "
               >
-                <BookmarkIcon class="h-4 w-4 text-sky-500" />
+                <BookmarkIcon class="h-4 w-4 text-teal-500" />
               </button>
               <button v-on:click.prevent="remove(entry)">
                 <TrashIcon class="h-4 w-4 text-red-900/60" />

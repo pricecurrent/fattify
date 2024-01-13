@@ -37,8 +37,8 @@
                         href="{{ route('login') }}"
                         class="
                                 whitespace-nowrap
-                                bg-green-100
-                                hover:bg-green-200
+                                bg-teal-100
+                                hover:bg-teal-200
                                 rounded-full
                                 py-1.5
                                 px-3
@@ -47,7 +47,7 @@
                                 justify-center
                                 text-xs
                                 font-medium
-                                text-green-700
+                                text-teal-700
                                 transition
                                 ease-in-out
                                 duration-150
@@ -57,8 +57,8 @@
                         href="{{ route('register') }}"
                         class="
                                 whitespace-nowrap
-                                bg-green-500
-                                hover:bg-green-600
+                                bg-teal-500
+                                hover:bg-teal-600
                                 rounded-full
                                 py-1.5
                                 px-3
@@ -87,7 +87,7 @@
             </h1>
 
             <a
-                class="mt-8 block text-center w-full py-3 rounded border border-emerald-500 text-green-900 text-sm border-b-emerald-500/60 hover:bg-gradient-to-r transition hover:from-teal-700 hover:to-lime-700 hover:text-white md:text-base"
+                class="mt-8 block text-center w-full py-3 rounded border border-emerald-500 text-teal-900 text-sm border-b-emerald-500/60 hover:bg-gradient-to-r transition hover:from-teal-700 hover:to-lime-700 hover:text-white md:text-base"
                 href="{{ route('register') }}"
             >Sign Up for Free</a>
         </div>

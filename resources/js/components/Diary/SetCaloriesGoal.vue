@@ -1,21 +1,21 @@
 <template>
-  <div class="rounded-md bg-fuchsia-50 p-4">
+  <div class="rounded-md bg-teal-50 p-4">
     <div class="flex">
       <div class="flex-shrink-0">
         <InformationCircleIcon
-          class="h-5 w-5 text-fuchsia-400"
+          class="h-5 w-5 text-teal-400"
           aria-hidden="true"
         />
       </div>
       <div class="ml-3 flex-1">
-        <p class="text-sm text-fuchsia-700">
+        <p class="text-sm text-teal-700">
           Set your calorie daily goal to get a better feedback
         </p>
         <p class="mt-3 text-sm">
           <a
             @click.prevent="showField = !showField"
             href="#"
-            class="whitespace-nowrap font-medium text-fuchsia-700 hover:text-fuchsia-600"
+            class="whitespace-nowrap font-medium text-teal-700 hover:text-teal-600"
             >Set it up <span aria-hidden="true">&rarr;</span>
           </a>
         </p>

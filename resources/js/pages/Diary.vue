@@ -10,7 +10,7 @@
     </div>
   </div>
   <div
-    class="overflow-hidden rounded-lg bg-gradient-to-b from-white to-sky-100 shadow lg:col-start-1 lg:row-start-1"
+    class="overflow-hidden rounded-lg bg-gradient-to-b from-white to-teal-100 shadow lg:col-start-1 lg:row-start-1"
   >
     <DailyConsumption
       :date="date"

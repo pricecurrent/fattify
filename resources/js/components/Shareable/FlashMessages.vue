@@ -17,7 +17,7 @@
         <div
           v-if="show"
           class="pointer-events-auto w-full max-w-sm overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5"
-          :class="[error ? 'bg-red-50' : 'bg-green-50']"
+          :class="[error ? 'bg-red-50' : 'bg-teal-50']"
         >
           <div class="p-4">
             <div class="flex items-start">
@@ -29,21 +29,21 @@
                 />
                 <CheckCircleIcon
                   v-if="success"
-                  class="h-6 w-6 text-green-400"
+                  class="h-6 w-6 text-teal-400"
                   aria-hidden="true"
                 />
               </div>
               <div class="ml-3 w-0 flex-1 pt-0.5">
                 <p
                   class="text-sm font-medium"
-                  :class="[error ? 'text-red-900' : 'text-green-900']"
+                  :class="[error ? 'text-red-900' : 'text-teal-900']"
                 >
                   {{ error ? error : success }}
                 </p>
                 <p
                   v-if="subtext"
                   class="mt-1 text-sm"
-                  :class="[error ? 'text-red-500' : 'text-green-500']"
+                  :class="[error ? 'text-red-500' : 'text-teal-500']"
                 >
                   Fix that
                 </p>
@@ -51,12 +51,12 @@
               <div class="ml-4 flex flex-shrink-0">
                 <button
                   @click="show = false"
-                  class="inline-flex rounded-md text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2"
-                  :class="[error ? 'text-red-50' : 'text-green-50']"
+                  class="inline-flex rounded-md text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2"
+                  :class="[error ? 'text-red-50' : 'text-teal-50']"
                 >
                   <XMarkIcon
                     class="h-5 w-5"
-                    :class="[error ? 'text-red-400' : 'text-green-400']"
+                    :class="[error ? 'text-red-400' : 'text-teal-400']"
                     aria-hidden="true"
                   />
                 </button>

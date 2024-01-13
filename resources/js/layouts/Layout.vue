@@ -2,7 +2,7 @@
   <div class="min-h-screen bg-gray-100">
     <Popover
       as="header"
-      class="bg-gradient-to-l from-cyan-800 to-green-900 pb-24 pt-safe-top"
+      class="bg-gradient-to-l from-teal-800 to-teal-900 pb-24 pt-safe-top"
       v-slot="{ open }"
     >
       <div class="mx-auto max-w-3xl px-4 py-5 sm:px-6 lg:max-w-7xl lg:px-8">
@@ -20,7 +20,7 @@
                 class="h-8 w-auto rounded-full shadow"
               />
               <h1
-                class="ml-2 inline-block bg-gradient-to-br from-cyan-400 to-lime-400/60 bg-clip-text text-2xl font-extrabold text-transparent"
+                class="ml-2 inline-block bg-gradient-to-br from-teal-400 to-lime-400/60 bg-clip-text text-2xl font-extrabold text-transparent"
               >
                 Fittify
               </h1>
@@ -35,7 +35,7 @@
                   :key="link.title"
                   :href="url(link)"
                   :class="[
-                    link.active ? 'text-white' : 'text-cyan-100',
+                    link.active ? 'text-white' : 'text-teal-100',
                     'rounded-md bg-white bg-opacity-0 px-3 py-2 text-sm font-medium hover:bg-opacity-10',
                   ]"
                   :aria-current="link.active ? 'page' : 'false'"
@@ -49,7 +49,7 @@
           <div class="hidden lg:ml-4 lg:flex lg:items-center lg:pr-0.5">
             <button
               type="button"
-              class="flex-shrink-0 rounded-full p-1 text-cyan-200 hover:bg-white hover:bg-opacity-10 hover:text-white focus:outline-none focus:ring-2 focus:ring-white"
+              class="flex-shrink-0 rounded-full p-1 text-teal-200 hover:bg-white hover:bg-opacity-10 hover:text-white focus:outline-none focus:ring-2 focus:ring-white"
             >
               <span class="sr-only">View notifications</span>
               <BellIcon
@@ -102,7 +102,7 @@
 
           <div class="absolute right-0 flex-shrink-0 lg:hidden">
             <PopoverButton
-              class="inline-flex items-center justify-center rounded-md bg-transparent p-2 text-cyan-200 hover:bg-white hover:bg-opacity-10 hover:text-white focus:outline-none focus:ring-2 focus:ring-white"
+              class="inline-flex items-center justify-center rounded-md bg-transparent p-2 text-teal-200 hover:bg-white hover:bg-opacity-10 hover:text-white focus:outline-none focus:ring-2 focus:ring-white"
             >
               <Bars3Icon
                 v-if="!open"
@@ -118,10 +118,10 @@
           </div>
         </div>
         <div
-          class="hidden border-t border-cyan-50 border-opacity-20 py-4 lg:block"
+          class="hidden border-t border-teal-50 border-opacity-20 py-4 lg:block"
         >
           <h1
-            class="inline-block bg-gradient-to-r from-cyan-100 to-yellow-50 bg-clip-text text-4xl font-bold text-transparent"
+            class="inline-block bg-gradient-to-r from-teal-100 to-yellow-50 bg-clip-text text-4xl font-bold text-transparent"
           ></h1>
         </div>
       </div>
@@ -192,7 +192,7 @@
                     </div>
                     <div class="-mr-2">
                       <PopoverButton
-                        class="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-cyan-500"
+                        class="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-teal-500"
                       >
                         <span class="sr-only">Close menu</span>
                         <XMarkIcon
@@ -229,7 +229,7 @@
                       </div>
                     </div>
                     <button
-                      class="ml-auto flex-shrink-0 rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+                      class="ml-auto flex-shrink-0 rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2"
                     >
                       <span class="sr-only">View notifications</span>
                       <BellIcon
@@ -278,10 +278,10 @@
   </div>
   <div class="fixed bottom-0 right-0 mb-5 mr-5">
     <button
-      class="rounded-full bg-white p-3 ring ring-fuchsia-400 ring-offset-2 hover:bg-fuchsia-100"
+      class="rounded-full bg-transparent backdrop-blur p-3 ring ring-teal-400 ring-offset-2 hover:bg-teal-100"
       @click="$fotion.open()"
     >
-      <BugAntIcon class="h-7 w-7 text-purple-500" />
+      <BugAntIcon class="h-7 w-7 text-teal-500" />
     </button>
   </div>
 </template>

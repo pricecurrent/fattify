@@ -2,7 +2,7 @@
   <div class="flex items-center">
     <img
       v-if="preview"
-      class="h-32 w-32 rounded-full object-cover shadow-xl ring ring-fuchsia-500/70 ring-offset-4"
+      class="h-32 w-32 rounded-full object-cover shadow-xl ring ring-teal-500/70 ring-offset-4"
       :src="preview"
       alt="avatar"
     />

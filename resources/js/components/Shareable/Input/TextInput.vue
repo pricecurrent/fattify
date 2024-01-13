@@ -79,14 +79,16 @@ export default {
         'transition',
         this.error
           ? 'from-rose-100 to-red-500/30 placeholder-red-700'
-          : 'from-sky-50 to-fuchsia-200/10',
+          : 'from-teal-50 to-teal-200/10',
         this.error
           ? 'border-red-600 border-b-red-800 border-t-red-400 rounded'
-          : 'border-sky-600 border-b-sky-800 border-t-sky-400 rounded',
+          : 'border-teal-600 border-b-teal-800 border-t-teal-400 rounded',
         this.error
           ? 'focus-within:border-rose-600'
-          : 'focus-within:border-sky-600',
-        this.error ? 'focus-within:ring-rose-600' : 'focus-within:ring-sky-600',
+          : 'focus-within:border-teal-600',
+        this.error
+          ? 'focus-within:ring-rose-600'
+          : 'focus-within:ring-teal-600',
       ]
     },
   },

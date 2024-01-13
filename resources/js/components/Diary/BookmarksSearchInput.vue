@@ -67,7 +67,7 @@
               class="absolute z-10 mt-1 max-h-72 w-full overflow-auto rounded-md bg-white pb-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
             >
               <div
-                class="sticky top-0 z-10 border-b-2 border-gray-200 border-transparent bg-gray-100 px-3 pb-3 pt-4 transition focus-within:border-sky-500 focus-within:bg-white"
+                class="sticky top-0 z-10 border-b-2 border-gray-200 border-transparent bg-gray-100 px-3 pb-3 pt-4 transition focus-within:border-teal-500 focus-within:bg-white"
               >
                 <div class="relative">
                   <div
@@ -120,7 +120,7 @@
                 <div
                   class="relative flex cursor-default select-none flex-col items-center justify-center px-4 py-3"
                 >
-                  <BookmarkIcon class="h-8 w-8 text-sky-500/50" />
+                  <BookmarkIcon class="h-8 w-8 text-teal-500/50" />
                   <div class="mt-2 text-sm">{{ emptyBookmarksCopy }}</div>
                   <!-- <div class="mt-1 text-sm">You may <a href="#"class="link">create one</a> here</div> -->
                 </div>

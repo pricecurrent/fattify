@@ -1,7 +1,7 @@
 <template>
   <div v-if="message.type === 'suggestion'">
     <div
-      class="mt-8 flow-root rounded border border-gray-300 bg-green-50 p-6 shadow-sm"
+      class="mt-8 flow-root rounded border border-gray-300 bg-teal-50 p-6 shadow-sm"
     >
       <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
@@ -110,10 +110,6 @@ export default {
     saveToDiary(message) {
       router.post(route(`nutri-dialog-messages.accepted.store`, message))
     },
-  },
-  computed: {},
-  mounted() {
-    console.log('booted')
   },
 }
 </script>

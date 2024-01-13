@@ -17,7 +17,7 @@
         <span>SmartTrack</span>
         <span
           :class="[
-            isActive('search') ? 'bg-sky-500' : 'bg-transparent',
+            isActive('search') ? 'bg-teal-500' : 'bg-transparent',
             'absolute inset-x-0 bottom-0 h-0.5',
           ]"
         />
@@ -36,7 +36,7 @@
         <span>SelfTrack</span>
         <span
           :class="[
-            isActive('macronutrients') ? 'bg-sky-500' : 'bg-transparent',
+            isActive('macronutrients') ? 'bg-teal-500' : 'bg-transparent',
             'absolute inset-x-0 bottom-0 h-0.5',
           ]"
         />
@@ -54,7 +54,7 @@
         <span>Bookmarks</span>
         <span
           :class="[
-            isActive('bookmarks') ? 'bg-sky-500' : 'bg-transparent',
+            isActive('bookmarks') ? 'bg-teal-500' : 'bg-transparent',
             'absolute inset-x-0 bottom-0 h-0.5',
           ]"
         />

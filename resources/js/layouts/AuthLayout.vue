@@ -1,6 +1,6 @@
 <template>
   <div
-    class="min-h-screen bg-white bg-gradient-to-br from-sky-50 to-fuchsia-50"
+    class="min-h-screen bg-white bg-gradient-to-br from-teal-50 to-teal-50"
   >
     <a
       href="/"
@@ -8,7 +8,7 @@
     >
       <Logo class="h-6 w-auto" />
       <h1
-        class="ml-4 bg-gradient-to-bl from-lime-400 to-green-700 bg-clip-text text-3xl font-extrabold tracking-wide text-transparent"
+        class="ml-4 bg-gradient-to-bl from-lime-400 to-teal-700 bg-clip-text text-3xl font-extrabold tracking-wide text-transparent"
       >
         Fittify
       </h1>
