@@ -12,7 +12,7 @@
       class="mt-8"
     />
 
-    <div class="mx-auto mt-8 w-64 px-6">
+    <div class="mx-auto mt-8 w-52 px-6 md:w-64">
       <Graph
         :progress="consumption.percentage"
         :text="consumption.calories"

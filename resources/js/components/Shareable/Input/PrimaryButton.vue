@@ -44,9 +44,10 @@ export default {
   computed: {
     classNames() {
       return [
-        'relative w-full px-3.5 py-2 rounded-lg shadow-lg shadow-teal-200',
+        'relative w-full px-3.5 py-2 rounded-lg shadow shadow-teal-200',
         'text-gray-900 font-num text-sm uppercase tracking-wider',
-        'bg-gradient-to-r from-10% from-cyan-300 to-teal-400 transition duration-300',
+        // 'bg-gradient-to-r from-10% from-green-200 to-lime-300 transition duration-300',
+        'bg-teal-200 transition duration-300',
         'hover:bg-teal-600',
         'focus:outline-none focus:ring focus:ring-offset-1 focus:ring-teal-500 focus:border-transparent',
         'disabled:opacity-80 disabled:pointer-event-none',
