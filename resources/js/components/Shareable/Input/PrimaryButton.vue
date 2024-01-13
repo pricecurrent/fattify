@@ -1,6 +1,6 @@
 <template>
   <button
-    :class="classNames"
+    :class="twMerge(classNames)"
     :disabled="loading"
     v-bind="$attrs"
     :type="type"
@@ -26,6 +26,7 @@
 </template>
 
 <script>
+import { twMerge } from 'tailwind-merge'
 import { TransitionRoot } from '@headlessui/vue'
 import Puff from '@/components/Icons/SvgLoaders/Puff.vue'
 export default {
@@ -37,17 +38,17 @@ export default {
   data() {
     return {}
   },
-  methods: {},
+  methods: {
+    twMerge,
+  },
   computed: {
     classNames() {
       return [
-        'relative w-full md:w-auto px-3 py-2',
-        'text-white font-bold tracking-wide text-sm uppercase font-num',
-        'border-2 border-black/60 bg-origin-border rounded-sm',
-        'bg-gradient-to-r from-sky-400 to-fuchsia-600/90 transition duration-300',
-        'hover:from-fuchsia-600 hover:to-sky-400',
-        'focus:outline-none focus:ring focus:ring-offset-4 focus:ring-fuchsia-600 focus:border-transparent',
-        'focus:from-fuchsia-600 focus:to-sky-400',
+        'relative w-full px-3.5 py-2 rounded-lg shadow-lg shadow-teal-200',
+        'text-gray-900 font-num text-sm uppercase tracking-wider',
+        'bg-gradient-to-r from-30% from-green-300 to-teal-400 transition duration-300',
+        'hover:bg-teal-600',
+        'focus:outline-none focus:ring focus:ring-offset-1 focus:ring-teal-500 focus:border-transparent',
         'disabled:opacity-80 disabled:pointer-event-none',
       ]
     },

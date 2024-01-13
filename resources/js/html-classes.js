@@ -1,12 +1,5 @@
-export const selectInputClassNames = [
-  'block w-full py-2 px-3',
-  'text-lg font-medium text-left',
-  'border-4 ',
-  'shadow-lg',
-  'transition',
-  'focus:outline-none',
-  'bg-sky-50',
-  'border-sky-600 border-b-sky-800 border-t-sky-400 rounded',
-  'focus:ring-sky-600',
-  'focus:border-sky-600',
+export const inputClassNames = [
+  'block w-full py-2 px-3 rounded-br-lg rounded-bl-lg overflow-y-hidden',
+  'bg-transparent text-base font-normal border-none transition text-left',
+  'focus:outline-none focus:border-none focus:ring-0 focus:bg-gray-200',
 ]

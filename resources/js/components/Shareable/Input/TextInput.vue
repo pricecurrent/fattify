@@ -1,35 +1,52 @@
 <template>
-  <label
-    v-if="label"
-    :for="id"
-    >{{ label }}</label
-  >
-  <div :class="wrapperClasses">
-    <input
-      :id="id"
-      ref="input"
-      v-bind="$attrs"
-      :class="classNames"
-      :type="type"
-      :value="modelValue"
-      v-on:input="$emit('update:modelValue', $event.target.value)"
-    />
-    <div
-      v-if="$slots['trailing-addon']"
-      class="absolute inset-y-0 right-0 flex items-center justify-center bg-gradient-to-br from-fuchsia-50 to-cyan-50 px-4"
-    >
-      <slot name="trailing-addon" />
-    </div>
-  </div>
   <div
-    v-if="error"
-    class="mt-1 text-sm leading-4 text-red-500"
+    class="rounded-lg border bg-gray-100 shadow"
+    :class="[error ? 'ring-2 ring-red-600' : '']"
   >
-    {{ error }}
+    <header class="border-b border-gray-300 px-4 py-3">
+      <div class="flex items-center justify-between">
+        <div>
+          <label
+            v-if="label"
+            class="md:text-lg"
+            :for="id"
+            >{{ label }}</label
+          >
+        </div>
+        <div>
+          <slot name="actions"></slot>
+        </div>
+      </div>
+      <div
+        v-if="error"
+        class="mt-1 text-red-500"
+      >
+        {{ error }}
+      </div>
+    </header>
+    <div class="relative">
+      <input
+        :id="id"
+        ref="input"
+        v-bind="$attrs"
+        :class="classNames"
+        :type="type"
+        :value="modelValue"
+        v-on:input="$emit('update:modelValue', $event.target.value)"
+      />
+      <div
+        v-if="$slots['trailing-addon']"
+        class="absolute inset-y-0 right-0 flex items-center justify-center bg-gray-200 px-4"
+      >
+        <slot name="trailing-addon" />
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+import { inputClassNames } from '@/html-classes'
+
 export default {
   inheritAttrs: false,
   props: {
@@ -50,10 +67,8 @@ export default {
   computed: {
     classNames() {
       return [
-        'block w-full border-none',
-        'text-lg font-medium',
-        'transition',
-        'focus:outline-none',
+        ...inputClassNames,
+        this.error ? 'bg-red-100 placeholder-red-600/50' : 'bg-transparent',
         this.$slots['trailing-addon'] ? 'pr-10' : '',
       ]
     },

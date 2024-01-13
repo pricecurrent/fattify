@@ -4,33 +4,32 @@
     @submit.prevent="submit"
   >
     <div class="relative">
-      <div class="absolute right-4 top-4 mb-4">
-        <a
-          href="#"
-          @click.prevent="showHelpPopup = true"
-          class="text-gray-400 hover:text-gray-500"
-        >
-          <QuestionMarkCircleIcon class="h-5 w-5 text-purple-500" />
-        </a>
-      </div>
-
       <TextareaInput
+        label="What did you eat?"
         v-model="form.prompt"
         placeholder="Specify in free form what you have eaten, e.g. 1 chicken breast no skin with mashed potato 1 small portion"
         :error="form.errors.prompt"
         @keydown.meta.enter="submit"
-      />
+      >
+        <template #actions>
+          <a
+            href="#"
+            @click.prevent="showHelpPopup = true"
+            class="text-gray-400 hover:text-gray-500"
+          >
+            <QuestionMarkCircleIcon class="h-6 w-6 text-lime-700" />
+          </a>
+        </template>
+      </TextareaInput>
     </div>
 
-    <div class="mt-4 flex justify-end">
-      <div>
-        <PrimaryButton
-          type="submit"
-          :loading="form.processing"
-          >Analyze</PrimaryButton
-        >
-      </div>
-    </div>
+    <PrimaryButton
+      type="submit"
+      class="mt-4"
+      :loading="form.processing"
+    >
+      Analyze
+    </PrimaryButton>
   </form>
 
   <ul
@@ -121,6 +120,7 @@ export default {
       }),
     }
   },
+
   methods: {
     submit() {
       this.form

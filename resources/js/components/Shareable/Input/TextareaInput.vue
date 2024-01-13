@@ -1,27 +1,44 @@
 <template>
-  <label
-    v-if="label"
-    :for="id"
-    >{{ label }}</label
-  >
-  <textarea
-    :id="id"
-    ref="textarea"
-    v-bind="$attrs"
-    :class="classNames"
-    :value="modelValue"
-    v-on:input="$emit('update:modelValue', $event.target.value)"
-    rows="4"
-  ></textarea>
   <div
-    v-if="error"
-    class="mt-2 text-red-500"
+    class="rounded-lg border bg-gray-100 shadow"
+    :class="[error ? 'ring-2 ring-red-600' : '']"
   >
-    {{ error }}
+    <header class="border-b border-gray-300 px-4 py-3">
+      <div class="flex items-center justify-between">
+        <div>
+          <label
+            v-if="label"
+            class="md:text-lg"
+            :for="id"
+            >{{ label }}</label
+          >
+        </div>
+        <div>
+          <slot name="actions"></slot>
+        </div>
+      </div>
+      <div
+        v-if="error"
+        class="mt-1 text-red-500"
+      >
+        {{ error }}
+      </div>
+    </header>
+    <textarea
+      :id="id"
+      ref="textarea"
+      v-bind="$attrs"
+      :class="classNames"
+      :value="modelValue"
+      v-on:input="$emit('update:modelValue', $event.target.value)"
+      rows="4"
+    ></textarea>
   </div>
 </template>
 
 <script>
+import { inputClassNames } from '@/html-classes'
+
 export default {
   inheritAttrs: false,
   props: {
@@ -38,22 +55,17 @@ export default {
   computed: {
     classNames() {
       return [
-        'block w-full',
-        'text-base font-normal',
-        'border-4 ',
-        'shadow-lg',
-        'bg-gradient-to-r',
-        'transition',
-        'focus:outline-none',
-        this.error
-          ? 'from-rose-100 to-red-500/30 placeholder-red-700'
-          : 'from-sky-50 to-fuchsia-200/10',
-        this.error
-          ? 'border-red-600 border-b-red-800 border-t-red-400 rounded'
-          : 'border-sky-600 border-b-sky-800 border-t-sky-400 rounded',
-        this.error ? 'focus:ring-rose-600' : 'focus:ring-sky-600',
-        this.error ? 'focus:border-rose-600' : 'focus:border-sky-600',
+        ...inputClassNames,
+        this.error ? 'bg-red-100 placeholder-red-600/50' : '',
       ]
+    },
+  },
+  watch: {
+    modelValue() {
+      this.$nextTick(() => {
+        this.$refs.textarea.style.height = 'auto'
+        this.$refs.textarea.style.height = `${this.$refs.textarea.scrollHeight}px`
+      })
     },
   },
   methods: {

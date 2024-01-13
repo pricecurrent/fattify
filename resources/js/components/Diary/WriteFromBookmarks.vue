@@ -1,33 +1,29 @@
 <template>
   <form @submit.prevent="submit">
-    <div
-      class="space-y-4 sm:grid sm:grid-flow-col sm:grid-rows-2 sm:gap-x-8 sm:space-y-0"
-    >
-      <div class="row-start-1 sm:col-start-1">
+    <div class="space-y-4 sm:grid">
+      <div>
         <BookmarksSearchInput v-model="form.bookmark_id" />
       </div>
-      <div
-        class="space-y-4 sm:col-start-2 sm:row-span-2 sm:row-start-1 sm:space-y-8"
-      >
+      <div class="space-y-4 sm:space-y-8">
         <TextInput
+          label="Weight"
           type="tel"
           v-model="form.weight"
-          placeholder="Weight"
+          placeholder="100"
           :error="form.errors.weight"
           class="font-num font-semibold"
         >
           <template #trailing-addon>g</template>
         </TextInput>
         <SelectInput
+          label="Select meal time"
           v-model="form.meal_time"
           placeholder="Meal time"
           :error="form.errors.meal_time"
           :options="MEAL_TIMES"
         />
       </div>
-      <div
-        class="mt-4 justify-end sm:col-start-1 sm:row-start-2 sm:mt-8 sm:flex sm:flex-col"
-      >
+      <div class="mt-4 justify-end sm:mt-8 sm:flex sm:flex-col">
         <PrimaryButton
           type="submit"
           :loading="form.processing"
