@@ -1,38 +1,19 @@
 <template>
-  <div
-    class="rounded-lg border bg-stone-100 shadow"
-    :class="[error ? 'ring-2 ring-red-600' : '']"
-  >
+  <div class="rounded-lg border bg-stone-100 shadow" :class="[error ? 'ring-2 ring-red-600' : '']">
     <header class="border-b border-stone-300 px-4 py-3">
       <div class="flex items-center justify-between">
         <div>
-          <label
-            v-if="label"
-            class="md:text-lg"
-            :for="id"
-            >{{ label }}</label
-          >
+          <label v-if="label" class="md:text-lg" :for="id">{{ label }}</label>
         </div>
         <div>
           <slot name="actions"></slot>
         </div>
       </div>
-      <div
-        v-if="error"
-        class="mt-1 text-red-500"
-      >
+      <div v-if="error" class="mt-1 text-red-500">
         {{ error }}
       </div>
     </header>
-    <textarea
-      :id="id"
-      ref="textarea"
-      v-bind="$attrs"
-      :class="classNames"
-      :value="modelValue"
-      v-on:input="$emit('update:modelValue', $event.target.value)"
-      rows="4"
-    ></textarea>
+    <textarea :id="id" ref="textarea" v-bind="$attrs" :class="classNames" :value="modelValue" v-on:input="$emit('update:modelValue', $event.target.value)" rows="4"></textarea>
   </div>
 </template>
 
@@ -54,10 +35,7 @@ export default {
   },
   computed: {
     classNames() {
-      return [
-        ...inputClassNames,
-        this.error ? 'bg-red-100 placeholder-red-600/50' : '',
-      ]
+      return [...inputClassNames, this.error ? 'bg-red-100 placeholder-red-600/50' : '']
     },
   },
   watch: {

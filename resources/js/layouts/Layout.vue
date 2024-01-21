@@ -276,7 +276,7 @@
 
     <FlashMessages />
   </div>
-  <div class="fixed bottom-0 right-0 mb-5 mr-5">
+<!--   <div class="fixed bottom-0 right-0 mb-5 mr-5">
     <button
       class="rounded-full bg-transparent backdrop-blur p-3 ring ring-lime-400 ring-offset-2 hover:bg-lime-100"
       @click="$fotion.open()"
@@ -284,7 +284,7 @@
       <BugAntIcon class="h-7 w-7 text-lime-500" />
     </button>
   </div>
-</template>
+ --></template>
 
 <script>
 import {
