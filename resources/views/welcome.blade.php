@@ -55,7 +55,7 @@
       <div class="mx-auto max-w-2xl flex-shrink-0 lg:mx-0 lg:max-w-xl lg:pt-8">
         <x-logo class="h-14" />
         <div class="mt-24 sm:mt-32 lg:mt-16"></div>
-        <h1 class="mt-10 text-4xl font-bold tracking-tight text-white sm:text-6xl">Revolutionize Your Calorie Tracking Experience</h1>
+        <h1 class="mt-10 text-5xl font-bold tracking-tight font-serif text-white leading-snug sm:text-6xl">Revolutionize Your Calorie Tracking Experience</h1>
         <p class="mt-6 text-lg leading-8 text-gray-300">Introducing the smartest way to track your diet – simple, accurate, AI-powered.</p>
         <div class="mt-10 flex items-center gap-x-6">
           <a
