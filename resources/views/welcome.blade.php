@@ -75,7 +75,7 @@
             alt="App screenshot"
             width="2432"
             height="1442"
-            class="w-[36rem] sm:hidden rounded-md bg-white/5 shadow-2xl ring-1 ring-white/10"
+            class="w-[36rem] sm:hidden px-10 py-8 rounded-md bg-white/5 shadow-2xl ring-1 ring-white/10"
           >
           <img
             src="{{ asset('images/landing/hero.png') }}"
