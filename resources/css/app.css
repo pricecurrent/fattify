@@ -24,3 +24,9 @@
     @apply font-medium text-lime-600 transition duration-150 hover:text-lime-700;
   }
 }
+
+@layer components {
+  .formkit-alert.formkit-alert-success {
+    @apply bg-lime-50 p-4 rounded border border-lime-200 text-lime-900;
+  }
+}
