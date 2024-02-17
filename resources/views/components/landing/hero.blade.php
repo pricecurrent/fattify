@@ -46,18 +46,12 @@
   </div>
   <div class="mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-32 lg:flex lg:px-8 lg:py-40">
     <div class="mx-auto max-w-2xl flex-shrink-0 lg:mx-0 lg:max-w-xl pt-8">
-      <div class="mt-24 sm:mt-32 lg:mt-16"></div>
-      <h1 class="mt-10 text-5xl font-bold tracking-tight font-serif text-white leading-snug sm:text-6xl">Revolutionize Your Calorie Tracking Experience</h1>
+      <h1 class="mt-10 sm:mt-10 text-5xl font-bold tracking-tight font-serif text-white leading-snug sm:text-6xl">Revolutionize Your Calorie Tracking Experience</h1>
       <p class="mt-6 text-lg leading-8 text-gray-300">Fittify brings you the freedom to track your diet on your terms. Say goodbye to endless searches and hello to straightforward nutrient logging.</p>
       <div class="mt-10 flex items-start gap-y-3 flex-col sm:gap-x-6">
         <div>
           <x-waiting-list-form />
         </div>
-        {{--         <a
-          href="#"
-          class="text-sm font-semibold leading-6 text-white"
-        >Learn more <span aria-hidden="true">→</span></a>
- --}}
       </div>
     </div>
     <div class="mx-auto mt-16 flex max-w-2xl sm:mt-24 lg:ml-10 lg:mr-0 lg:mt-0 lg:max-w-none lg:flex-none xl:ml-32">

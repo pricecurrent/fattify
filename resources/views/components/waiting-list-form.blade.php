@@ -28,7 +28,7 @@
           class="bg-transparent w-full border-none placeholder:text-gray-400 outline-none focus:ring-0 text-gray-200"
           name="email_address"
           aria-label="Email Address"
-          placeholder="Request Early Access!"
+          placeholder="Request Early Access Now"
           required=""
           type="email"
         >

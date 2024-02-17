@@ -1,4 +1,4 @@
-<header class="top-0 w-full py-1 bg-gray-900 z-10 backdrop-blur-2xl">
+<header class="hidden sm:block top-0 w-full py-1 bg-gray-900 z-10 backdrop-blur-2xl">
   <nav
     class="md:w-4/5 lg:w-3/5 xl:w-2/5 mx-auto rounded-full sm:mt-10 bg-gray-900 ring-lime-300 ring-1 w-10/12 sm:w-4/5 py-3.5 px-6"
     aria-label="Global"

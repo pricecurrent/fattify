@@ -2,7 +2,7 @@
   class="bg-gradient-to-b from-gray-800 to-gray-900"
   id="cta-mid-section"
 >
-  <div class="mx-auto max-w-7xl sm:px-6 sm:py-32 lg:px-8">
+  <div class="mx-auto max-w-7xl sm:px-6 sm:pt-32 lg:px-8">
     <div class="relative isolate overflow-hidden bg-transparent px-6 py-24 text-center">
       <x-landing.landing-subtitle class="text-white">Ready to take control of your calorie tracking?</x-landing.landing-subtitle>
       <p class="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-300">Join the Fittify Beta</p>

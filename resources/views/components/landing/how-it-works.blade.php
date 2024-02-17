@@ -6,34 +6,34 @@
     <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
       <div class="lg:pr-8 lg:pt-4">
         <div class="lg:max-w-lg">
-          <p class="mt-2 text-3xl font-bold text-white font-serif sm:text-4xl"><span class="font-serif text-5xl text-lime-300">Smart Track</span>:</p>
+          <p class="mt-2 text-3xl font-bold text-white font-serif sm:text-4xl"><span class="font-serif text-5xl text-lime-300">Smart Track</span></p>
           <p class="mt-6 text-lg leading-8 text-gray-300">Let Our Assistant Do the Heavy Lifting</p>
           <dl class="mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-300 lg:max-w-none">
             <div class="relative pl-9">
               <dt class="inline font-semibold text-white">
                 <x-heroicon-o-document-duplicate class="absolute left-1 top-1 h-5 w-5 text-lime-500" />
-                Tell Us What You Ate
+                Tell Us What You Ate.
               </dt>
               <dd class="inline">Start by simply typing in what you've eaten in free form. It's like telling a friend about your meal.</dd>
             </div>
             <div class="relative pl-9">
               <dt class="inline font-semibold text-white">
                 <x-heroicon-o-academic-cap class="absolute left-1 top-1 h-5 w-5 text-lime-500" />
-                Receive Tailored Diary Suggestions
+                Receive Tailored Diary Suggestions.
               </dt>
               <dd class="inline">Our assistant analyzes your input and presents you with a diary entry, complete with a breakdown of nutrients and calories.</dd>
             </div>
             <div class="relative pl-9">
               <dt class="inline font-semibold text-white">
                 <x-heroicon-o-arrow-path class="absolute left-1 top-1 h-5 w-5 text-lime-500" />
-                Refine with Ease:
+                Refine with Ease.
               </dt>
               <dd class="inline">Want changes? Just tell our assistant in natural language. Ask for tweaks as if you're chatting with a dietitian.</dd>
             </div>
             <div class="relative pl-9">
               <dt class="inline font-semibold text-white">
                 <x-heroicon-o-check-badge class="absolute left-1 top-1 h-5 w-5 text-lime-500" />
-                Review and Approve
+                Review and Approve.
               </dt>
               <dd class="inline">Check the adjustments made by the assistant. We ensure accuracy and relevance to your dietary needs.</dd>
             </div>
@@ -62,7 +62,7 @@
       <div class="lg:pr-8 lg:pt-4 lg:order-last">
         <div class="lg:max-w-lg">
           <x-landing.landing-subtitle>Self Track</x-landing.landing-subtitle>
-          <p class="mt-6 text-lg leading-8 text-gray-300">Precision at Your Fingertips</p>
+          <p class="mt-6 text-lg leading-8 text-gray-300">Manual Entry Option: Complete Control Over Your Calorie Count</p>
           <dl class="mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-300 lg:max-w-none">
             <div class="relative pl-9">
               <dt class="inline font-semibold text-white">
