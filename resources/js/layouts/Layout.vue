@@ -2,7 +2,7 @@
   <div class="min-h-screen bg-stone-100">
     <Popover
       as="header"
-      class="bg-gradient-to-l hidden md:block from-lime-800 to-lime-900 pb-24 pt-safe-top"
+      class="bg-gradient-to-l  md:block from-lime-800 to-teal-900 pt-safe-top"
       v-slot="{ open }"
     >
       <div class="mx-auto max-w-3xl px-4 py-5 sm:px-6 lg:max-w-7xl lg:px-8">
@@ -161,31 +161,7 @@
               >
                 <div class="pb-2 pt-3">
                   <div class="flex items-center justify-between px-4">
-                    <div>
-                      <svg
-                        class="h-8 w-auto"
-                        viewBox="0 0 181 184"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M160.075 26.6695C146.393 13.4265 128.803 4.61821 109.731 1.45929C90.659 -1.69963 71.0442 0.946391 53.5913 9.0325C36.1385 17.1186 -18.4659 16.0491 12.2878 46.6059C43.0414 77.1627 -1.07562 81.7503 1 100.371C3.07562 118.991 6.04142 178.749 23.8764 150.568C41.7115 122.387 53.6765 174.452 72.5097 178.749C91.3429 183.045 103.041 145.163 129.026 174.557C155.011 203.951 162.207 155.296 172.656 139.533C172.656 139.533 101.921 108.325 93.9605 90.6627C86 73 160.075 26.6695 160.075 26.6695Z"
-                          fill="#48BB78"
-                        />
-                        <circle
-                          cx="66"
-                          cy="123"
-                          r="12"
-                          fill="#C4C4C4"
-                        />
-                        <circle
-                          cx="169"
-                          cy="91"
-                          r="12"
-                          fill="#48BB78"
-                        />
-                      </svg>
-                    </div>
+                    <div></div>
                     <div class="-mr-2">
                       <PopoverButton
                         class="inline-flex items-center justify-center rounded-md bg-white p-2 text-stone-400 hover:bg-stone-100 hover:text-stone-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-lime-500"
@@ -251,9 +227,9 @@
         </div>
       </TransitionRoot>
     </Popover>
-    <main class="md:-mt-24 pb-8">
+    <main class="pb-8 mt-4">
       <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-        <h1 class="sr-only">Page title</h1>
+        <h1 class="sr-only">My Diary</h1>
         <div class="grid grid-cols-1 items-start gap-4 lg:grid-cols-3 lg:gap-8">
           <slot />
         </div>
