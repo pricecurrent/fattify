@@ -97,7 +97,7 @@
         @else
           <a
             href="{{ route('diary') }}"
-            class="text-gray-300 block rounded-md py-2 text-base font-medium hover:text-white"
+            class="text-gray-300 block rounded-md py-2 px-3 text-base font-medium hover:text-white"
           >My Diary</a>
 
         @endguest
