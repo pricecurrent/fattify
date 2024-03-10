@@ -7,7 +7,7 @@
       <x-landing.landing-subtitle class="text-white">Ready to take control of your calorie tracking?</x-landing.landing-subtitle>
       <p class="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-300">Join the Fittify Beta</p>
       <div class="mt-10 flex items-center justify-center gap-x-6">
-        <x-waiting-list-form />
+        <x-get-started-button />
       </div>
       <svg
         viewBox="0 0 1024 1024"

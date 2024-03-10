@@ -50,7 +50,7 @@
       <p class="mt-6 text-lg leading-8 text-gray-300">Fittify brings you the freedom to track your diet on your terms. Say goodbye to endless searches and hello to straightforward nutrient logging.</p>
       <div class="mt-10 flex items-start gap-y-3 flex-col sm:gap-x-6">
         <div>
-          <x-waiting-list-form />
+          <x-get-started-button />
         </div>
       </div>
     </div>

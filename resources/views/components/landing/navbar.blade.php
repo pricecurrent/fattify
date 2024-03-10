@@ -15,10 +15,17 @@
         href="#features"
         class="text-sm font-semibold leading-6 text-white hidden lg:block"
       >Features</a>
-      <a
-        href="#cta-mid-section"
-        class="rounded-3xl overflow-hidden whitespace-nowrap bg-lime-300 px-3.5 py-2.5 text-sm text-stone-900 shadow-sm hover:bg-lime-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-400"
-      >Get Started</a>
+      @auth
+        <a
+          href="{{ route('diary') }}"
+          class="rounded-3xl overflow-hidden whitespace-nowrap bg-lime-300 px-3.5 py-2.5 text-sm text-stone-900 shadow-sm hover:bg-lime-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-400"
+        >My Diary</a>
+      @else
+        <a
+          href="{{ route('register') }}"
+          class="rounded-3xl overflow-hidden whitespace-nowrap bg-lime-300 px-3.5 py-2.5 text-sm text-stone-900 shadow-sm hover:bg-lime-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-400"
+        >Get Started</a>
+      @endauth
     </div>
   </nav>
 </header>

@@ -84,6 +84,24 @@
         class="text-gray-300 block rounded-md py-2 px-3 text-base font-medium"
         x-state-description='undefined: "bg-gray-100 text-gray-900", undefined: "hover:bg-gray-50"'
       >Solutions</a>
+      <div class="border-t-gray-300/20 mt-2 pt-2 border-t">
+        @guest
+          <div class="flex items-center gap-x-4">
+            <x-get-started-button />
+            <span class="text-gray-300">or</span>
+            <a
+              href="{{ route('login') }}"
+              class="text-gray-300 block rounded-md py-2 text-base font-medium hover:text-white"
+            >Sign In</a>
+          </div>
+        @else
+          <a
+            href="{{ route('diary') }}"
+            class="text-gray-300 block rounded-md py-2 text-base font-medium hover:text-white"
+          >My Diary</a>
+
+        @endguest
+      </div>
     </div>
   </nav>
 </header>

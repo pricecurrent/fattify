@@ -14,11 +14,7 @@
               href="/diary"
               class="flex items-center focus:rounded-sm focus:outline-none focus:ring focus:ring-lime-400"
             >
-              <img
-                src="/apple-icon-180.png"
-                alt="Fittify"
-                class="h-8 w-auto rounded-full shadow"
-              />
+              <Logo class="h-6 w-auto" />
               <h1
                 class="ml-2 inline-block bg-gradient-to-br from-lime-400 to-lime-400/60 bg-clip-text text-2xl font-extrabold text-transparent"
               >
@@ -287,6 +283,8 @@
  --></template>
 
 <script>
+import Logo from '@/components/Shareable/Logo.vue'
+
 import {
   Menu,
   MenuButton,
@@ -329,6 +327,7 @@ export default {
     FlashMessages,
     Link,
     BugAntIcon,
+    Logo,
   },
   setup() {
     const url = navLink => {
