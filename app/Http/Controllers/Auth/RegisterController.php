@@ -10,7 +10,9 @@ class RegisterController
 {
     public function show()
     {
-        return Inertia::render('Auth/Register');
+        return Inertia::render('Auth/Register', [
+            'invite_code' => request('invite_code'),
+        ]);
     }
 
     public function store(RegisterRequest $request)

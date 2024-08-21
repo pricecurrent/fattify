@@ -7,7 +7,7 @@
       <Link class="link" href="/login">Sign In</Link>
     </p>
   </div>
-  <form @submit.prevent="form.post('/register')" class="mt-6 pb-8">
+  <form v-if="invite_code && invite_code === 'BETALIST_FRIEND'" @submit.prevent="form.post('/register')" class="mt-6 pb-8">
     <div class="space-y-2">
       <div>
         <TextInput v-model="form.name" :error="form.errors.name" label="Name" placeholder="John Doe" />
@@ -26,9 +26,23 @@
       <PrimaryButton type="submit" :disabled="form.processing">Login</PrimaryButton>
     </div>
   </form>
+  <div v-else class="rounded-md bg-orange-50 p-4 mt-4 border border-orange-400">
+    <div class="flex">
+      <div class="flex-shrink-0">
+        <ExclamationTriangleIcon class="h-5 w-5 text-orange-400" aria-hidden="true" />
+      </div>
+      <div class="ml-3">
+        <h3 class="text-sm font-medium text-orange-800">Invalid Invite Code</h3>
+        <div class="mt-2 text-sm text-orange-700">
+          <p>You cannot sign up without a valid invite code.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
+import { ExclamationTriangleIcon } from '@heroicons/vue/20/solid'
 import AuthLayout from '@/layouts/AuthLayout.vue'
 import { useForm } from '@inertiajs/vue3'
 import TextInput from '@/components/Shareable/Input/TextInput.vue'
@@ -37,7 +51,10 @@ import { Link, Head } from '@inertiajs/vue3'
 
 export default {
   layout: AuthLayout,
-  components: { Head, TextInput, PrimaryButton, Link },
+  props: {
+    invite_code: String,
+  },
+  components: { Head, TextInput, PrimaryButton, Link, ExclamationTriangleIcon },
   setup() {
     const form = useForm({
       name: null,
